@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Cinema.Data.Models.Contracts;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cinema.Data.Models
 {
-    public class Movie
+    public class Movie : IMovie
     {
         public int Id { get; set; }
 

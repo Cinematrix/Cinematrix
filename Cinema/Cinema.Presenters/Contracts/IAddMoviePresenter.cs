@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Cinema.Data.Models;
+using Cinema.Data.Models.Contracts;
 
 namespace Cinema.Presenters.Contracts
 {
     public interface IAddMoviePresenter
     {
+        void CreateMovie(Movie movieToAdd);
     }
 }

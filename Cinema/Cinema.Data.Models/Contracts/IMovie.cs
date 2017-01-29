@@ -1,6 +1,6 @@
-﻿namespace Cinema.Web.Contracts
+﻿namespace Cinema.Data.Models.Contracts
 {
-    public interface IAddMovieView
+    public interface IMovie
     {
         string Name { get; set; }
 
@@ -13,6 +13,5 @@
         string Director { get; set; }
 
         int LengthInMinutes { get; set; }
-
     }
 }

@@ -41,8 +41,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IAddMoviePresenter.cs" />
+    <Compile Include="Contracts\IAddMovieView.cs" />
     <Compile Include="MoviePresenters\AddMoviePresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cinema.Data.Models\Cinema.Data.Models.csproj">
+      <Project>{320e8716-c11f-4e83-a5cc-d06ff500f7e8}</Project>
+      <Name>Cinema.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cinema.Data.Services\Cinema.Data.Services.csproj">
+      <Project>{bab5393c-fe31-4421-b64c-1b63dca59dca}</Project>
+      <Name>Cinema.Data.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

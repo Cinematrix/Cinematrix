@@ -1,9 +1,6 @@
 ﻿using Cinema.Data.Models;
-using System;
-using System.Collections.Generic;
+using Cinema.Data.Models.Contracts;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cinema.Data.Services.Contracts
 {
@@ -11,7 +8,7 @@ namespace Cinema.Data.Services.Contracts
     {
         IQueryable<Movie> GetAll();
 
-        Movie GetById(int id);
+        IMovie GetById(int id);
 
         void UpdateById(int id, Movie updatedMovie);
 

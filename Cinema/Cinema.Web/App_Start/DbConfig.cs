@@ -10,7 +10,7 @@ namespace Cinema.Web.App_Start
         public static void Initialize()
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<CinemaDbContext, Configuration>());
-            CinemaDbContext.Create().Database.Initialize(true);
+            CinemaDbContext.Create().Database.CreateIfNotExists();
         }
     }
 }

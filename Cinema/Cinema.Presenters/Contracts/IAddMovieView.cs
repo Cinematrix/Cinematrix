@@ -1,4 +1,4 @@
-﻿namespace Cinema.Web.Contracts
+﻿namespace Cinema.Presenters.Contracts
 {
     public interface IAddMovieView
     {
@@ -13,6 +13,5 @@
         string Director { get; set; }
 
         int LengthInMinutes { get; set; }
-
     }
 }

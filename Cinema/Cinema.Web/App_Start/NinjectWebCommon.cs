@@ -14,6 +14,9 @@ namespace Cinema.Web.App_Start
     using Data.Contracts;
     using Data;
     using Data.Repositories;
+    using Presenters.Contracts;
+    using Data.Models.Contracts;
+    using Data.Models;
 
     public static class NinjectWebCommon 
     {
@@ -67,10 +70,16 @@ namespace Cinema.Web.App_Start
         {
             kernel.Bind(typeof(ICinemaDbContext)).To(typeof(CinemaDbContext));
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
+            kernel.Bind(typeof(IAddMovieView)).To(typeof(AddMovieView));
+            kernel.Bind(typeof(IMovie)).To(typeof(Movie));
 
             kernel.Bind(s => s.From("Cinema.Data.Services")
                              .SelectAllClasses()
                              .BindDefaultInterface());
+
+            kernel.Bind(s => s.From("Cinema.Presenters")
+                            .SelectAllClasses()
+                            .BindDefaultInterface());
         }        
     }
 }

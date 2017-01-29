@@ -1,11 +1,8 @@
 ﻿using Cinema.Data.Services.Contracts;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Cinema.Data.Models;
 using Cinema.Data.Repositories;
+using Cinema.Data.Models.Contracts;
+using Cinema.Data.Models;
 
 namespace Cinema.Data.Services
 {
@@ -35,14 +32,14 @@ namespace Cinema.Data.Services
             return this.movies.All();
         }
 
-        public Movie GetById(int id)
+        public IMovie GetById(int id)
         {
             return this.movies.GetById(id);
         }
 
         public void UpdateById(int id, Movie updatedMovie)
         {
-            Movie movieToUpdate = this.movies.GetById(id);
+            IMovie movieToUpdate = this.movies.GetById(id);
 
             //TODO 
             movieToUpdate = updatedMovie;
