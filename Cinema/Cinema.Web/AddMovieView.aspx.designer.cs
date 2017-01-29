@@ -13,22 +13,22 @@ namespace Cinema.Web {
     public partial class AddMovieView {
         
         /// <summary>
-        /// NameLabel control.
+        /// TitleLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label NameLabel;
+        protected global::System.Web.UI.WebControls.Label TitleLabel;
         
         /// <summary>
-        /// NameInput control.
+        /// TitleInput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NameInput;
+        protected global::System.Web.UI.WebControls.TextBox TitleInput;
         
         /// <summary>
         /// ImageUrlLabel control.

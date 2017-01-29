@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace Cinema.Web
 {
-    public partial class AddMovieView : System.Web.UI.Page, IAddMovieView
+    public partial class AddMovieView : Page, IAddMovieView
     {
         public string Name { get; set; }
 
@@ -29,7 +29,7 @@ namespace Cinema.Web
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
-            this.Name = this.NameInput.Text;
+            this.Name = this.TitleInput.Text;
             this.ImageUrl = this.ImageUrlInput.Text;
             this.Info = this.InfoInput.Text;
             this.Genre = this.GenreInput.Text;

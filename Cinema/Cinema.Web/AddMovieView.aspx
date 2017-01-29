@@ -4,8 +4,8 @@
     <div class="jumbotron">
         <h3>Add Movie:</h3>
         <p>
-            <asp:Label ID="NameLabel" runat="server" Text="Name: "></asp:Label>
-            <asp:TextBox ID="NameInput" runat="server"></asp:TextBox>
+            <asp:Label ID="TitleLabel" runat="server" Text="Title: "></asp:Label>
+            <asp:TextBox ID="TitleInput" runat="server"></asp:TextBox>
         </p>
         <p>
             <asp:Label ID="ImageUrlLabel" runat="server" Text="Image URL: "></asp:Label>

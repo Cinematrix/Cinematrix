@@ -2,7 +2,7 @@
 {
     public interface IAddMovieView
     {
-        string Name { get; set; }
+        string Title { get; set; }
 
         string ImageUrl { get; set; }
 
