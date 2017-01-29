@@ -49,6 +49,17 @@ namespace Cinema.Web
             this.Movie.LengthInMinutes = int.Parse(this.LengthInput.Text);
 
             this.Presenter.CreateMovie(this.Movie);
+            Response.Redirect("/MoviesListView.aspx");
+        }
+
+        protected void ClearButton_Click(object sender, EventArgs e)
+        {
+            this.TitleInput.Text=string.Empty;
+            this.ImageUrlInput.Text = string.Empty;
+            this.InfoInput.Text = string.Empty;
+            this.GenreInput.Text = string.Empty;
+            this.DirectorInput.Text = string.Empty;
+            this.LengthInput.Text = string.Empty;
         }
     }
 }

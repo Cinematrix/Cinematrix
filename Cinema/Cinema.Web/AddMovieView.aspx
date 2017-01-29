@@ -29,6 +29,7 @@
         </p>
         <p>
             <asp:Button ID="SubmitButton" runat="server" Text="Submit" OnClick="SubmitButton_Click" CssClass="btn btn-success" />
+            <asp:Button ID="ClearButton" runat="server" Text="Clear" OnClick="ClearButton_Click" CssClass="btn btn-warning" />
         </p>
     </div>
 </asp:Content>
