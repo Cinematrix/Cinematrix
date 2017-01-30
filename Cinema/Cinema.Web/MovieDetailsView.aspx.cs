@@ -1,4 +1,5 @@
 ﻿using Cinema.Data.Models;
+using Cinema.Data.Models.Contracts;
 using Cinema.Presenters.Contracts;
 using Ninject;
 using System;
@@ -10,23 +11,26 @@ using System.Web.UI.WebControls;
 
 namespace Cinema.Web
 {
-    public partial class MoviesListView : System.Web.UI.Page
+    public partial class MovieDetailsView : System.Web.UI.Page
     {
-        [Inject]
-        public IEnumerable<Movie> AllMovies { get; set; }
-
         [Inject]
         public IGetMoviesPresenter Presenter { get; set; }
 
+        [Inject]
+        public IMovie Movie { get; set; }
+
+        private string queryId;
+
         protected void Page_PreLoad(object sender, EventArgs e)
         {
-            this.AllMovies = this.Presenter.GetAll().ToArray();
+            this.queryId = Request.QueryString["Id"];
+            this.Movie = this.Presenter.GetMovieById(this.queryId);
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.MoviesRepeater.DataSource = this.AllMovies;
-            this.MoviesRepeater.DataBind();
+            this.MovieImg.ImageUrl = this.Movie.ImageUrl;
+            this.MovieImg.Width = 300;
         }
     }
 }

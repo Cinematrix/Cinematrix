@@ -24,6 +24,9 @@
                         <p>Duration:</p>
                         <strong><%#: Item.LengthInMinutes %> min.</strong>
                     </div>
+                    <div>
+                        <a href='MovieDetailsView.aspx?id=<%#: Item.Id %>'>Details</a>
+                    </div>
                 </div>
             </ItemTemplate>
         </asp:Repeater>

@@ -201,6 +201,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="MovieDetailsView.aspx" />
     <Content Include="MoviesListView.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -394,6 +395,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="MovieDetailsView.aspx.cs">
+      <DependentUpon>MovieDetailsView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MovieDetailsView.aspx.designer.cs">
+      <DependentUpon>MovieDetailsView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MoviesListView.aspx.cs">
       <DependentUpon>MoviesListView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

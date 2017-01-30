@@ -1,4 +1,5 @@
 ﻿using Cinema.Data.Models;
+using Cinema.Data.Models.Contracts;
 using Cinema.Data.Services.Contracts;
 using Cinema.Presenters.Contracts;
 using System;
@@ -21,6 +22,12 @@ namespace Cinema.Presenters.MoviePresenters
         public IQueryable<Movie> GetAll()
         {
             return this.moviesService.GetAll();
+        }
+
+        public IMovie GetMovieById(string id)
+        {
+            int parsedId = int.Parse(id);
+            return this.moviesService.GetById(parsedId);
         }
     }
 }
