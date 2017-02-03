@@ -190,6 +190,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="AddFilmScreeningView.aspx" />
     <Content Include="AddMovieView.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -354,6 +355,13 @@
     </Compile>
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddFilmScreeningView.aspx.cs">
+      <DependentUpon>AddFilmScreeningView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddFilmScreeningView.aspx.designer.cs">
+      <DependentUpon>AddFilmScreeningView.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddMovieView.aspx.cs">
       <DependentUpon>AddMovieView.aspx</DependentUpon>

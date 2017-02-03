@@ -11,11 +11,9 @@ namespace Cinema.Data.Models
     {
         public int Id { get; set; }
 
-        public DateTime StartDateTime { get; set; }
+        public DateTime Start { get; set; }
 
-        public DateTime EndDateTime { get; set; }
-
-        public IEnumerable<ISeat> Seats { get; set; }
+        public virtual IEnumerable<Seat> Seats { get; set; }
         
         public int TargetMovieId { get; set; }
 

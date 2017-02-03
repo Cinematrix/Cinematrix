@@ -73,6 +73,7 @@ namespace Cinema.Web.App_Start
             kernel.Bind(typeof(IAddMovieView)).To(typeof(AddMovieView));
             kernel.Bind(typeof(IMovieListView)).To(typeof(MoviesListView));
             kernel.Bind(typeof(IMovie)).To(typeof(Movie));
+            kernel.Bind(typeof(IFilmScreening)).To(typeof(FilmScreening));
 
             kernel.Bind(s => s.From("Cinema.Data.Services")
                              .SelectAllClasses()

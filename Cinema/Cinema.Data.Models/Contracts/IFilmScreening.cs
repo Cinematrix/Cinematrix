@@ -5,12 +5,10 @@ namespace Cinema.Data.Models.Contracts
 {
     public interface IFilmScreening
     {
-        DateTime StartDateTime { get; set; }
-
-        DateTime EndDateTime { get; set; }
+        DateTime Start { get; set; }
 
         Movie TargetMovie { get; set; }
 
-        IEnumerable<ISeat> Seats { get; set; }
+        IEnumerable<Seat> Seats { get; set; }
     }
 }

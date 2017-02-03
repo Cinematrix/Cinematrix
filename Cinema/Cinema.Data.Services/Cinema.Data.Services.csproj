@@ -57,7 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IFilmScreeningService.cs" />
     <Compile Include="Contracts\IMoviesService.cs" />
+    <Compile Include="FilmScreeningService.cs" />
     <Compile Include="MoviesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
