@@ -43,6 +43,7 @@
     <Compile Include="Contracts\IAddMoviePresenter.cs" />
     <Compile Include="Contracts\IAddMovieView.cs" />
     <Compile Include="Contracts\IGetMoviesPresenter.cs" />
+    <Compile Include="Contracts\IMovieListView.cs" />
     <Compile Include="MoviePresenters\AddMoviePresenter.cs" />
     <Compile Include="MoviePresenters\GetMoviesPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

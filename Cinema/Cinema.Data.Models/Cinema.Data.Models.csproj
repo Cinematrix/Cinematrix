@@ -57,8 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IFilmScreening.cs" />
     <Compile Include="Contracts\IMovie.cs" />
+    <Compile Include="Contracts\ISeat.cs" />
+    <Compile Include="FilmScreening.cs" />
     <Compile Include="Movie.cs" />
+    <Compile Include="Seat.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

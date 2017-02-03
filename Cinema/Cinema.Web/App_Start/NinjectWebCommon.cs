@@ -71,6 +71,7 @@ namespace Cinema.Web.App_Start
             kernel.Bind(typeof(ICinemaDbContext)).To(typeof(CinemaDbContext));
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
             kernel.Bind(typeof(IAddMovieView)).To(typeof(AddMovieView));
+            kernel.Bind(typeof(IMovieListView)).To(typeof(MoviesListView));
             kernel.Bind(typeof(IMovie)).To(typeof(Movie));
 
             kernel.Bind(s => s.From("Cinema.Data.Services")

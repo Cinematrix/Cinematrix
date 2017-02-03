@@ -6,7 +6,9 @@ namespace Cinema.Presenters.Contracts
 {
     public interface IGetMoviesPresenter
     {
-        IQueryable<Movie> GetAll();
+        IMovieListView View { get; set; }
+
+        IQueryable<Movie> GetAllMovies();
 
         IMovie GetMovieById(string id);
     }

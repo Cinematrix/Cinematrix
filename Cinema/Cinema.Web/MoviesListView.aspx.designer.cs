@@ -13,12 +13,21 @@ namespace Cinema.Web {
     public partial class MoviesListView {
         
         /// <summary>
-        /// MoviesRepeater control.
+        /// ListViewMovies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater MoviesRepeater;
+        protected global::System.Web.UI.WebControls.ListView ListViewMovies;
+        
+        /// <summary>
+        /// DataPagerMovies control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataPager DataPagerMovies;
     }
 }

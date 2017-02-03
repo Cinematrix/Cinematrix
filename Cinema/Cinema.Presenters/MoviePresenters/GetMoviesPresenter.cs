@@ -14,12 +14,14 @@ namespace Cinema.Presenters.MoviePresenters
     {
         private readonly IMoviesService moviesService;
 
+        public IMovieListView View { get; set; }
+
         public GetMoviesPresenter(IMoviesService moviesService)
         {
             this.moviesService = moviesService;
         }
 
-        public IQueryable<Movie> GetAll()
+        public IQueryable<Movie> GetAllMovies()
         {
             return this.moviesService.GetAll();
         }

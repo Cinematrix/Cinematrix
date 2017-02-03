@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace Cinema.Web
 {
-    public partial class MoviesListView : System.Web.UI.Page
+    public partial class MoviesListView : System.Web.UI.Page, IMovieListView
     {
         [Inject]
         public IEnumerable<Movie> AllMovies { get; set; }
@@ -20,13 +20,13 @@ namespace Cinema.Web
 
         protected void Page_PreLoad(object sender, EventArgs e)
         {
-            this.AllMovies = this.Presenter.GetAll().ToArray();
+            this.AllMovies = this.Presenter.GetAllMovies().ToArray();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.MoviesRepeater.DataSource = this.AllMovies;
-            this.MoviesRepeater.DataBind();
+            this.ListViewMovies.DataSource = this.AllMovies;
+            this.ListViewMovies.DataBind();
         }
     }
 }
