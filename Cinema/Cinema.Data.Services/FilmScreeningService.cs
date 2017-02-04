@@ -32,12 +32,12 @@ namespace Cinema.Data.Services
 
         public IQueryable<FilmScreening> GetAll()
         {
-            throw new NotImplementedException();
+            return this.screenings.All();
         }
 
         public IFilmScreening GetById(int id)
         {
-            throw new NotImplementedException();
+            return this.screenings.GetById(id);
         }
 
         public void UpdateById(int id, FilmScreening updatedFilmScreening)

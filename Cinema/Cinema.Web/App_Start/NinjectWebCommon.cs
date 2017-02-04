@@ -17,6 +17,7 @@ namespace Cinema.Web.App_Start
     using Presenters.Contracts;
     using Data.Models.Contracts;
     using Data.Models;
+    using Presenters.FilmScreeningPresenters;
 
     public static class NinjectWebCommon 
     {
