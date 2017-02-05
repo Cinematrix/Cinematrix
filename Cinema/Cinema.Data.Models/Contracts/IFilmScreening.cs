@@ -6,8 +6,8 @@ namespace Cinema.Data.Models.Contracts
     public interface IFilmScreening
     {
         DateTime Start { get; set; }
-
-        Movie TargetMovie { get; set; }
+        
+        int TargetMovieId { get; set; }
 
         IEnumerable<Seat> Seats { get; set; }
     }

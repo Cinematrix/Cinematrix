@@ -19,25 +19,34 @@ namespace Cinema.Web
         public IAddFilmScreeningPresenter FilmScreeningPresenter { get; set; }
 
         [Inject]
-        public List<Movie> AllMoviesTitles { get; set; }
+        public Movie[] AllMovies { get; set; }
 
         [Inject]
         public FilmScreening FilmScreening { get; set; }
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_PreLoad(object sender, EventArgs e)
         {
-            this.AllMoviesTitles = this.MoviesPresenter.GetAllMovies().ToList();
-            this.SelectMovieDropDownList.DataSource = this.AllMoviesTitles;
-            this.SelectMovieDropDownList.DataBind();
+            if (!Page.IsPostBack)
+            {
+                this.AllMovies = this.MoviesPresenter.GetAllMovies().ToArray();
+                this.SelectMovieDropDownList.DataSource = this.AllMovies;
+                this.SelectMovieDropDownList.DataBind();
+            }
         }
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
             this.FilmScreening.Start = DateTime.Parse(this.DateInput.Text);
-            this.FilmScreening.TargetMovieId = int.Parse(this.SelectMovieDropDownList.SelectedValue);
+            string selectedMovieId = this.SelectMovieDropDownList.SelectedItem.Value;
+            this.FilmScreening.TargetMovieId = int.Parse(selectedMovieId);
 
             this.FilmScreeningPresenter.CreateFilmScreening(this.FilmScreening);
-            Response.Redirect("/MoviesListView.aspx");
+
+            Response.Redirect("/FilmScreeningsView.aspx");
+        }
+
+        protected void SelectMovieDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
     }
 }

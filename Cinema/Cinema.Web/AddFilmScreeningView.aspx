@@ -9,10 +9,11 @@
         </p>
         <p>
             <asp:Label ID="SelectMovieLabel" runat="server" Text="Movie: "></asp:Label>
-            <asp:DropDownList ID="SelectMovieDropDownList" runat="server" DataTextField="Name" DataValueField="Id"></asp:DropDownList>
+            <asp:DropDownList ID="SelectMovieDropDownList" runat="server" DataTextField="Name" DataValueField="Id"  OnSelectedIndexChanged="SelectMovieDropDownList_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
         </p>
         <p>
             <asp:Button ID="SubmitButton" runat="server" Text="Submit" OnClick="SubmitButton_Click" CssClass="btn btn-success" />
+            <asp:Label ID="ResultLabel" runat="server"></asp:Label>
         </p>
     </div>
 </asp:Content>
