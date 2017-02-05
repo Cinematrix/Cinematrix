@@ -11,7 +11,7 @@
                     </div>
                     <div style="max-height: 300px; width: 75%; display: inline-block; text-align: center; margin-left: 50px">
                         <h2><%#: Item.Start.ToString() %></h2>
-                        <p>Title: </p>
+                        <p>Movie: </p>
                         <strong><%#: Item.TargetMovie.Name %></strong>
 
                         <p>Available Seats: </p>

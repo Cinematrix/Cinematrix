@@ -13,7 +13,7 @@ namespace Cinema.Web
     public partial class FilmScreeningDetailsView : System.Web.UI.Page
     {
         [Inject]
-        public IGetFilmScreeningsPresenter Presenter { get; set; }
+        public IUpdateFilmScreeningPresenter Presenter { get; set; }
 
         [Inject]
         public IFilmScreening FilmScreening { get; set; }
@@ -30,22 +30,33 @@ namespace Cinema.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.buttons.Add(ImageButton0);
-            this.buttons.Add(ImageButton1);
-            this.buttons.Add(ImageButton2);
-            this.buttons.Add(ImageButton3);
-            this.buttons.Add(ImageButton4);
-            this.buttons.Add(ImageButton5);
-            this.buttons.Add(ImageButton6);
-            this.buttons.Add(ImageButton7);
-            this.buttons.Add(ImageButton8);
+            this.buttons.Add(ImageButton00);
+            this.buttons.Add(ImageButton01);
+            this.buttons.Add(ImageButton02);
+            this.buttons.Add(ImageButton03);
+            this.buttons.Add(ImageButton04);
+            this.buttons.Add(ImageButton05);
+            this.buttons.Add(ImageButton06);
+            this.buttons.Add(ImageButton07);
+            this.buttons.Add(ImageButton08);
+            this.buttons.Add(ImageButton09);
+            this.buttons.Add(ImageButton10);
+            this.buttons.Add(ImageButton11);
+            this.buttons.Add(ImageButton12);
+            this.buttons.Add(ImageButton13);
+            this.buttons.Add(ImageButton14);
+            this.buttons.Add(ImageButton15);
+            this.buttons.Add(ImageButton16);
+            this.buttons.Add(ImageButton17);
+            this.buttons.Add(ImageButton18);
+            this.buttons.Add(ImageButton19);
         }
 
         protected void Button0_Click(object sender, EventArgs e)
         {
             var button = sender as ImageButton;
 
-            var senderIndex = int.Parse(button.ID.Substring(button.ID.Length - 1));
+            var senderIndex = int.Parse(button.ID.Substring(button.ID.Length - 2));
 
             var clickedbutton = this.buttons[senderIndex];
 
