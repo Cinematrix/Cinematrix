@@ -9,6 +9,6 @@ namespace Cinema.Data.Models.Contracts
         
         int TargetMovieId { get; set; }
 
-        IEnumerable<Seat> Seats { get; set; }
+        ICollection<Seat> Seats { get; set; }
     }
 }

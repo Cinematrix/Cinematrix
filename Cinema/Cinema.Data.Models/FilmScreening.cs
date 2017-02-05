@@ -14,8 +14,8 @@ namespace Cinema.Data.Models
 
         public DateTime Start { get; set; }
 
-        public virtual IEnumerable<Seat> Seats { get; set; }
-        
+        public virtual ICollection<Seat> Seats { get; set; }
+
         public int TargetMovieId { get; set; }
 
         public virtual Movie TargetMovie { get; set; }

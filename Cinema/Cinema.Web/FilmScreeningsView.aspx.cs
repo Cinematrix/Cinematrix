@@ -20,13 +20,20 @@ namespace Cinema.Web
 
         protected void Page_PreLoad(object sender, EventArgs e)
         {
-            this.Screenings= this.Presenter.GetAllScreenings().ToArray();
+            this.Screenings = this.Presenter.GetAllScreenings().ToArray();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             this.ScreeningsRepeater.DataSource = this.Screenings;
             this.ScreeningsRepeater.DataBind();
+
+            foreach (var item in this.Screenings)
+            {
+                this.SeatsRepeater.DataSource = item.Seats;
+                this.SeatsRepeater.DataBind();
+            }
+            
         }
     }
 }

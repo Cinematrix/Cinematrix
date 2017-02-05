@@ -12,15 +12,24 @@ namespace Cinema.Data.Services
 {
     public class FilmScreeningService : IFilmScreeningService
     {
-        private IRepository<FilmScreening> screenings;
+        private const int InitialSeatsCount = 20;
 
-        public FilmScreeningService(IRepository<FilmScreening> screenings)
+        private IRepository<FilmScreening> screenings;
+        private ISeat seat;
+
+        public FilmScreeningService(IRepository<FilmScreening> screenings, ISeat seat)
         {
             this.screenings = screenings;
+            this.seat = seat;
         }
 
         public void Create(FilmScreening filmScreeningToCreate)
         {
+            for (int i = 0; i < InitialSeatsCount; i++)
+            {
+                filmScreeningToCreate.Seats.Add(new Seat() { IsFree = true});
+            }
+
             this.screenings.Add(filmScreeningToCreate);
             this.screenings.SaveChanges();
         }
