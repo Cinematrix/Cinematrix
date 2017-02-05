@@ -10,6 +10,8 @@ namespace Cinema.Presenters.Contracts
 {
     public interface IAddFilmScreeningPresenter
     {
-        void CreateFilmScreening(FilmScreening screaningToCreate);
+        void CreateFilmScreening(string date, string movieId);
+
+        IQueryable<Movie> GetAllMovies();
     }
 }

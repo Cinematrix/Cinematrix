@@ -13,22 +13,17 @@ namespace Cinema.Web
     public partial class AddFilmScreeningView : System.Web.UI.Page
     {
         [Inject]
-        public IGetMoviesPresenter MoviesPresenter { get; set; }
-
-        [Inject]
-        public IAddFilmScreeningPresenter FilmScreeningPresenter { get; set; }
+        public IAddFilmScreeningPresenter Presenter { get; set; }
 
         [Inject]
         public Movie[] AllMovies { get; set; }
-
-        [Inject]
-        public FilmScreening FilmScreening { get; set; }
+        
 
         protected void Page_PreLoad(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                this.AllMovies = this.MoviesPresenter.GetAllMovies().ToArray();
+                this.AllMovies = this.Presenter.GetAllMovies().ToArray();
                 this.SelectMovieDropDownList.DataSource = this.AllMovies;
                 this.SelectMovieDropDownList.DataBind();
             }
@@ -36,17 +31,9 @@ namespace Cinema.Web
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
-            this.FilmScreening.Start = DateTime.Parse(this.DateInput.Text);
-            string selectedMovieId = this.SelectMovieDropDownList.SelectedItem.Value;
-            this.FilmScreening.TargetMovieId = int.Parse(selectedMovieId);
-
-            this.FilmScreeningPresenter.CreateFilmScreening(this.FilmScreening);
+            this.Presenter.CreateFilmScreening(this.DateInput.Text, this.SelectMovieDropDownList.SelectedItem.Value);
 
             Response.Redirect("/FilmScreeningsView.aspx");
-        }
-
-        protected void SelectMovieDropDownList_SelectedIndexChanged(object sender, EventArgs e)
-        {
         }
     }
 }

@@ -13,15 +13,27 @@ namespace Cinema.Presenters.FilmScreeningPresenters
     public class AddFilmScreeningPresenter : IAddFilmScreeningPresenter
     {
         private readonly IFilmScreeningService screeningService;
+        private readonly IMoviesService moviesService;
+        private IFilmScreening filmScreening;
 
-        public AddFilmScreeningPresenter(IFilmScreeningService screeningService)
+        public AddFilmScreeningPresenter(IFilmScreeningService screeningService, IMoviesService moviesService, IFilmScreening filmScreening)
         {
             this.screeningService = screeningService;
+            this.moviesService = moviesService;
+            this.filmScreening = filmScreening;
         }
 
-        public void CreateFilmScreening(FilmScreening screaningToCreate)
+        public void CreateFilmScreening(string date, string movieId)
         {
-            this.screeningService.Create(screaningToCreate);
+            this.filmScreening.Start = DateTime.Parse(date);
+            this.filmScreening.TargetMovieId = int.Parse(movieId);
+
+            this.screeningService.Create((FilmScreening)this.filmScreening);
+        }
+
+        public IQueryable<Movie> GetAllMovies()
+        {
+            return this.moviesService.GetAll();
         }
     }
 }
