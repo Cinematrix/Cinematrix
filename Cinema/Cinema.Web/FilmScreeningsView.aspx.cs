@@ -27,13 +27,6 @@ namespace Cinema.Web
         {
             this.ScreeningsRepeater.DataSource = this.Screenings;
             this.ScreeningsRepeater.DataBind();
-
-            foreach (var item in this.Screenings)
-            {
-                this.SeatsRepeater.DataSource = item.Seats;
-                this.SeatsRepeater.DataBind();
-            }
-            
         }
     }
 }

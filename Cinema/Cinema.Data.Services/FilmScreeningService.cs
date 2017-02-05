@@ -30,6 +30,7 @@ namespace Cinema.Data.Services
                 filmScreeningToCreate.Seats.Add(new Seat() { IsFree = true});
             }
 
+            filmScreeningToCreate.AvailableSeatsCount = InitialSeatsCount;
             this.screenings.Add(filmScreeningToCreate);
             this.screenings.SaveChanges();
         }
@@ -37,6 +38,11 @@ namespace Cinema.Data.Services
         public void DeleteById(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public int GetAvailableCount(int id)
+        {
+            return this.screenings.GetById(id).Seats.Where(x => x.IsFree == true).Count();
         }
 
         public IQueryable<FilmScreening> GetAll()

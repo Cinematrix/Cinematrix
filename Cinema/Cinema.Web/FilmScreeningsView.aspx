@@ -14,17 +14,8 @@
                         <p>Title: </p>
                         <strong><%#: Item.TargetMovie.Name %></strong>
 
-                        <p>Seats Count: </p>
-                        <strong><%#: Item.Seats.Count %></strong>
-
-                        <%-- <p>Director:</p>
-                        <strong><%#: Item.Director %></strong>
-                    
-                        <p>Genre: </p>
-                        <strong><%#: Item.Genre %></strong>
-                   
-                        <p>Description:</p>
-                        <strong><%#: Item.Info %></strong>--%>
+                        <p>Available Seats: </p>
+                        <strong><%#: Item.AvailableSeatsCount %></strong>
 
                         <p>Duration:</p>
                         <strong><%#: Item.TargetMovie.LengthInMinutes %> min.</strong>
@@ -36,18 +27,5 @@
                 </div>
             </ItemTemplate>
         </asp:Repeater>
-        <div class="jumbotron">
-            <p>Seats: </p>
-            <asp:Repeater runat="server" ID="SeatsRepeater" ItemType="Cinema.Data.Models.Seat">
-                <ItemTemplate>
-                    <p>
-                        Seat number:
-                    <strong><%#: Item.Id %></strong>
-                        Available:
-                    <strong><%#: Item.IsFree %></strong>
-                    </p>
-                </ItemTemplate>
-            </asp:Repeater>
-        </div>
     </div>
 </asp:Content>
