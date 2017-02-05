@@ -44,21 +44,9 @@
                     <div style="display: inline-block; float: left">
                         <img src='<%#: Item.ImageUrl %>' border="0" alt='<%#: Item.Name %>' style="max-height: 150px" />
                     </div>
-                    <div style="overflow-y: scroll; max-height: 150px; width: 80%; display: inline-block; text-align: center; margin-left: 50px">
-                        <p>Title: </p>
+                    <div style=" min-height: 150px; width: 80%; display: inline-block; text-align: center; margin-left: 50px">
+                        
                         <strong><%#: Item.Name %></strong>
-
-                        <p>Director:</p>
-                        <strong><%#: Item.Director %></strong>
-
-                        <p>Genre: </p>
-                        <strong><%#: Item.Genre %></strong>
-
-                        <p>Description:</p>
-                        <strong><%#: Item.Info %></strong>
-
-                        <p>Duration:</p>
-                        <strong><%#: Item.LengthInMinutes %> min.</strong>
                     </div>
                     <div>
                         <a href='MovieDetailsView.aspx?id=<%#: Item.Id %>'>Details</a>

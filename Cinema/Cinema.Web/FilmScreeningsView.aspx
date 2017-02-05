@@ -31,7 +31,7 @@
                     </div>
 
                     <div>
-                        <a href='MovieDetailsView.aspx?id=<%#: Item.TargetMovie.Id %>'>Book seats</a>
+                        <a href='FilmScreeningDetailsView.aspx?id=<%#: Item.TargetMovie.Id %>'>Book seats</a>
                     </div>
                 </div>
             </ItemTemplate>
