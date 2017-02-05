@@ -21,7 +21,7 @@ namespace Cinema.Presenters.FilmScreeningPresenters
 
         public IQueryable<FilmScreening> GetAllScreenings()
         {
-            return this.screeningService.GetAll();
+            return this.screeningService.GetAll().Where(x => x.Start > DateTime.Now);
         }
 
         public IFilmScreening GetScreeningById(string id)

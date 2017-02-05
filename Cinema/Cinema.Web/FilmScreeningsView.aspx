@@ -6,8 +6,8 @@
         <asp:Repeater ID="ScreeningsRepeater" runat="server" ItemType="Cinema.Data.Models.FilmScreening">
             <ItemTemplate>
                 <div class="jumbotron">
-                    <div style="display: inline-block;">
-                        <img src='<%#: Item.TargetMovie.ImageUrl %>' border="0" alt='<%#: Item.TargetMovie.Name %>' style="width: 200px" />
+                    <div style="display: inline-block; float:left">
+                        <img src='<%#: Item.TargetMovie.ImageUrl %>' alt='<%#: Item.TargetMovie.Name %>' style="width: 200px" />
                     </div>
                     <div style="max-height: 300px; width: 75%; display: inline-block; text-align: center; margin-left: 50px">
                         <h2><%#: Item.Start.ToString() %></h2>
