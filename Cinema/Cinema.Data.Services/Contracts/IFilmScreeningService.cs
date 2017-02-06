@@ -14,6 +14,8 @@ namespace Cinema.Data.Services.Contracts
 
         IFilmScreening GetById(int id);
 
+        int GetAvailableCount(int id);
+
         void UpdateById(int id, FilmScreening updatedFilmScreening);
 
         void DeleteById(int id);

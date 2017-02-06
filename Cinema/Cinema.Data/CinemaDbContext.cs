@@ -23,6 +23,8 @@ namespace Cinema.Data
 
         public IDbSet<FilmScreening> Screenings { get; set; }
 
+        public IDbSet<Seat> Seats { get; set; }
+
         public static CinemaDbContext Create()
         {
             return new CinemaDbContext();

@@ -21,13 +21,10 @@ namespace Cinema.Presenters.FilmScreeningPresenters
             this.filmScreening = filmScreening;
         }
 
-        public void UpdateScreening(string screeningId, IList<Seat> seats)
+        public void UpdateScreening(string screeningId, FilmScreening updatedScreening)
         {
             int parsedId = int.Parse(screeningId);
-            this.filmScreening = this.screeningService.GetById(parsedId);
-
-            this.filmScreening.Seats = seats;
-            this.screeningService.UpdateById(parsedId, (FilmScreening)this.filmScreening);
+            this.screeningService.UpdateById(parsedId, updatedScreening);
         }
 
         public IFilmScreening GetScreeningById(string id)

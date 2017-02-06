@@ -29,7 +29,7 @@ namespace Cinema.Presenters.FilmScreeningPresenters
         {
             this.filmScreening.Start = DateTime.Parse(date);
             this.filmScreening.TargetMovieId = int.Parse(movieId);
-            this.filmScreening.Seats = new List<Seat>();
+            this.filmScreening.Seats = new List<Seat>(20);
 
             this.screeningService.Create((FilmScreening)this.filmScreening);
         }

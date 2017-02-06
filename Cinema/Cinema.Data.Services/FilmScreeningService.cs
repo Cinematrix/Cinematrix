@@ -25,12 +25,11 @@ namespace Cinema.Data.Services
 
         public void Create(FilmScreening filmScreeningToCreate)
         {
-            for (int i = 0; i < InitialSeatsCount; i++)
+            for (int i = 0; i < InitialSeatsCount ; i++)
             {
-                filmScreeningToCreate.Seats.Add(new Seat() { IsFree = true});
+                filmScreeningToCreate.Seats.Add((new Seat() { IsFree = true }));
             }
 
-            filmScreeningToCreate.AvailableSeatsCount = InitialSeatsCount;
             this.screenings.Add(filmScreeningToCreate);
             this.screenings.SaveChanges();
         }
@@ -57,7 +56,10 @@ namespace Cinema.Data.Services
 
         public void UpdateById(int id, FilmScreening updatedFilmScreening)
         {
-            throw new NotImplementedException();
+            var targetScreening = this.screenings.GetById(id);
+            targetScreening = updatedFilmScreening;
+            this.screenings.Update(targetScreening);
+            this.screenings.SaveChanges();
         }
     }
 }

@@ -7,10 +7,10 @@ namespace Cinema.Data.Models.Contracts
     {
         DateTime Start { get; set; }
 
-        int AvailableSeatsCount { get; set; }
+        int AvailableSeatsCount { get; }
 
         int TargetMovieId { get; set; }
 
-        ICollection<Seat> Seats { get; set; }
+        IList<Seat> Seats { get; set; }
     }
 }

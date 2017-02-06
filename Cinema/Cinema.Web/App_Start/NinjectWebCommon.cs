@@ -69,13 +69,14 @@ namespace Cinema.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind(typeof(ICinemaDbContext)).To(typeof(CinemaDbContext)).InRequestScope();
+            kernel.Bind(typeof(ICinemaDbContext)).To(typeof(CinemaDbContext));
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
             kernel.Bind(typeof(IAddMovieView)).To(typeof(AddMovieView));
             kernel.Bind(typeof(IMovieListView)).To(typeof(MoviesListView));
             kernel.Bind(typeof(IMovie)).To(typeof(Movie));
             kernel.Bind(typeof(IFilmScreening)).To(typeof(FilmScreening));
             kernel.Bind(typeof(ISeat)).To(typeof(Seat));
+            kernel.Bind(typeof(Seat)).ToSelf();
 
             kernel.Bind(s => s.From("Cinema.Data.Services")
                              .SelectAllClasses()

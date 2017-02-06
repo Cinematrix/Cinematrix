@@ -29,5 +29,11 @@ namespace Cinema.Presenters.FilmScreeningPresenters
             int parsedId = int.Parse(id);
             return this.screeningService.GetById(parsedId);
         }
+
+        public int GetAvailableCount(string id)
+        {
+            int parsedId = int.Parse(id);
+            return this.screeningService.GetAvailableCount(parsedId);
+        }
     }
 }

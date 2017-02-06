@@ -1,4 +1,5 @@
-﻿using Cinema.Data.Models.Contracts;
+﻿using Cinema.Data.Models;
+using Cinema.Data.Models.Contracts;
 using Cinema.Presenters.Contracts;
 using Ninject;
 using System;
@@ -50,24 +51,58 @@ namespace Cinema.Web
             this.buttons.Add(ImageButton17);
             this.buttons.Add(ImageButton18);
             this.buttons.Add(ImageButton19);
+
+            if (!Page.IsPostBack)
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    if (this.FilmScreening.Seats[i].IsFree == true)
+                    {
+                        this.buttons[i].BackColor = System.Drawing.Color.White;
+                    }
+                    else
+                    {
+                        this.buttons[i].BackColor = System.Drawing.Color.Red;
+                        this.buttons[i].Enabled = false;
+                    }
+                }
+            }
         }
 
         protected void Button0_Click(object sender, EventArgs e)
         {
             var button = sender as ImageButton;
 
-            var senderIndex = int.Parse(button.ID.Substring(button.ID.Length - 2));
+            int senderIndex = int.Parse(button.ID.Substring(button.ID.Length - 2));
 
-            var clickedbutton = this.buttons[senderIndex];
+            var clickedButton = this.buttons[senderIndex];
+            var clickedSeat = this.FilmScreening.Seats[senderIndex];
 
-            if (clickedbutton.BackColor == System.Drawing.Color.LemonChiffon)
+            if (clickedSeat.IsFree == false)
             {
-                clickedbutton.BackColor = System.Drawing.Color.White;
+                clickedButton.BackColor = System.Drawing.Color.White;
+                clickedSeat.IsFree = true;
+                this.Presenter.UpdateScreening(queryId, (FilmScreening)this.FilmScreening);
             }
             else
             {
-                clickedbutton.BackColor = System.Drawing.Color.LemonChiffon;
+                clickedButton.BackColor = System.Drawing.Color.LemonChiffon;
+                clickedSeat.IsFree = false;
+                this.Presenter.UpdateScreening(queryId, (FilmScreening)this.FilmScreening);
             }
+        }
+
+        protected void SubmitButton_Click1(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.FilmScreening.Seats.Count; i++)
+            {
+                if (this.FilmScreening.Seats[i].IsFree == false)
+                {
+                    this.buttons[i].BackColor = System.Drawing.Color.Red;
+                }
+            }
+
+            this.Presenter.UpdateScreening(queryId, (FilmScreening)this.FilmScreening);
         }
     }
 }

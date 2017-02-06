@@ -13,5 +13,7 @@ namespace Cinema.Presenters.Contracts
         IQueryable<FilmScreening> GetAllScreenings();
 
         IFilmScreening GetScreeningById(string id);
+
+        int GetAvailableCount(string id);
     }
 }

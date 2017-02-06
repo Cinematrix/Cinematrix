@@ -13,13 +13,20 @@ namespace Cinema.Data.Models
         public int Id { get; set; }
 
         public DateTime Start { get; set; }
+        
 
-        public int AvailableSeatsCount { get; set; }
-
-        public virtual ICollection<Seat> Seats { get; set; }
+        public virtual IList<Seat> Seats { get; set; }
 
         public int TargetMovieId { get; set; }
 
         public virtual Movie TargetMovie { get; set; }
+
+        public int AvailableSeatsCount
+        {
+            get
+            {
+                return this.Seats.Where(x=>x.IsFree==true).Count();
+            }
+        }
     }
 }

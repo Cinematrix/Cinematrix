@@ -79,7 +79,7 @@
             </asp:Table>
         </div>
         <div style="display:inline-block; text-align:center; vertical-align:top; margin-left:50px">
-            <a href="FilmScreeningsView.aspx" class="btn btn-success">Submit</a>
+            <asp:Button ID="SubmitButton" runat="server" Text="Submit" OnClick="SubmitButton_Click1" CssClass="btn btn-success" />
             <a href="FilmScreeningsView.aspx" class="btn btn-info">Back</a>
         </div>
     </div>

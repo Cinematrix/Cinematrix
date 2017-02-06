@@ -10,7 +10,7 @@ namespace Cinema.Presenters.Contracts
 {
     public interface IUpdateFilmScreeningPresenter
     {
-        void UpdateScreening(string screeningId, IList<Seat> seats);
+        void UpdateScreening(string screeningId, FilmScreening updatedScreening);
 
         IFilmScreening GetScreeningById(string id);
     }
