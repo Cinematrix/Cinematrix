@@ -4,10 +4,9 @@ using Cinema.Presenters.Contracts;
 using Ninject;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.AspNet.Identity;
 
 namespace Cinema.Web
 {
@@ -25,12 +24,14 @@ namespace Cinema.Web
 
         protected void Page_PreLoad(object sender, EventArgs e)
         {
-            this.queryId = Request.QueryString["Id"];
-            this.FilmScreening = this.Presenter.GetScreeningById(this.queryId);
+            
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.queryId = Request.QueryString["Id"];
+            this.FilmScreening = this.Presenter.GetScreeningById(this.queryId);
+
             this.buttons.Add(ImageButton00);
             this.buttons.Add(ImageButton01);
             this.buttons.Add(ImageButton02);
@@ -51,7 +52,7 @@ namespace Cinema.Web
             this.buttons.Add(ImageButton17);
             this.buttons.Add(ImageButton18);
             this.buttons.Add(ImageButton19);
-
+            
             if (!Page.IsPostBack)
             {
                 for (int i = 0; i < 20; i++)
@@ -82,6 +83,7 @@ namespace Cinema.Web
             {
                 clickedButton.BackColor = System.Drawing.Color.White;
                 clickedSeat.IsFree = true;
+                //clickedSeat.UserId = int.Parse(User.Identity.GetUserId());
                 this.Presenter.UpdateScreening(queryId, (FilmScreening)this.FilmScreening);
             }
             else

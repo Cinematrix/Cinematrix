@@ -1,6 +1,7 @@
 ﻿using Cinema.Data.Models.Contracts;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace Cinema.Data.Models
 {
     public class FilmScreening : IFilmScreening
     {
+        [Key]
         public int Id { get; set; }
 
         public DateTime Start { get; set; }

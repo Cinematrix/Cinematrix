@@ -466,10 +466,6 @@
       <Project>{320e8716-c11f-4e83-a5cc-d06ff500f7e8}</Project>
       <Name>Cinema.Data.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Cinema.Data.Services\Cinema.Data.Services.csproj">
-      <Project>{bab5393c-fe31-4421-b64c-1b63dca59dca}</Project>
-      <Name>Cinema.Data.Services</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Cinema.Data\Cinema.Data.csproj">
       <Project>{9f1bbb79-3162-4725-8f2f-dbf2a63ed1a5}</Project>
       <Name>Cinema.Data</Name>

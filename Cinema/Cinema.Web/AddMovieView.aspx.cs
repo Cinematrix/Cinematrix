@@ -1,17 +1,8 @@
 ﻿using Cinema.Data.Models;
-using Cinema.Data.Models.Contracts;
-using Cinema.Data.Services;
-using Cinema.Data.Services.Contracts;
 using Cinema.Presenters.Contracts;
-using Cinema.Presenters.MoviePresenters;
-using Cinema.Web.Contracts;
 using Ninject;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Cinema.Web
 {

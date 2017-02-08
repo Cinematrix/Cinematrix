@@ -5,7 +5,7 @@
         <h3>Add Film Screening:</h3>
         <p>
             <asp:Label ID="DateLabel" runat="server" Text="Start: "></asp:Label>
-            <asp:TextBox ID="DateInput" runat="server" TextMode="Date"></asp:TextBox>
+            <asp:TextBox ID="DateInput" runat="server" TextMode="DateTimeLocal"></asp:TextBox>
         </p>
         <p>
             <asp:Label ID="SelectMovieLabel" runat="server" Text="Movie: "></asp:Label>

@@ -3,10 +3,9 @@ using Cinema.Presenters.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Cinema.Data.Models.Contracts;
 using Cinema.Data.Models;
+using System.Web.UI;
 
 namespace Cinema.Presenters.FilmScreeningPresenters
 {
@@ -14,24 +13,33 @@ namespace Cinema.Presenters.FilmScreeningPresenters
     {
         private readonly IFilmScreeningService screeningService;
         private readonly IMoviesService moviesService;
+        private readonly INavigationService navigationService;
         private IFilmScreening filmScreening;
         private IEnumerable<Seat> seats;
 
-        public AddFilmScreeningPresenter(IFilmScreeningService screeningService, IMoviesService moviesService, IFilmScreening filmScreening, IEnumerable<Seat> seats)
+        public AddFilmScreeningPresenter(
+            IFilmScreeningService screeningService,
+            IMoviesService moviesService,
+            INavigationService navigationService,
+            IFilmScreening filmScreening,
+            IEnumerable<Seat> seats)
         {
             this.screeningService = screeningService;
             this.moviesService = moviesService;
+            this.navigationService = navigationService;
             this.filmScreening = filmScreening;
             this.seats = seats;
         }
 
-        public void CreateFilmScreening(string date, string movieId)
+        public void CreateFilmScreening(string date, string movieId, Page page)
         {
             this.filmScreening.Start = DateTime.Parse(date);
             this.filmScreening.TargetMovieId = int.Parse(movieId);
             this.filmScreening.Seats = new List<Seat>(20);
 
             this.screeningService.Create((FilmScreening)this.filmScreening);
+
+            this.navigationService.Redirect(page, "/FilmScreeningsView.aspx");
         }
 
         public IQueryable<Movie> GetAllMovies()
