@@ -25,6 +25,8 @@ namespace Cinema.Data.Services
 
         public void Create(FilmScreening filmScreeningToCreate)
         {
+            filmScreeningToCreate.Seats = new List<Seat>(20);
+
             for (int i = 0; i < InitialSeatsCount ; i++)
             {
                 filmScreeningToCreate.Seats.Add((new Seat() { IsFree = true }));

@@ -11,6 +11,8 @@ namespace Cinema.Presenters.FilmScreeningPresenters
 {
     public class AddFilmScreeningPresenter : IAddFilmScreeningPresenter
     {
+        private const string FilmScreeningsListViewUrl = "/FilmScreeningsView.aspx";
+
         private readonly IFilmScreeningService screeningService;
         private readonly IMoviesService moviesService;
         private readonly INavigationService navigationService;
@@ -35,11 +37,10 @@ namespace Cinema.Presenters.FilmScreeningPresenters
         {
             this.filmScreening.Start = DateTime.Parse(date);
             this.filmScreening.TargetMovieId = int.Parse(movieId);
-            this.filmScreening.Seats = new List<Seat>(20);
 
             this.screeningService.Create((FilmScreening)this.filmScreening);
 
-            this.navigationService.Redirect(page, "/FilmScreeningsView.aspx");
+            this.navigationService.Redirect(page, FilmScreeningsListViewUrl);
         }
 
         public IQueryable<Movie> GetAllMovies()
