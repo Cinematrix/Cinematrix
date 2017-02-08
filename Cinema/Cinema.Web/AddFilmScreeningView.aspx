@@ -8,8 +8,12 @@
             <asp:TextBox ID="DateInput" runat="server" TextMode="DateTimeLocal"></asp:TextBox>
         </p>
         <p>
-            <asp:Label ID="SelectMovieLabel" runat="server" Text="Movie: "></asp:Label>
-            <asp:DropDownList ID="SelectMovieDropDownList" runat="server" DataTextField="Name" DataValueField="Id" AutoPostBack="true"></asp:DropDownList>
+            <asp:UpdatePanel runat="server">
+                <ContentTemplate>
+                    <asp:Label ID="SelectMovieLabel" runat="server" Text="Movie: "></asp:Label>
+                    <asp:DropDownList ID="SelectMovieDropDownList" runat="server" DataTextField="Name" DataValueField="Id" AutoPostBack="true"></asp:DropDownList>
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </p>
         <p>
             <asp:Button ID="SubmitButton" runat="server" Text="Submit" OnClick="SubmitButton_Click" CssClass="btn btn-success" />
