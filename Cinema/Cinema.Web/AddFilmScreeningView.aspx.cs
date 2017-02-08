@@ -1,5 +1,4 @@
-﻿using Cinema.Data.Models;
-using Cinema.Presenters.Contracts;
+﻿using Cinema.Presenters.Contracts;
 using Ninject;
 using System;
 using System.Linq;
@@ -12,16 +11,11 @@ namespace Cinema.Web
         [Inject]
         public IAddFilmScreeningPresenter Presenter { get; set; }
 
-        [Inject]
-        public Movie[] AllMovies { get; set; }
-
-
-        protected void Page_PreLoad(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                this.AllMovies = this.Presenter.GetAllMovies().ToArray();
-                this.SelectMovieDropDownList.DataSource = this.AllMovies;
+                this.SelectMovieDropDownList.DataSource = this.Presenter.GetAllMovies().ToArray();
                 this.SelectMovieDropDownList.DataBind();
             }
         }

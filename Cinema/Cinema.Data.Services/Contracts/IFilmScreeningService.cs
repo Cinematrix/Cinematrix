@@ -20,6 +20,6 @@ namespace Cinema.Data.Services.Contracts
 
         void DeleteById(int id);
 
-        void Create(FilmScreening filmScreeningToCreate);
+        void Create(string date, string movieId);
     }
 }

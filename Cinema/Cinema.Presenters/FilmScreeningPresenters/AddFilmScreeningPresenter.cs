@@ -16,29 +16,20 @@ namespace Cinema.Presenters.FilmScreeningPresenters
         private readonly IFilmScreeningService screeningService;
         private readonly IMoviesService moviesService;
         private readonly INavigationService navigationService;
-        private IFilmScreening filmScreening;
-        private IEnumerable<Seat> seats;
 
         public AddFilmScreeningPresenter(
             IFilmScreeningService screeningService,
             IMoviesService moviesService,
-            INavigationService navigationService,
-            IFilmScreening filmScreening,
-            IEnumerable<Seat> seats)
+            INavigationService navigationService)
         {
             this.screeningService = screeningService;
             this.moviesService = moviesService;
             this.navigationService = navigationService;
-            this.filmScreening = filmScreening;
-            this.seats = seats;
         }
 
         public void CreateFilmScreening(string date, string movieId, Page page)
         {
-            this.filmScreening.Start = DateTime.Parse(date);
-            this.filmScreening.TargetMovieId = int.Parse(movieId);
-
-            this.screeningService.Create((FilmScreening)this.filmScreening);
+            this.screeningService.Create(date, movieId);
 
             this.navigationService.Redirect(page, FilmScreeningsListViewUrl);
         }

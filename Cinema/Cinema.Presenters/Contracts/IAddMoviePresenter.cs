@@ -1,10 +1,10 @@
 ﻿using Cinema.Data.Models;
-using Cinema.Data.Models.Contracts;
+using System.Web.UI;
 
 namespace Cinema.Presenters.Contracts
 {
     public interface IAddMoviePresenter
     {
-        void CreateMovie(Movie movieToAdd);
+        void CreateMovie(Movie movieToAdd, Page page);
     }
 }
