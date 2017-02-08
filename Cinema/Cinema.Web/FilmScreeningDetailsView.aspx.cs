@@ -10,7 +10,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Cinema.Web
 {
-    public partial class FilmScreeningDetailsView : System.Web.UI.Page
+    public partial class FilmScreeningDetailsView : Page
     {
         [Inject]
         public IUpdateFilmScreeningPresenter Presenter { get; set; }
@@ -21,11 +21,6 @@ namespace Cinema.Web
         private IList<ImageButton> buttons = new List<ImageButton>();
 
         private string queryId;
-
-        protected void Page_PreLoad(object sender, EventArgs e)
-        {
-            
-        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -83,7 +78,7 @@ namespace Cinema.Web
             {
                 clickedButton.BackColor = System.Drawing.Color.White;
                 clickedSeat.IsFree = true;
-                //clickedSeat.UserId = int.Parse(User.Identity.GetUserId());
+
                 this.Presenter.UpdateScreening(queryId, (FilmScreening)this.FilmScreening);
             }
             else
