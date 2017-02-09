@@ -5,8 +5,6 @@ using Cinema.Data.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cinema.Data.Services
 {
@@ -50,9 +48,14 @@ namespace Cinema.Data.Services
             return this.screenings.GetById(id).Seats.Where(x => x.IsFree == true).Count();
         }
 
-        public IQueryable<FilmScreening> GetAll()
+        public IQueryable<FilmScreening> GetAllScreenings()
         {
             return this.screenings.All();
+        }
+
+        public IQueryable<FilmScreening> GetAllFutureScreenings()
+        {
+            return this.screenings.All().Where(x => x.Start > DateTime.Now);
         }
 
         public IFilmScreening GetById(int id)

@@ -10,7 +10,9 @@ namespace Cinema.Data.Services.Contracts
 {
     public interface IFilmScreeningService
     {
-        IQueryable<FilmScreening> GetAll();
+        IQueryable<FilmScreening> GetAllScreenings();
+
+        IQueryable<FilmScreening> GetAllFutureScreenings();
 
         IFilmScreening GetById(int id);
 

@@ -12,7 +12,7 @@ namespace Cinema.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.ScreeningsRepeater.DataSource = this.Presenter.GetAllScreenings().ToArray();
+            this.ScreeningsRepeater.DataSource = this.Presenter.GetAllFutureScreenings().ToArray();
             this.ScreeningsRepeater.DataBind();
         }
     }

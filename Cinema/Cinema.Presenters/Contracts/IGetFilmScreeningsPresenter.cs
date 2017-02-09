@@ -10,7 +10,7 @@ namespace Cinema.Presenters.Contracts
 {
     public interface IGetFilmScreeningsPresenter
     {
-        IQueryable<FilmScreening> GetAllScreenings();
+        IQueryable<FilmScreening> GetAllFutureScreenings();
 
         IFilmScreening GetScreeningById(string id);
 

@@ -5,7 +5,13 @@
         <h3>Add Movie:</h3>
         <p>
             <asp:Label ID="TitleLabel" runat="server" Text="Title: "></asp:Label>
-            <asp:TextBox ID="TitleInput" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TitleInput" runat="server" ></asp:TextBox>
+
+            <asp:RequiredFieldValidator
+                ID="RequiredFieldValidatorTitleInput"
+                runat="server" ForeColor="Red" Display="Dynamic"
+                ErrorMessage="Movie title is required!"
+                ControlToValidate="TitleInput" />
         </p>
         <p>
             <asp:Label ID="ImageUrlLabel" runat="server" Text="Image URL: "></asp:Label>

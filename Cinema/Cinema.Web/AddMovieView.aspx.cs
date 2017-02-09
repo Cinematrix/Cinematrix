@@ -28,7 +28,7 @@ namespace Cinema.Web
 
         protected void ClearButton_Click(object sender, EventArgs e)
         {
-            this.TitleInput.Text=string.Empty;
+            this.TitleInput.Text = string.Empty;
             this.ImageUrlInput.Text = string.Empty;
             this.InfoInput.Text = string.Empty;
             this.GenreInput.Text = string.Empty;
