@@ -15,9 +15,12 @@ namespace Cinema.Data.Migrations
 
         protected override void Seed(Cinema.Data.CinemaDbContext context)
         {
-            context.Roles.Add(new IdentityRole("admin"));
-            context.Roles.Add(new IdentityRole("user"));
-            context.SaveChanges();
+            if (context.Roles.Count() == 0)
+            {
+                context.Roles.Add(new IdentityRole("admin"));
+                context.Roles.Add(new IdentityRole("user"));
+                context.SaveChanges();
+            }
 
             var adminRole = new IdentityUserRole();
             adminRole.RoleId = context.Roles.FirstOrDefault(r => r.Name == "admin").Id;
