@@ -1,12 +1,12 @@
 ﻿using Cinema.Data.Models;
 using Cinema.Data.Models.Contracts;
 using Cinema.Presenters.Contracts;
+using Microsoft.AspNet.Identity;
 using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Microsoft.AspNet.Identity;
 
 namespace Cinema.Web
 {
@@ -78,6 +78,7 @@ namespace Cinema.Web
             {
                 clickedButton.BackColor = System.Drawing.Color.White;
                 clickedSeat.IsFree = true;
+                clickedSeat.UserId = User.Identity.GetUserId();
 
                 this.Presenter.UpdateScreening(queryId, (FilmScreening)this.FilmScreening);
             }
@@ -85,6 +86,8 @@ namespace Cinema.Web
             {
                 clickedButton.BackColor = System.Drawing.Color.LemonChiffon;
                 clickedSeat.IsFree = false;
+                clickedSeat.UserId = User.Identity.GetUserId();
+
                 this.Presenter.UpdateScreening(queryId, (FilmScreening)this.FilmScreening);
             }
         }
@@ -98,8 +101,6 @@ namespace Cinema.Web
                     this.buttons[i].BackColor = System.Drawing.Color.Red;
                 }
             }
-
-            this.Presenter.UpdateScreening(queryId, (FilmScreening)this.FilmScreening);
         }
     }
 }

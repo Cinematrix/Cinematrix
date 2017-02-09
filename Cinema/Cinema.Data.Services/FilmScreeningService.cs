@@ -27,7 +27,7 @@ namespace Cinema.Data.Services
         {
             this.filmScreeningToCreate.Start = DateTime.Parse(date);
             this.filmScreeningToCreate.TargetMovieId = int.Parse(movieId);
-            this.filmScreeningToCreate.Seats = new List<Seat>(20);
+            this.filmScreeningToCreate.Seats = new List<Seat>(InitialSeatsCount);
 
             for (int i = 0; i < InitialSeatsCount; i++)
             {
