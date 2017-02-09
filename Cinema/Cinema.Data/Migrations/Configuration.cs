@@ -1,4 +1,7 @@
+using Cinema.Data.Models;
 using System.Data.Entity.Migrations;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Linq;
 
 namespace Cinema.Data.Migrations
 {
@@ -12,18 +15,21 @@ namespace Cinema.Data.Migrations
 
         protected override void Seed(Cinema.Data.CinemaDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            context.Roles.Add(new IdentityRole("admin"));
+            context.Roles.Add(new IdentityRole("user"));
+            context.SaveChanges();
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            var adminRole = new IdentityUserRole();
+            adminRole.RoleId = context.Roles.FirstOrDefault(r => r.Name == "admin").Id;
+            context.SaveChanges();
+
+            var adminUser = context.Users.First(u => u.UserName == "Iliyan");
+            if (adminUser != null)
+            {
+                adminUser.Roles.Clear();
+                adminUser.Roles.Add(adminRole);
+                context.SaveChanges();
+            }
         }
     }
 }
