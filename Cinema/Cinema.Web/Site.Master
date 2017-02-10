@@ -15,72 +15,79 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body style=" background-image:url('https://wallpaperscraft.com/image/line_light_background_bright_43975_2560x1600.jpg'); background-repeat:repeat-y">
-    <div id="CustomBackground" class="veryimportant">
-        <form runat="server">
-            <asp:ScriptManager runat="server">
-                <Scripts>
-                    <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                    <%--Framework Scripts--%>
-                    <asp:ScriptReference Name="MsAjaxBundle" />
-                    <asp:ScriptReference Name="jquery" />
-                    <asp:ScriptReference Name="bootstrap" />
-                    <asp:ScriptReference Name="respond" />
-                    <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                    <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                    <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                    <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                    <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                    <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                    <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                    <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                    <asp:ScriptReference Name="WebFormsBundle" />
-                    <%--Site Scripts--%>
-                </Scripts>
-            </asp:ScriptManager>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
 
-            <div class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" runat="server" href="~/">Cinematrix</a>
-                    </div>
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li><a runat="server" href="~/">Home</a></li>
-                            <li id="AddMovieLink" runat="server"><a runat="server" href="~/AddMovieView">Add Movie</a></li>
-                            <li><a runat="server" href="~/MoviesListView">Movies</a></li>
-                            <li id="AddFilmScreeningLink" runat="server"><a runat="server" href="~/AddFilmScreeningView">Add Film Screening</a></li>
-                            <li><a runat="server" href="~/FilmScreeningsView">Screenings</a></li>
-                        </ul>
-                        <asp:LoginView runat="server" ViewStateMode="Disabled">
-                            <AnonymousTemplate>
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                    <li><a runat="server" href="~/Account/Login">Log in</a></li>
-                                </ul>
-                            </AnonymousTemplate>
-                            <LoggedInTemplate>
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li><a style="color: greenyellow" runat="server" href="~/Account/Manage" title="Manage your account"><%: Context.User.Identity.GetUserName()  %> </a></li>
-                                    <li>
-                                        <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                    </li>
-                                </ul>
-                            </LoggedInTemplate>
-                        </asp:LoginView>
-                    </div>
+        <div id="nav" runat="server" class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   
+                    <%--<a class="navbar-brand" runat="server" href="~/">Cinematrix</a>--%>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/">Home</a></li>
+                        <li><a runat="server" href="~/MoviesListView">Movies</a></li>
+                        <li><a runat="server" href="~/FilmScreeningsView">Screenings</a></li>
+                        <li id="AddMovieLink" runat="server"><a runat="server" href="~/AddMovieView">Add Movie</a></li>
+                        <li id="AddFilmScreeningLink" runat="server"><a runat="server" href="~/AddFilmScreeningView">Add Film Screening</a></li>
+                        <%--<li id="adminLogo" runat="server"><a style="color: cyan">admin*</a></li>--%>
+                    </ul>
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Register"><span class="glyphicon glyphicon-user"><span>Register</a></li>
+                                <li><a runat="server" href="~/Account/Login"><span class="glyphicon glyphicon-log-in"></span>Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <a style="color: greenyellow" runat="server" href="~/Account/Manage" title="Manage your account"><%: Context.User.Identity.GetUserName()  %> </a>
+                                </li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
                 </div>
             </div>
+        </div>
+        <div style="background-image: url('https://d3thflcq1yqzn0.cloudfront.net/012336192_prevstill.jpeg'); background-size: 100% 100%; background-attachment: fixed; min-height: 600px">
             <div class="container body-content">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
-            <div class="navbar navbar-inverse navbar-bottom">
+        </div>
+        <div id="foot" runat="server" class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="container">
                 <footer>
                     <ul class="nav navbar-nav navbar-left">
                         <li>
@@ -96,7 +103,7 @@
                     </ul>
                 </footer>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </body>
 </html>

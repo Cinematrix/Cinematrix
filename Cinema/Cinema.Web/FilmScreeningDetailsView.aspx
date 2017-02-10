@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FilmScreeningDetailsView.aspx.cs" Inherits="Cinema.Web.FilmScreeningDetailsView" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="jumbotron">
+    <div class="jumbotron" style="background-color: rgba(255, 255, 255, 0.8)">
         <div style="margin-left: 90px">
             <asp:Image ID="MovieImg" runat="server" ImageUrl="http://www.samsung.com/africa_en/curvedmonitor/images/design_monitor_top_1920.png" Width="400px" />
         </div>

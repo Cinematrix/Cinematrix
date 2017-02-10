@@ -3,9 +3,10 @@
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <h2><%: Title %>.</h2>
-
-    <div class="row">
+    
+    <br />
+    <div class="row" style="background-color: rgba(255, 255, 255, 0.8); padding:15px 15px 15px 15px">
+        <h2><%: Title %>.</h2>
         <div class="col-md-8">
             <section id="loginForm">
                 <div class="form-horizontal">
@@ -19,7 +20,7 @@
                     <div class="form-group">
                         <asp:Label runat="server" AssociatedControlID="Username" CssClass="col-md-2 control-label">Username</asp:Label>
                         <div class="col-md-10">
-                            <asp:TextBox runat="server" ID="Username" CssClass="form-control"  />
+                            <asp:TextBox runat="server" ID="Username" CssClass="form-control" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Username"
                                 CssClass="text-danger" ErrorMessage="The username field is required." />
                         </div>
@@ -41,7 +42,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-default" />
+                            <asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-info" />
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MovieDetailsView.aspx.cs" Inherits="Cinema.Web.MovieDetailsView" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="jumbotron">
+    <div class="jumbotron" style="background-color: rgba(255, 255, 255, 0.8)">
         <div style="text-align: center; margin-left: 50px">
             <asp:Image ID="MovieImg" runat="server" Width="200" />
         </div>

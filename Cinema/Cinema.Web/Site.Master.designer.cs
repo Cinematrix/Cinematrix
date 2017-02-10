@@ -13,6 +13,15 @@ namespace Cinema.Web {
     public partial class SiteMaster {
         
         /// <summary>
+        /// nav control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl nav;
+        
+        /// <summary>
         /// AddMovieLink control.
         /// </summary>
         /// <remarks>
@@ -38,5 +47,14 @@ namespace Cinema.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        
+        /// <summary>
+        /// foot control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl foot;
     }
 }

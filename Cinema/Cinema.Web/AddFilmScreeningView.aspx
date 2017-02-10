@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddFilmScreeningView.aspx.cs" Inherits="Cinema.Web.AddFilmScreeningView" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="jumbotron">
+    <div class="jumbotron" style="background-color: rgba(255, 255, 255, 0.8)">
         <h3>Add Film Screening:</h3>
         <p>
             <asp:Label ID="DateLabel" runat="server" Text="Start: "></asp:Label>
