@@ -69,7 +69,16 @@ namespace Cinema.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!this.Page.User.IsInRole("admin"))
+            {
+                this.AddFilmScreeningLink.Visible = false;
+                this.AddMovieLink.Visible = false;
+            }
+            else
+            {
+                this.AddFilmScreeningLink.Visible = true;
+                this.AddMovieLink.Visible = true;
+            }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

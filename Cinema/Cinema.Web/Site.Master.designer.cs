@@ -13,6 +13,24 @@ namespace Cinema.Web {
     public partial class SiteMaster {
         
         /// <summary>
+        /// AddMovieLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl AddMovieLink;
+        
+        /// <summary>
+        /// AddFilmScreeningLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl AddFilmScreeningLink;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

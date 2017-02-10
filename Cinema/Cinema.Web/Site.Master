@@ -52,9 +52,9 @@
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li><a runat="server" href="~/">Home</a></li>
-                            <li><a runat="server" href="~/AddMovieView">Add Movie</a></li>
+                            <li id="AddMovieLink" runat="server"><a runat="server" href="~/AddMovieView">Add Movie</a></li>
                             <li><a runat="server" href="~/MoviesListView">Movies</a></li>
-                            <li><a runat="server" href="~/AddFilmScreeningView">Add Film Screening</a></li>
+                            <li id="AddFilmScreeningLink" runat="server"><a runat="server" href="~/AddFilmScreeningView">Add Film Screening</a></li>
                             <li><a runat="server" href="~/FilmScreeningsView">Screenings</a></li>
                         </ul>
                         <asp:LoginView runat="server" ViewStateMode="Disabled">
