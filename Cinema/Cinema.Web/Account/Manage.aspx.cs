@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
 using Cinema.Web.Models;
+using System.IO;
 
 namespace Cinema.Web.Account
 {
@@ -123,6 +124,36 @@ namespace Cinema.Web.Account
             manager.SetTwoFactorEnabled(User.Identity.GetUserId(), true);
 
             Response.Redirect("/Account/Manage");
+        }
+
+        protected void UploadButton_Click(object sender, EventArgs e)
+        {
+            if (FileUploadControl.HasFile)
+            {
+                try
+                {
+                    if (FileUploadControl.PostedFile.ContentType == "image/jpeg"
+                        || FileUploadControl.PostedFile.ContentType == "image/png")
+                    {
+                        if (FileUploadControl.PostedFile.ContentLength < (10 * 1024000))
+                        {
+                            string filename = this.Page.User.Identity.Name;
+                            string extension = Path.GetExtension(FileUploadControl.FileName);
+                            FileUploadControl.SaveAs(Server.MapPath("~/UploadedFiles/") + filename + extension);
+                            StatusLabel.Text = "Upload status: File uploaded!";
+                            this.PreviewImage.ImageUrl = "~/UploadedFiles/" + filename + extension;
+                        }
+                        else
+                            StatusLabel.Text = "Upload status: The file has to be less than 100 kb!";
+                    }
+                    else
+                        StatusLabel.Text = "Upload status: Only JPEG and PNG files are accepted!";
+                }
+                catch (Exception ex)
+                {
+                    StatusLabel.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
+                }
+            }
         }
     }
 }

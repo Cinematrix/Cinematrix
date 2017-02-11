@@ -7,8 +7,8 @@ body {
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 body>div #CustomBackground.veryimportant {
@@ -40,4 +40,9 @@ input[type="select"] {
     .body-content {
         padding: 0;
     }
+}
+
+div.container{
+    margin-left: 20px;
+    margin-right: 20px;
 }

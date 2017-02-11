@@ -11,5 +11,7 @@ namespace Cinema.Presenters.Contracts
         IQueryable<Movie> GetAllMovies();
 
         IMovie GetMovieById(string id);
+
+        void DeleteMovieById(string id);
     }
 }

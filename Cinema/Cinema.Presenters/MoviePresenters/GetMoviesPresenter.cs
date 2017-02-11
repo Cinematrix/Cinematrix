@@ -31,5 +31,11 @@ namespace Cinema.Presenters.MoviePresenters
             int parsedId = int.Parse(id);
             return this.moviesService.GetById(parsedId);
         }
+
+        public void DeleteMovieById(string id)
+        {
+            int parsedId = int.Parse(id);
+            this.moviesService.DeleteById(parsedId);
+        }
     }
 }

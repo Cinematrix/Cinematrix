@@ -3,15 +3,15 @@
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
-
+    <br />
     <div>
         <asp:PlaceHolder runat="server" ID="successMessage" Visible="false" ViewStateMode="Disabled">
             <p class="text-success"><%: SuccessMessage %></p>
         </asp:PlaceHolder>
     </div>
-
-    <div class="row">
+    <br />
+    <div class="row" style="background-color: rgba(255, 255, 255, 0.8); padding: 15px 15px 15px 15px; border-radius: 5px 5px 5px 5px">
+        <h2><%: Title %>.</h2>
         <div class="col-md-12">
             <div class="form-horizontal">
                 <h4>Change your account settings</h4>
@@ -22,10 +22,21 @@
                         <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Change]" Visible="false" ID="ChangePassword" runat="server" />
                         <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Create]" Visible="false" ID="CreatePassword" runat="server" />
                     </dd>
+                    <dt>Profile Picture:</dt>
+                    <dd>
+                        <asp:FileUpload ID="FileUploadControl" accept=".png, .jpeg" runat="server" />
+                        <asp:Button runat="server" ID="UploadButton" Text="Upload" OnClick="UploadButton_Click" CssClass="btn btn-success btn-sm" />
+                        <br />
+                        <asp:Label runat="server" ID="StatusLabel" Text="Upload status: " />
+                    </dd>
                     <dt>External Logins:</dt>
                     <dd><%: LoginsCount %>
                         <asp:HyperLink NavigateUrl="/Account/ManageLogins" Text="[Manage]" runat="server" />
 
+                    </dd>
+                    <dt>Preview:</dt>
+                    <dd>
+                        <asp:Image ID="PreviewImage" runat="server" Width="200" />
                     </dd>
                     <%--
                         Phone Numbers can used as a second factor of verification in a two-factor authentication system.
@@ -51,27 +62,27 @@
                     <% } %>
                     --%>
 
-                    <dt>Two-Factor Authentication:</dt>
+                    <%-- <dt>Two-Factor Authentication:</dt>
                     <dd>
                         <p>
                             There are no two-factor authentication providers configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
                             for details on setting up this ASP.NET application to support two-factor authentication.
                         </p>
                         <% if (TwoFactorEnabled)
-                          { %> 
-                        <%--
+                            { %>--%>
+                    <%--
                         Enabled
                         <asp:LinkButton Text="[Disable]" runat="server" CommandArgument="false" OnClick="TwoFactorDisable_Click" />
-                        --%>
-                        <% }
-                          else
-                          { %> 
-                        <%--
+                    --%>
+                    <%--   <% }
+                            else
+                            { %>--%>
+                    <%--
                         Disabled
                         <asp:LinkButton Text="[Enable]" CommandArgument="true" OnClick="TwoFactorEnable_Click" runat="server" />
-                        --%>
-                        <% } %>
-                    </dd>
+                    --%>
+                    <%--    <% } %>
+                    </dd>--%>
                 </dl>
             </div>
         </div>
