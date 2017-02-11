@@ -15,6 +15,9 @@ namespace Cinema.Web.Account
 {
     public partial class Manage : System.Web.UI.Page
     {
+        private string filename;
+        private string extension;
+
         protected string SuccessMessage
         {
             get;
@@ -48,6 +51,11 @@ namespace Cinema.Web.Account
             LoginsCount = manager.GetLogins(User.Identity.GetUserId()).Count;
 
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+
+            filename = Directory.EnumerateFiles(Server.MapPath("~/UploadedFiles/")).FirstOrDefault();
+            extension = Path.GetExtension(filename);
+            this.PreviewImage.ImageUrl = "~/UploadedFiles/" + this.Page.User.Identity.Name + extension;
+            this.StatusLabel.Text = extension;
 
             if (!IsPostBack)
             {
@@ -137,8 +145,13 @@ namespace Cinema.Web.Account
                     {
                         if (FileUploadControl.PostedFile.ContentLength < (10 * 1024000))
                         {
-                            string filename = this.Page.User.Identity.Name;
-                            string extension = Path.GetExtension(FileUploadControl.FileName);
+                            filename = this.Page.User.Identity.Name;
+                            extension = Path.GetExtension(FileUploadControl.FileName);
+                            if (File.Exists(Server.MapPath("~/UploadedFiles/") + filename))
+                            {
+                                File.Delete("~/UploadedFiles/" + filename);
+                            }
+
                             FileUploadControl.SaveAs(Server.MapPath("~/UploadedFiles/") + filename + extension);
                             StatusLabel.Text = "Upload status: File uploaded!";
                             this.PreviewImage.ImageUrl = "~/UploadedFiles/" + filename + extension;
