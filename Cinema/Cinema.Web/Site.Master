@@ -58,6 +58,11 @@
                     <li id="AddFilmScreeningLink" runat="server"><a runat="server" href="~/AddFilmScreeningView">Add Film Screening</a></li>
                     <%--<li id="adminLogo" runat="server"><a style="color: cyan">admin*</a></li>--%>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <asp:Image ImageUrl="https://openclipart.org/image/800px/svg_to_png/212408/rodentia-icons_preferences-desktop-personal.png" ID="ProfilePicture" runat="server" Width="38" CssClass="img-circle" />
+                    </li>
+                </ul>
                 <asp:LoginView runat="server" ViewStateMode="Disabled">
                     <AnonymousTemplate>
                         <ul class="nav navbar-nav navbar-right">
@@ -67,9 +72,7 @@
                     </AnonymousTemplate>
                     <LoggedInTemplate>
                         <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <img src="https://openclipart.org/image/800px/svg_to_png/212408/rodentia-icons_preferences-desktop-personal.png" id="ProfilePicture" runat="server" width="40" />
-                            </li>
+
                             <li>
                                 <a style="color: greenyellow" runat="server" href="~/Account/Manage" title="Manage your account"><%: Context.User.Identity.GetUserName()  %> </a>
                             </li>

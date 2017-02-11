@@ -7,6 +7,8 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
+using System.IO;
+using System.Linq;
 
 namespace Cinema.Web
 {
@@ -69,6 +71,18 @@ namespace Cinema.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string currentUserName = this.Page.User.Identity.Name;
+            string filename = Directory.EnumerateFiles(Server.MapPath("~/UploadedFiles/")).Where(x => x.StartsWith(Server.MapPath("~/UploadedFiles/") + currentUserName)).FirstOrDefault();
+            string extension = Path.GetExtension(filename);
+
+            if (this.Page.User.Identity.IsAuthenticated)
+            {
+                if (File.Exists(Server.MapPath("~/UploadedFiles/") + currentUserName + extension))
+                {
+                    this.ProfilePicture.ImageUrl = "~/UploadedFiles/" + currentUserName + extension;
+                }
+            }
+
             if (!this.Page.User.IsInRole("admin"))
             {
                 this.AddFilmScreeningLink.Visible = false;
@@ -80,15 +94,15 @@ namespace Cinema.Web
             {
                 this.AddFilmScreeningLink.Visible = true;
                 this.AddMovieLink.Visible = true;
-               // this.adminLogo.Visible = true;
+                // this.adminLogo.Visible = true;
                 this.nav.Style.Add("background-image", "url('http://www.harter.aero/images/banner_admin.png')");
-               // this.foot.Style.Add("background-image", "url('http://www.harter.aero/images/banner_admin.png')");
+                // this.foot.Style.Add("background-image", "url('http://www.harter.aero/images/banner_admin.png')");
                 this.nav.Style.Add("background-size", "30% 100%;");
-               // this.foot.Style.Add("background-size", "30% 100%;");
+                // this.foot.Style.Add("background-size", "30% 100%;");
                 this.nav.Style.Add("background-position", "75% 50%");
-               // this.foot.Style.Add("background-position", "70% 50%");
+                // this.foot.Style.Add("background-position", "70% 50%");
                 this.nav.Style.Add("background-repeat", "no-repeat");
-               // this.foot.Style.Add("background-repeat", "no-repeat");
+                // this.foot.Style.Add("background-repeat", "no-repeat");
             }
         }
 

@@ -52,10 +52,10 @@ namespace Cinema.Web.Account
 
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
 
-            filename = Directory.EnumerateFiles(Server.MapPath("~/UploadedFiles/")).FirstOrDefault();
+            string currentUserName = this.Page.User.Identity.Name;
+            filename = Directory.EnumerateFiles(Server.MapPath("~/UploadedFiles/")).Where(x => x.StartsWith(Server.MapPath("~/UploadedFiles/") + currentUserName)).FirstOrDefault();
             extension = Path.GetExtension(filename);
-            this.PreviewImage.ImageUrl = "~/UploadedFiles/" + this.Page.User.Identity.Name + extension;
-            this.StatusLabel.Text = extension;
+            this.PreviewImage.ImageUrl = "~/UploadedFiles/" + currentUserName + extension;
 
             if (!IsPostBack)
             {
@@ -143,13 +143,13 @@ namespace Cinema.Web.Account
                     if (FileUploadControl.PostedFile.ContentType == "image/jpeg"
                         || FileUploadControl.PostedFile.ContentType == "image/png")
                     {
-                        if (FileUploadControl.PostedFile.ContentLength < (10 * 1024000))
+                        if (FileUploadControl.PostedFile.ContentLength < (5 * 1048576))
                         {
                             filename = this.Page.User.Identity.Name;
                             extension = Path.GetExtension(FileUploadControl.FileName);
-                            if (File.Exists(Server.MapPath("~/UploadedFiles/") + filename))
+                            if (File.Exists(Server.MapPath("~/UploadedFiles/") + filename + extension))
                             {
-                                File.Delete("~/UploadedFiles/" + filename);
+                                File.Delete("~/UploadedFiles/" + filename + extension);
                             }
 
                             FileUploadControl.SaveAs(Server.MapPath("~/UploadedFiles/") + filename + extension);
@@ -157,7 +157,7 @@ namespace Cinema.Web.Account
                             this.PreviewImage.ImageUrl = "~/UploadedFiles/" + filename + extension;
                         }
                         else
-                            StatusLabel.Text = "Upload status: The file has to be less than 100 kb!";
+                            StatusLabel.Text = "Upload status: The file has to be less than 5 MB!";
                     }
                     else
                         StatusLabel.Text = "Upload status: Only JPEG and PNG files are accepted!";

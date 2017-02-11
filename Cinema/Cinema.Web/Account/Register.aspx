@@ -2,7 +2,7 @@
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <br />
-    <div class="row" style="background-color: rgba(255, 255, 255, 0.8); padding:15px 15px 15px 15px">
+    <div class="row" style="background-color: rgba(255, 255, 255, 0.8); padding:15px 15px 15px 15px; border-radius: 5px 5px 5px 5px">
         <h2><%: Title %>.</h2>
         <p class="text-danger">
             <asp:Literal runat="server" ID="ErrorMessage" />
