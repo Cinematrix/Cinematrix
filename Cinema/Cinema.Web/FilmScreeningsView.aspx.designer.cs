@@ -13,6 +13,24 @@ namespace Cinema.Web {
     public partial class FilmScreeningsView {
         
         /// <summary>
+        /// DatePickerLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DatePickerLabel;
+        
+        /// <summary>
+        /// DatePickerInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox DatePickerInput;
+        
+        /// <summary>
         /// ScreeningsRepeater control.
         /// </summary>
         /// <remarks>

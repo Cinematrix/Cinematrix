@@ -2,7 +2,13 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div>
-        <h2 style="background-color: rgba(255, 255, 255, 0.8); padding: 5px 5px 5px 5px; border-radius: 5px 5px 5px 5px">Screenings:</h2>
+        <div style="background-color: rgba(255, 255, 255, 0.8); padding: 5px 5px 5px 5px; border-radius: 5px 5px 5px 5px">
+            <h2 style="display: inline-block">Screenings:</h2>
+            <h3 style="display: inline-block; margin-left: 50px">
+                <asp:Label ID="DatePickerLabel" runat="server" Text="Show by Date:"></asp:Label>
+                <asp:TextBox ID="DatePickerInput" runat="server" TextMode="Date" OnTextChanged="DatePickerInput_TextChanged" AutoPostBack="true"></asp:TextBox>
+            </h3>
+        </div>
         <asp:Repeater ID="ScreeningsRepeater" runat="server" ItemType="Cinema.Data.Models.FilmScreening">
             <ItemTemplate>
                 <div class="jumbotron" style="background-color: rgba(255, 255, 255, 0.8)">

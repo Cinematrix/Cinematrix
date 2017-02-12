@@ -53,6 +53,15 @@ namespace Cinema.Data.Services
             return this.screenings.All();
         }
 
+        public IQueryable<FilmScreening> GetAllScreeningsByDate(string date)
+        {
+            DateTime targetDate = DateTime.Parse(date);
+            return this.screenings.All().Where(x =>
+                                              (x.Start.Day == targetDate.Day) &&
+                                              (x.Start.Month == targetDate.Month) &&
+                                              (x.Start.Year == targetDate.Year));
+        }
+
         public IQueryable<FilmScreening> GetAllFutureScreenings()
         {
             return this.screenings.All().Where(x => x.Start > DateTime.Now);

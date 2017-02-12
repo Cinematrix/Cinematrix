@@ -31,5 +31,10 @@ namespace Cinema.Presenters.FilmScreeningPresenters
             int parsedId = int.Parse(id);
             return this.screeningService.GetAvailableCount(parsedId);
         }
+
+        public IQueryable<FilmScreening> GetScreeningsByDate(string date)
+        {
+            return this.screeningService.GetAllScreeningsByDate(date);
+        }
     }
 }
