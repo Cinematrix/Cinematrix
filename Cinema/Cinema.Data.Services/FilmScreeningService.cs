@@ -55,11 +55,18 @@ namespace Cinema.Data.Services
 
         public IQueryable<FilmScreening> GetAllScreeningsByDate(string date)
         {
-            DateTime targetDate = DateTime.Parse(date);
-            return this.screenings.All().Where(x =>
-                                              (x.Start.Day == targetDate.Day) &&
-                                              (x.Start.Month == targetDate.Month) &&
-                                              (x.Start.Year == targetDate.Year));
+            if (!string.IsNullOrEmpty(date))
+            {
+                DateTime targetDate = DateTime.Parse(date);
+                return this.screenings.All().Where(x =>
+                                                  (x.Start.Day == targetDate.Day) &&
+                                                  (x.Start.Month == targetDate.Month) &&
+                                                  (x.Start.Year == targetDate.Year));
+            }
+            else
+            {
+                return this.screenings.All();
+            }
         }
 
         public IQueryable<FilmScreening> GetAllFutureScreenings()
@@ -82,7 +89,15 @@ namespace Cinema.Data.Services
 
         public IQueryable<FilmScreening> GetScreeningsByMovieTitle(string title)
         {
-            return this.screenings.All().Where(s => s.TargetMovie.Name.Contains(title));
+            if (!string.IsNullOrEmpty(title))
+            {
+                return this.screenings.All().Where(s => s.TargetMovie.Name.Contains(title));
+            }
+            else
+            {
+                return this.screenings.All();
+            }
+
         }
     }
 }
