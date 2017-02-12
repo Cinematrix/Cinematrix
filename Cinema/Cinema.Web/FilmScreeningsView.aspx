@@ -5,7 +5,7 @@
         <div style="background-color: rgba(255, 255, 255, 0.8); padding: 5px 5px 5px 5px; border-radius: 5px 5px 5px 5px">
             <h2 style="display: inline-block">Screenings:</h2>
             <h3 style="display: inline-block; margin-left: 20px">
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="FilmScreeningsView">All</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="FilmScreeningsView">clear</asp:HyperLink>
             </h3>
             <h4 style="display: inline-block; margin-left: 30px">
                 <asp:Label ID="DatePickerLabel" runat="server" Text="Show by Date:"></asp:Label>
