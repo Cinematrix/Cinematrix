@@ -16,6 +16,8 @@ namespace Cinema.Presenters.Contracts
 
         IQueryable<FilmScreening> GetScreeningsByDate(string date);
 
+        IQueryable<FilmScreening> GetScreeningsByMovieTitle(string title);
+
         int GetAvailableCount(string id);
     }
 }

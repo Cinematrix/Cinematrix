@@ -79,5 +79,10 @@ namespace Cinema.Data.Services
             this.screenings.Update(targetScreening);
             this.screenings.SaveChanges();
         }
+
+        public IQueryable<FilmScreening> GetScreeningsByMovieTitle(string title)
+        {
+            return this.screenings.All().Where(s => s.TargetMovie.Name.Contains(title));
+        }
     }
 }

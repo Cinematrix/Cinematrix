@@ -14,6 +14,8 @@ namespace Cinema.Data.Services.Contracts
 
         IQueryable<FilmScreening> GetAllScreeningsByDate(string date);
 
+        IQueryable<FilmScreening> GetScreeningsByMovieTitle(string title);
+
         IQueryable<FilmScreening> GetAllFutureScreenings();
 
         IFilmScreening GetById(int id);

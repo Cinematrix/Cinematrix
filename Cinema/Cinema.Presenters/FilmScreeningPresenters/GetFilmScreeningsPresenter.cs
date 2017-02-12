@@ -3,6 +3,7 @@ using System.Linq;
 using Cinema.Data.Models;
 using Cinema.Data.Models.Contracts;
 using Cinema.Data.Services.Contracts;
+using System;
 
 namespace Cinema.Presenters.FilmScreeningPresenters
 {
@@ -35,6 +36,11 @@ namespace Cinema.Presenters.FilmScreeningPresenters
         public IQueryable<FilmScreening> GetScreeningsByDate(string date)
         {
             return this.screeningService.GetAllScreeningsByDate(date);
+        }
+
+        public IQueryable<FilmScreening> GetScreeningsByMovieTitle(string title)
+        {
+            return this.screeningService.GetScreeningsByMovieTitle(title);
         }
     }
 }
