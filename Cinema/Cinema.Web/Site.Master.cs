@@ -87,6 +87,7 @@ namespace Cinema.Web
             {
                 this.AddFilmScreeningLink.Visible = false;
                 this.AddMovieLink.Visible = false;
+                this.PaymentLink.Visible = false;
                 //this.nav.Style.Add("background-image", "url('https://s-media-cache-ak0.pinimg.com/originals/00/2d/7e/002d7e638fb463fb7a266f5ffc7ac47d.gif')");
                 //this.adminLogo.Visible = false;
             }
