@@ -23,10 +23,11 @@ namespace Cinema.Data.Services
             this.filmScreeningToCreate = filmScreening;
         }
 
-        public void Create(string date, string movieId)
+        public void Create(string date, string movieId, string price)
         {
             this.filmScreeningToCreate.Start = DateTime.Parse(date);
             this.filmScreeningToCreate.TargetMovieId = int.Parse(movieId);
+            this.filmScreeningToCreate.Price = decimal.Parse(price);
             this.filmScreeningToCreate.Seats = new List<Seat>(InitialSeatsCount);
 
             for (int i = 0; i < InitialSeatsCount; i++)
@@ -97,7 +98,6 @@ namespace Cinema.Data.Services
             {
                 return this.screenings.All();
             }
-
         }
     }
 }

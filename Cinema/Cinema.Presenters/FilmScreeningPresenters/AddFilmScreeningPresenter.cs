@@ -27,9 +27,9 @@ namespace Cinema.Presenters.FilmScreeningPresenters
             this.navigationService = navigationService;
         }
 
-        public void CreateFilmScreening(string date, string movieId, Page page)
+        public void CreateFilmScreening(string date, string movieId,string price, Page page)
         {
-            this.screeningService.Create(date, movieId);
+            this.screeningService.Create(date, movieId, price);
 
             this.navigationService.Redirect(page, FilmScreeningsListViewUrl);
         }

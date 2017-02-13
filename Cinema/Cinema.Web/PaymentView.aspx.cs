@@ -73,8 +73,15 @@ namespace Cinema.Web
                 .Seats
                 .ToArray();
 
+            decimal price =
+                this.screenings
+                .Where(s => s.Start.ToString() == this.FilmScreeningsDropDownList.Text)
+                .FirstOrDefault()
+                .Price;
+
             this.SummaryLiteral.Text = "Booked Seats Count: " + seatsCount.ToString() + " ";
             this.SeatsSummaryLiteral.Text = "Seats :";
+            this.TotalPriceLiteral.Text = "Total Price: " + string.Format("{0:C}", (seatsCount * price));
 
             for (int i = 0; i < bookedSeats.Length; i++)
             {

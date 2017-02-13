@@ -22,5 +22,7 @@
         <asp:Literal ID="SummaryLiteral" runat="server"></asp:Literal>
         <br />
         <asp:Literal ID="SeatsSummaryLiteral" runat="server"></asp:Literal>
+        <br />
+        <asp:Literal ID="TotalPriceLiteral" runat="server"></asp:Literal>
     </div>
 </asp:Content>

@@ -22,7 +22,7 @@ namespace Cinema.Web
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
-            this.Presenter.CreateFilmScreening(this.DateInput.Text, this.SelectMovieDropDownList.SelectedItem.Value, this);
+            this.Presenter.CreateFilmScreening(this.DateInput.Text, this.SelectMovieDropDownList.SelectedItem.Value,this.PriceInput.Text, this);
         }
     }
 }

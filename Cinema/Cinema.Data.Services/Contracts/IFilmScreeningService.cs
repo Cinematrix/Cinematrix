@@ -26,6 +26,6 @@ namespace Cinema.Data.Services.Contracts
 
         void DeleteById(int id);
 
-        void Create(string date, string movieId);
+        void Create(string date, string movieId, string price);
     }
 }
