@@ -22,7 +22,9 @@ namespace Cinema.Web
             this.screenings = this.Presenter.GetAllFutureScreenings().ToList();
             this.SummaryLiteral.Text = string.Empty;
             this.SeatsSummaryLiteral.Text = string.Empty;
-
+            this.TicketContainer.Visible = false;
+            this.PrintScreeningLiteral.Text = string.Empty;
+            this.PrintMovieLiteral.Text = string.Empty;
 
             if (!this.Page.IsPostBack)
             {
@@ -93,7 +95,12 @@ namespace Cinema.Web
         }
         protected void PrintButtonClick(object sender, EventArgs e)
         {
-
+            this.PrintScreeningLiteral.Text = "Date: " + this.FilmScreeningsDropDownList.Text;
+            this.PrintMovieLiteral.Text = "Movie: " + this.MovieInfoLiteral.Text;
+            this.PrintCountLiteral.Text = this.SummaryLiteral.Text;
+            this.PrintSeatsSummaryLiteral.Text = this.SeatsSummaryLiteral.Text;
+            this.PrintTotalPriceLiteral.Text = this.TotalPriceLiteral.Text;
+            this.TicketContainer.Visible = true;
         }
     }
 }
