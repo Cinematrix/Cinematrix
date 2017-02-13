@@ -17,11 +17,12 @@ namespace Cinema.Web
 
         public IList<FilmScreening> screenings = new List<FilmScreening>(20);
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_PreLoad(object sender, EventArgs e)
         {
+            this.screenings = this.Presenter.GetAllFutureScreenings().ToList();
+
             if (!this.Page.IsPostBack)
             {
-                this.screenings = this.Presenter.GetAllFutureScreenings().ToList();
                 this.FilmScreeningsDropDownList.DataSource = this.screenings;
                 this.FilmScreeningsDropDownList.DataBind();
 
@@ -32,15 +33,33 @@ namespace Cinema.Web
 
         protected void FilmScreeningsDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.SummaryLiteral.Text = this.UsersDropDownList.SelectedIndex.ToString();//var selectedScreening =
-                                                                                       // this.Presenter.GetAllFutureScreenings().ToList()[this.UsersDropDownList.SelectedIndex].ToString();
-                                                                                       //this.UsersDropDownList.DataSource = selectedScreening.Seats.Select(s => s.User).ToArray();
-                                                                                       //this.UsersDropDownList.DataBind();
+            DropDownList screeningDropDownList = (DropDownList)sender;
+            int index = screeningDropDownList.SelectedIndex;
+
+            this.SummaryLiteral.Text = screeningDropDownList.SelectedIndex.ToString();
+            var selectedScreening =
+            this.Presenter.GetAllFutureScreenings().ToList()[index].Seats.Select(s => s.User).Where(u => u != null).Distinct().ToArray();
+            this.UsersDropDownList.DataSource = selectedScreening;
+            this.UsersDropDownList.DataBind();
         }
 
         protected void PrintButtonClick(object sender, EventArgs e)
         {
 
+        }
+
+        protected void UsersDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int seatsCount =
+                this.screenings
+                .Where(s => s.Start.ToString() == this.FilmScreeningsDropDownList.Text)
+                .FirstOrDefault()
+                .Seats
+                .Where(x => x.User != null && x.User.UserName == this.UsersDropDownList.SelectedItem.Text)
+                .ToList()
+                .Count();
+
+            this.SummaryLiteral.Text = "Booked Seats Count: " + seatsCount.ToString();
         }
     }
 }
