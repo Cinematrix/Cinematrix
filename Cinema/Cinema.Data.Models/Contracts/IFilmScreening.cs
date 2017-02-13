@@ -7,6 +7,8 @@ namespace Cinema.Data.Models.Contracts
     {
         DateTime Start { get; set; }
 
+        decimal Price { get; set; }
+
         int AvailableSeatsCount { get; }
 
         int TargetMovieId { get; set; }

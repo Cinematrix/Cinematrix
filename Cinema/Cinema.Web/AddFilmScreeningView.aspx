@@ -16,6 +16,10 @@
             </asp:UpdatePanel>
         </p>
         <p>
+            <asp:Label ID="PriceLabel" runat="server" Text="Price: "></asp:Label>
+            <asp:TextBox ID="PriceInput" runat="server" TextMode="Number"></asp:TextBox>
+        </p>
+        <p>
             <asp:Button ID="SubmitButton" runat="server" Text="Submit" OnClick="SubmitButton_Click" CssClass="btn btn-success" />
         </p>
     </div>

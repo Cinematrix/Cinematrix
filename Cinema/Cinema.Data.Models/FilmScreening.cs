@@ -16,6 +16,7 @@ namespace Cinema.Data.Models
 
         public DateTime Start { get; set; }
         
+        public decimal Price { get; set; }
 
         public virtual IList<Seat> Seats { get; set; }
 

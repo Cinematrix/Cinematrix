@@ -22,6 +22,15 @@ namespace Cinema.Web {
         protected global::System.Web.UI.WebControls.DropDownList FilmScreeningsDropDownList;
         
         /// <summary>
+        /// MovieInfoLiteral control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal MovieInfoLiteral;
+        
+        /// <summary>
         /// UsersDropDownList control.
         /// </summary>
         /// <remarks>
@@ -38,5 +47,14 @@ namespace Cinema.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal SummaryLiteral;
+        
+        /// <summary>
+        /// SeatsSummaryLiteral control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal SeatsSummaryLiteral;
     }
 }

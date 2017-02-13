@@ -2,22 +2,25 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
-         Film Screening:
-            <asp:DropDownList ID="FilmScreeningsDropDownList" runat="server"  
+        Film Screening:
+            <asp:DropDownList ID="FilmScreeningsDropDownList" runat="server"
                 AutoPostBack="true" DataTextField="Start" OnSelectedIndexChanged="FilmScreeningsDropDownList_SelectedIndexChanged">
             </asp:DropDownList>
-            <br />
+            <asp:Literal ID="MovieInfoLiteral" runat="server"></asp:Literal>
+        <br />
 
-         Users:
-            <asp:DropDownList ID="UsersDropDownList" runat="server" AutoPostBack="true" 
+        Users:
+            <asp:DropDownList ID="UsersDropDownList" runat="server" AutoPostBack="true"
                 ItemType="Cinema.Data.Models.User" DataTextField="UserName" OnSelectedIndexChanged="UsersDropDownList_SelectedIndexChanged">
             </asp:DropDownList>
-            <br /> 
+        <br />
 
-            <asp:Button Text="Print" runat="server" OnClick="PrintButtonClick" CssClass="btn btn-success" />
+        <asp:Button Text="Print" runat="server" OnClick="PrintButtonClick" CssClass="btn btn-success" />
 
-            <br />
+        <br />
 
         <asp:Literal ID="SummaryLiteral" runat="server"></asp:Literal>
+        <br />
+        <asp:Literal ID="SeatsSummaryLiteral" runat="server"></asp:Literal>
     </div>
 </asp:Content>

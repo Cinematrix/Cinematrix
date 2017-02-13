@@ -20,32 +20,40 @@ namespace Cinema.Web
         protected void Page_PreLoad(object sender, EventArgs e)
         {
             this.screenings = this.Presenter.GetAllFutureScreenings().ToList();
+            this.SummaryLiteral.Text = string.Empty;
+            this.SeatsSummaryLiteral.Text = string.Empty;
+
 
             if (!this.Page.IsPostBack)
             {
                 this.FilmScreeningsDropDownList.DataSource = this.screenings;
                 this.FilmScreeningsDropDownList.DataBind();
 
-                this.UsersDropDownList.DataSource = screenings[0].Seats.Select(s => s.User).Where(u => u != null).Distinct().ToArray();
+                this.UsersDropDownList.DataSource = this.screenings[0].Seats.Select(s => s.User).Where(u => u != null).Distinct().ToArray();
                 this.UsersDropDownList.DataBind();
+                this.MovieInfoLiteral.Text = this.screenings[0].TargetMovie.Name;
+                this.UsersDropDownList_SelectedIndexChanged(sender, e);
             }
+
+            this.UsersDropDownList_SelectedIndexChanged(sender, e);
         }
 
         protected void FilmScreeningsDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DropDownList screeningDropDownList = (DropDownList)sender;
-            int index = screeningDropDownList.SelectedIndex;
-
-            this.SummaryLiteral.Text = screeningDropDownList.SelectedIndex.ToString();
             var selectedScreening =
-            this.Presenter.GetAllFutureScreenings().ToList()[index].Seats.Select(s => s.User).Where(u => u != null).Distinct().ToArray();
+                 this.screenings
+                 .Where(x => x.Start.ToString() == this.FilmScreeningsDropDownList.Text)
+                 .FirstOrDefault()
+                 .Seats
+                 .Select(s => s.User)
+                 .Where(u => u != null)
+                 .Distinct()
+                 .ToArray();
+
+            this.MovieInfoLiteral.Text = this.screenings.Where(x => x.Start.ToString() == this.FilmScreeningsDropDownList.Text).FirstOrDefault().TargetMovie.Name;
             this.UsersDropDownList.DataSource = selectedScreening;
             this.UsersDropDownList.DataBind();
-        }
-
-        protected void PrintButtonClick(object sender, EventArgs e)
-        {
-
+            this.UsersDropDownList_SelectedIndexChanged(sender, e);
         }
 
         protected void UsersDropDownList_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,11 +63,30 @@ namespace Cinema.Web
                 .Where(s => s.Start.ToString() == this.FilmScreeningsDropDownList.Text)
                 .FirstOrDefault()
                 .Seats
-                .Where(x => x.User != null && x.User.UserName == this.UsersDropDownList.SelectedItem.Text)
-                .ToList()
+                .Where(x => x.User != null && x.User.UserName == this.UsersDropDownList.Text)
                 .Count();
 
-            this.SummaryLiteral.Text = "Booked Seats Count: " + seatsCount.ToString();
+            var bookedSeats =
+                 this.screenings
+                .Where(s => s.Start.ToString() == this.FilmScreeningsDropDownList.Text)
+                .FirstOrDefault()
+                .Seats
+                .ToArray();
+
+            this.SummaryLiteral.Text = "Booked Seats Count: " + seatsCount.ToString() + " ";
+            this.SeatsSummaryLiteral.Text = "Seats :";
+
+            for (int i = 0; i < bookedSeats.Length; i++)
+            {
+                if (bookedSeats[i].User != null && bookedSeats[i].User.UserName == this.UsersDropDownList.Text)
+                {
+                    this.SeatsSummaryLiteral.Text += " Seat" + (i + 1).ToString();
+                }
+            }
+        }
+        protected void PrintButtonClick(object sender, EventArgs e)
+        {
+
         }
     }
 }
