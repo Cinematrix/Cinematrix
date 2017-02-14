@@ -89,22 +89,21 @@ namespace Cinema.Web
                 this.AddMovieLink.Visible = false;
                 this.PaymentLink.Visible = false;
                 this.RolesLink.Visible = false;
-                //this.nav.Style.Add("background-image", "url('https://s-media-cache-ak0.pinimg.com/originals/00/2d/7e/002d7e638fb463fb7a266f5ffc7ac47d.gif')");
-                //this.adminLogo.Visible = false;
+
+                if (this.Page.User.IsInRole("casher"))
+                {
+                    this.PaymentLink.Visible = true;
+                }
             }
             else
             {
                 this.AddFilmScreeningLink.Visible = true;
                 this.AddMovieLink.Visible = true;
-                // this.adminLogo.Visible = true;
+
                 this.nav.Style.Add("background-image", "url('http://www.harter.aero/images/banner_admin.png')");
-                // this.foot.Style.Add("background-image", "url('http://www.harter.aero/images/banner_admin.png')");
                 this.nav.Style.Add("background-size", "30% 100%;");
-                // this.foot.Style.Add("background-size", "30% 100%;");
                 this.nav.Style.Add("background-position", "75% 50%");
-                // this.foot.Style.Add("background-position", "70% 50%");
                 this.nav.Style.Add("background-repeat", "no-repeat");
-                // this.foot.Style.Add("background-repeat", "no-repeat");
             }
         }
 
