@@ -29,6 +29,7 @@ namespace Cinema.Web.Account
             {
                 dbContext.Roles.Add(new IdentityRole("admin"));
                 dbContext.Roles.Add(new IdentityRole("user"));
+                dbContext.Roles.Add(new IdentityRole("casher"));
                 dbContext.SaveChanges();
             }
 

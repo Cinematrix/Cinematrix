@@ -70,6 +70,7 @@ namespace Cinema.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind(typeof(ICinemaDbContext)).To(typeof(CinemaDbContext));
+            kernel.Bind(typeof(CinemaDbContext)).ToSelf();
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
             kernel.Bind(typeof(IAddMovieView)).To(typeof(AddMovieView));
             kernel.Bind(typeof(IMovieListView)).To(typeof(MoviesListView));
