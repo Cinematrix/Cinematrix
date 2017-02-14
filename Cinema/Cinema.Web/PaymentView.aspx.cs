@@ -30,11 +30,13 @@ namespace Cinema.Web
             {
                 this.FilmScreeningsDropDownList.DataSource = this.screenings;
                 this.FilmScreeningsDropDownList.DataBind();
-
-                this.UsersDropDownList.DataSource = this.screenings[0].Seats.Select(s => s.User).Where(u => u != null).Distinct().ToArray();
-                this.UsersDropDownList.DataBind();
-                this.MovieInfoLiteral.Text = this.screenings[0].TargetMovie.Name;
-                this.UsersDropDownList_SelectedIndexChanged(sender, e);
+                if (this.screenings.Count > 0)
+                {
+                    this.UsersDropDownList.DataSource = this.screenings[0].Seats.Select(s => s.User).Where(u => u != null).Distinct().ToArray();
+                    this.UsersDropDownList.DataBind();
+                    this.MovieInfoLiteral.Text = this.screenings[0].TargetMovie.Name;
+                    this.UsersDropDownList_SelectedIndexChanged(sender, e);
+                }
             }
 
             this.UsersDropDownList_SelectedIndexChanged(sender, e);
@@ -60,36 +62,40 @@ namespace Cinema.Web
 
         protected void UsersDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int seatsCount =
-                this.screenings
-                .Where(s => s.Start.ToString() == this.FilmScreeningsDropDownList.Text)
-                .FirstOrDefault()
-                .Seats
-                .Where(x => x.User != null && x.User.UserName == this.UsersDropDownList.Text)
-                .Count();
-
-            var bookedSeats =
-                 this.screenings
-                .Where(s => s.Start.ToString() == this.FilmScreeningsDropDownList.Text)
-                .FirstOrDefault()
-                .Seats
-                .ToArray();
-
-            decimal price =
-                this.screenings
-                .Where(s => s.Start.ToString() == this.FilmScreeningsDropDownList.Text)
-                .FirstOrDefault()
-                .Price;
-
-            this.SummaryLiteral.Text = "Booked Seats Count: " + seatsCount.ToString() + " ";
-            this.SeatsSummaryLiteral.Text = "Seats :";
-            this.TotalPriceLiteral.Text = "Total Price: " + string.Format("{0:C}", (seatsCount * price));
-
-            for (int i = 0; i < bookedSeats.Length; i++)
+            if (this.screenings.Count > 0)
             {
-                if (bookedSeats[i].User != null && bookedSeats[i].User.UserName == this.UsersDropDownList.Text)
+
+                int seatsCount =
+                    this.screenings
+                    .Where(s => s.Start.ToString() == this.FilmScreeningsDropDownList.Text)
+                    .FirstOrDefault()
+                    .Seats
+                    .Where(x => x.User != null && x.User.UserName == this.UsersDropDownList.Text)
+                    .Count();
+
+                var bookedSeats =
+                     this.screenings
+                    .Where(s => s.Start.ToString() == this.FilmScreeningsDropDownList.Text)
+                    .FirstOrDefault()
+                    .Seats
+                    .ToArray();
+
+                decimal price =
+                    this.screenings
+                    .Where(s => s.Start.ToString() == this.FilmScreeningsDropDownList.Text)
+                    .FirstOrDefault()
+                    .Price;
+
+                this.SummaryLiteral.Text = "Booked Seats Count: " + seatsCount.ToString() + " ";
+                this.SeatsSummaryLiteral.Text = "Seats :";
+                this.TotalPriceLiteral.Text = "Total Price: " + string.Format("{0:C}", (seatsCount * price));
+
+                for (int i = 0; i < bookedSeats.Length; i++)
                 {
-                    this.SeatsSummaryLiteral.Text += " Seat" + (i + 1).ToString();
+                    if (bookedSeats[i].User != null && bookedSeats[i].User.UserName == this.UsersDropDownList.Text)
+                    {
+                        this.SeatsSummaryLiteral.Text += " Seat" + (i + 1).ToString();
+                    }
                 }
             }
         }
