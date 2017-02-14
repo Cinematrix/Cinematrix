@@ -57,6 +57,7 @@
                     <li id="AddMovieLink" runat="server"><a runat="server" href="~/AddMovieView">Add Movie</a></li>
                     <li id="AddFilmScreeningLink" runat="server"><a runat="server" href="~/AddFilmScreeningView">Add Film Screening</a></li>
                     <li id="PaymentLink" runat="server"><a runat="server" href="~/PaymentView">Payment</a></li>
+                    <li id="RolesLink" runat="server"><a runat="server" href="~/RolesManagement">Manage Roles</a></li>
                     <%--<li id="adminLogo" runat="server"><a style="color: cyan">admin*</a></li>--%>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

@@ -207,6 +207,7 @@
     <Content Include="MovieDetailsView.aspx" />
     <Content Include="MoviesListView.aspx" />
     <Content Include="PaymentView.aspx" />
+    <Content Include="RolesManagement.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -443,6 +444,13 @@
       <DependentUpon>PaymentView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RolesManagement.aspx.cs">
+      <DependentUpon>RolesManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RolesManagement.aspx.designer.cs">
+      <DependentUpon>RolesManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
