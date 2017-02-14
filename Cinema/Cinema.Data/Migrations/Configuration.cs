@@ -15,24 +15,32 @@ namespace Cinema.Data.Migrations
 
         protected override void Seed(Cinema.Data.CinemaDbContext context)
         {
-            if (context.Roles.Count() == 0)
-            {
-                context.Roles.Add(new IdentityRole("admin"));
-                context.Roles.Add(new IdentityRole("user"));
-                context.SaveChanges();
-            }
+            //if (context.Roles.Count() == 0)
+            //{
+            //    context.Roles.Add(new IdentityRole("admin"));
+            //    context.Roles.Add(new IdentityRole("user"));
+            //    context.SaveChanges();
+            //}
 
-            var adminRole = new IdentityUserRole();
-            adminRole.RoleId = context.Roles.FirstOrDefault(r => r.Name == "admin").Id;
-            context.SaveChanges();
+            //var adminRole = new IdentityUserRole();
+            //adminRole.RoleId = context.Roles.FirstOrDefault(r => r.Name == "admin").Id;
+            //context.SaveChanges();
 
-            var adminUser = context.Users.First(u => u.UserName == "Iliyan");
-            if (adminUser != null)
-            {
-                adminUser.Roles.Clear();
-                adminUser.Roles.Add(adminRole);
-                context.SaveChanges();
-            }
+            //var userRole = new IdentityUserRole();
+            //userRole.RoleId = context.Roles.FirstOrDefault(r => r.Name == "user").Id;
+            //context.SaveChanges();
+
+            //var adminUser = context.Users.First(u => u.UserName == "Iliyan");
+            //var regularUser = context.Users.First(x => x.UserName == "Georgi");
+
+            //if (adminUser != null && regularUser != null)
+            //{
+            //    regularUser.Roles.Add(userRole);
+            //    context.SaveChanges();
+            //    adminUser.Roles.Clear();
+            //    adminUser.Roles.Add(adminRole);
+            //    context.SaveChanges();
+            //}
         }
     }
 }
