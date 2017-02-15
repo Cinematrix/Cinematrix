@@ -4,7 +4,6 @@ using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -15,7 +14,7 @@ namespace Cinema.Web
         [Inject]
         public IPaymentPresenter Presenter { get; set; }
 
-        public IList<FilmScreening> screenings = new List<FilmScreening>(20);
+        public IList<FilmScreening> screenings = new List<FilmScreening>();
 
         protected void Page_PreLoad(object sender, EventArgs e)
         {
@@ -30,10 +29,13 @@ namespace Cinema.Web
             {
                 this.FilmScreeningsDropDownList.DataSource = this.screenings;
                 this.FilmScreeningsDropDownList.DataBind();
+
                 if (this.screenings.Count > 0)
                 {
-                    this.UsersDropDownList.DataSource = this.screenings[0].Seats.Select(s => s.User).Where(u => u != null).Distinct().ToArray();
+                    this.UsersDropDownList.DataSource = 
+                        this.Presenter.GetUniqueBookersByScreeningId(this.FilmScreeningsDropDownList.Text);
                     this.UsersDropDownList.DataBind();
+
                     this.MovieInfoLiteral.Text = this.screenings[0].TargetMovie.Name;
                     this.UsersDropDownList_SelectedIndexChanged(sender, e);
                 }
@@ -44,18 +46,11 @@ namespace Cinema.Web
 
         protected void FilmScreeningsDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedScreening =
-                 this.screenings
-                 .Where(x => x.Start.ToString() == this.FilmScreeningsDropDownList.Text)
-                 .FirstOrDefault()
-                 .Seats
-                 .Select(s => s.User)
-                 .Where(u => u != null)
-                 .Distinct()
-                 .ToArray();
+            var bookers = this.Presenter.GetUniqueBookersByScreeningId(this.FilmScreeningsDropDownList.Text);
 
-            this.MovieInfoLiteral.Text = this.screenings.Where(x => x.Start.ToString() == this.FilmScreeningsDropDownList.Text).FirstOrDefault().TargetMovie.Name;
-            this.UsersDropDownList.DataSource = selectedScreening;
+            this.MovieInfoLiteral.Text =
+                this.Presenter.GetMovieTitleByScreeningId(this.FilmScreeningsDropDownList.Text);
+            this.UsersDropDownList.DataSource = bookers;
             this.UsersDropDownList.DataBind();
             this.UsersDropDownList_SelectedIndexChanged(sender, e);
         }
@@ -67,7 +62,7 @@ namespace Cinema.Web
 
                 int seatsCount =
                     this.screenings
-                    .Where(s => s.Start.ToString() == this.FilmScreeningsDropDownList.Text)
+                    .Where(s => s.Id == int.Parse(this.FilmScreeningsDropDownList.Text))
                     .FirstOrDefault()
                     .Seats
                     .Where(x => x.User != null && x.User.UserName == this.UsersDropDownList.Text)
@@ -75,14 +70,14 @@ namespace Cinema.Web
 
                 var bookedSeats =
                      this.screenings
-                    .Where(s => s.Start.ToString() == this.FilmScreeningsDropDownList.Text)
+                    .Where(s => s.Id == int.Parse(this.FilmScreeningsDropDownList.Text))
                     .FirstOrDefault()
                     .Seats
                     .ToArray();
 
                 decimal price =
                     this.screenings
-                    .Where(s => s.Start.ToString() == this.FilmScreeningsDropDownList.Text)
+                    .Where(s => s.Id == int.Parse(this.FilmScreeningsDropDownList.Text))
                     .FirstOrDefault()
                     .Price;
 
@@ -101,7 +96,7 @@ namespace Cinema.Web
         }
         protected void PrintButtonClick(object sender, EventArgs e)
         {
-            this.PrintScreeningLiteral.Text = "Date: " + this.FilmScreeningsDropDownList.Text;
+            this.PrintScreeningLiteral.Text = "Date: " + this.FilmScreeningsDropDownList.SelectedItem.Text;
             this.PrintMovieLiteral.Text = "Movie: " + this.MovieInfoLiteral.Text;
             this.PrintCountLiteral.Text = this.SummaryLiteral.Text;
             this.PrintSeatsSummaryLiteral.Text = this.SeatsSummaryLiteral.Text;

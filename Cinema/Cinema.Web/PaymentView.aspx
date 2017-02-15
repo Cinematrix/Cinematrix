@@ -4,7 +4,7 @@
     <div class="jumbotron" style="background-color: rgba(255, 255, 255, 0.8)">
         Film Screening:
             <asp:DropDownList ID="FilmScreeningsDropDownList" runat="server"
-                AutoPostBack="true" DataTextField="Start" OnSelectedIndexChanged="FilmScreeningsDropDownList_SelectedIndexChanged">
+                AutoPostBack="true" DataTextField="Start" DataValueField="Id" OnSelectedIndexChanged="FilmScreeningsDropDownList_SelectedIndexChanged">
             </asp:DropDownList>
         <asp:Literal ID="MovieInfoLiteral" runat="server"></asp:Literal>
         <br />

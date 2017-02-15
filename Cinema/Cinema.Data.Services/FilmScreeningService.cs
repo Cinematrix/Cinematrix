@@ -4,6 +4,7 @@ using Cinema.Data.Repositories;
 using Cinema.Data.Services.Contracts;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace Cinema.Data.Services
@@ -98,6 +99,23 @@ namespace Cinema.Data.Services
             {
                 return this.screenings.All();
             }
+        }
+
+        public IEnumerable<User> GetUniqueBookersFromScreeningById(string id)
+        {
+            int parsedId;
+            int.TryParse(id, out parsedId);
+            var targetScreening = this.screenings.GetById(parsedId);
+
+            return targetScreening.Seats.Select(s => s.User).Where(u => u != null).Distinct();
+        }
+
+        public string GetMovieTitleByScreeningId(string id)
+        {
+            int parsedId;
+            int.TryParse(id, out parsedId);
+
+            return this.screenings.GetById(parsedId).TargetMovie.Name;
         }
     }
 }

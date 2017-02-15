@@ -1,4 +1,5 @@
 ﻿using Cinema.Data.Models;
+using Cinema.Data.Models.Contracts;
 using Cinema.Data.Services.Contracts;
 using Cinema.Presenters.Contracts;
 using System;
@@ -21,6 +22,16 @@ namespace Cinema.Presenters.PaymentPresenters
         public IQueryable<FilmScreening> GetAllFutureScreenings()
         {
             return this.screeningService.GetAllFutureScreenings();
+        }
+
+        public IEnumerable<User> GetUniqueBookersByScreeningId(string id)
+        {
+            return this.screeningService.GetUniqueBookersFromScreeningById(id);
+        }
+
+        public string GetMovieTitleByScreeningId(string id)
+        {
+            return this.screeningService.GetMovieTitleByScreeningId(id);
         }
     }
 }

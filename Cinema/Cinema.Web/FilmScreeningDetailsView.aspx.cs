@@ -78,7 +78,7 @@ namespace Cinema.Web
             {
                 clickedButton.BackColor = System.Drawing.Color.White;
                 clickedSeat.IsFree = true;
-                clickedSeat.UserId = User.Identity.GetUserId();
+                clickedSeat.UserId = null;
 
                 this.Presenter.UpdateScreening(queryId, (FilmScreening)this.FilmScreening);
             }
