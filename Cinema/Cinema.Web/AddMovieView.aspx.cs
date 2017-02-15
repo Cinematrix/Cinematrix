@@ -16,11 +16,11 @@ namespace Cinema.Web
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
-            this.Movie.Name = this.TitleInput.Text;
+            this.Movie.Name = Server.HtmlEncode(this.TitleInput.Text);
             this.Movie.ImageUrl = this.ImageUrlInput.Text;
-            this.Movie.Info = this.InfoInput.Text;
-            this.Movie.Genre = this.GenreInput.Text;
-            this.Movie.Director = this.DirectorInput.Text;
+            this.Movie.Info = Server.HtmlEncode(this.InfoInput.Text);
+            this.Movie.Genre = Server.HtmlEncode(this.GenreInput.Text);
+            this.Movie.Director = Server.HtmlEncode(this.DirectorInput.Text);
             this.Movie.LengthInMinutes = int.Parse(this.LengthInput.Text);
 
             this.Presenter.CreateMovie(this.Movie, this);

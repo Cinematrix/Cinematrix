@@ -6,6 +6,11 @@
         <p>
             <asp:Label ID="DateLabel" runat="server" Text="Start: "></asp:Label>
             <asp:TextBox ID="DateInput" runat="server" TextMode="DateTimeLocal"></asp:TextBox>
+            <asp:RequiredFieldValidator
+                ID="RequiredFieldValidatorDateInput"
+                runat="server" ForeColor="Red" Display="Dynamic"
+                ErrorMessage="Date and time is required!"
+                ControlToValidate="DateInput" />
         </p>
         <p>
             <asp:UpdatePanel runat="server">
@@ -18,6 +23,11 @@
         <p>
             <asp:Label ID="PriceLabel" runat="server" Text="Price: "></asp:Label>
             <asp:TextBox ID="PriceInput" runat="server" TextMode="Number"></asp:TextBox>
+            <asp:RequiredFieldValidator
+                ID="RequiredFieldValidatorPriceInput"
+                runat="server" ForeColor="Red" Display="Dynamic"
+                ErrorMessage="Price is required!"
+                ControlToValidate="PriceInput" />
         </p>
         <p>
             <asp:Button ID="SubmitButton" runat="server" Text="Submit" OnClick="SubmitButton_Click" CssClass="btn btn-success" />

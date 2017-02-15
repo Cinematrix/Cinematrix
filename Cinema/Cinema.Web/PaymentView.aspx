@@ -8,7 +8,6 @@
             </asp:DropDownList>
         <asp:Literal ID="MovieInfoLiteral" runat="server"></asp:Literal>
         <br />
-
         Users:
             <asp:DropDownList ID="UsersDropDownList" runat="server" AutoPostBack="true"
                 ItemType="Cinema.Data.Models.User" DataTextField="UserName" OnSelectedIndexChanged="UsersDropDownList_SelectedIndexChanged">
