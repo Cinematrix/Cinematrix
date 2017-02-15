@@ -18,23 +18,25 @@ namespace Cinema.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.UsersDropdown.DataSource =
-                context.Users
-                .Where(u => u.UserName != Page.User.Identity.Name)
-                .Select(u => u.UserName)
-                .ToArray();
+            if (!Page.IsPostBack)
+            {
+                this.UsersDropdown.DataSource =
+                                context.Users
+                                .Where(u => u.UserName != Page.User.Identity.Name)
+                                .ToArray();
 
-            this.UsersDropdown.DataBind();
+                this.UsersDropdown.DataBind();
+            }
         }
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
-            var adminRole = new IdentityUserRole();
-            adminRole.RoleId = this.context.Roles.FirstOrDefault(x => x.Name == "admin").Id;
+            var userRole = new IdentityUserRole();
+            userRole.RoleId = this.context.Roles.FirstOrDefault(x => x.Name == "user").Id;
 
-            var targetUser = this.context.Users.Where(u => u.UserName == this.UsersDropdown.Text).FirstOrDefault();
+            var targetUser = this.context.Users.Where(u => u.UserName == this.UsersDropdown.SelectedItem.Text).First();
             targetUser.Roles.Clear();
-            targetUser.Roles.Add(adminRole);
+            targetUser.Roles.Add(userRole);
             this.context.SaveChanges();
         }
 
@@ -44,7 +46,7 @@ namespace Cinema.Web
 
             casherRole.RoleId = this.context.Roles.FirstOrDefault(r => r.Name == "casher").Id;
 
-            var targetUser = this.context.Users.Where(u => u.UserName == this.UsersDropdown.Text).FirstOrDefault();
+            var targetUser = this.context.Users.Where(u => u.UserName == this.UsersDropdown.SelectedItem.Text).First();
             targetUser.Roles.Clear();
             targetUser.Roles.Add(casherRole);
             this.context.SaveChanges();

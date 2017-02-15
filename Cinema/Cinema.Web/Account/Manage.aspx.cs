@@ -140,8 +140,7 @@ namespace Cinema.Web.Account
             {
                 try
                 {
-                    if (FileUploadControl.PostedFile.ContentType == "image/jpeg"
-                        || FileUploadControl.PostedFile.ContentType == "image/png")
+                    if (FileUploadControl.PostedFile.ContentType == "image/jpeg")
                     {
                         if (FileUploadControl.PostedFile.ContentLength < (5 * 1048576))
                         {
@@ -149,7 +148,7 @@ namespace Cinema.Web.Account
                             extension = Path.GetExtension(FileUploadControl.FileName);
                             if (File.Exists(Server.MapPath("~/UploadedFiles/") + filename + extension))
                             {
-                                File.Delete("~/UploadedFiles/" + filename + extension);
+                                File.Delete(Server.MapPath("~/UploadedFiles/") + filename + extension);
                             }
 
                             FileUploadControl.SaveAs(Server.MapPath("~/UploadedFiles/") + filename + extension);
@@ -160,7 +159,7 @@ namespace Cinema.Web.Account
                             StatusLabel.Text = "Upload status: The file has to be less than 5 MB!";
                     }
                     else
-                        StatusLabel.Text = "Upload status: Only JPEG and PNG files are accepted!";
+                        StatusLabel.Text = "Upload status: Only JPEG files are accepted!";
                 }
                 catch (Exception ex)
                 {

@@ -36,7 +36,7 @@
                     </dd>
                     <dt>Preview:</dt>
                     <dd>
-                        <asp:Image ID="PreviewImage" runat="server" Width="200" />
+                        <asp:Image ID="PreviewImage" runat="server" Width="200" ViewStateMode="Disabled" />
                     </dd>
                     <%--
                         Phone Numbers can used as a second factor of verification in a two-factor authentication system.

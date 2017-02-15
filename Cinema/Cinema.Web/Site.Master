@@ -62,7 +62,9 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <asp:Image ImageUrl="https://openclipart.org/image/800px/svg_to_png/212408/rodentia-icons_preferences-desktop-personal.png" ID="ProfilePicture" runat="server" Width="38" CssClass="img-circle" />
+                        <p>
+                            <asp:Image ImageUrl="https://openclipart.org/image/800px/svg_to_png/212408/rodentia-icons_preferences-desktop-personal.png" ID="ProfilePicture" runat="server" Width="35" CssClass="glyphicon img-circle" />
+                        </p>
                     </li>
                 </ul>
                 <asp:LoginView runat="server" ViewStateMode="Disabled">
