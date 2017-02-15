@@ -61,10 +61,12 @@
     <Compile Include="Contracts\IFilmScreeningService.cs" />
     <Compile Include="Contracts\IMoviesService.cs" />
     <Compile Include="Contracts\INavigationService.cs" />
+    <Compile Include="Contracts\ISeatService.cs" />
     <Compile Include="FilmScreeningService.cs" />
     <Compile Include="MoviesService.cs" />
     <Compile Include="NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeatService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

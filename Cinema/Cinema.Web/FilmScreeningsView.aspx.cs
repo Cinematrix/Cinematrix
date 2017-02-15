@@ -1,7 +1,6 @@
 ﻿using Cinema.Presenters.Contracts;
 using Ninject;
 using System;
-using System.Globalization;
 using System.Linq;
 
 namespace Cinema.Web

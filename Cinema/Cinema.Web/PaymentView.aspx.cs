@@ -1,8 +1,6 @@
-﻿using Cinema.Data.Models;
-using Cinema.Presenters.Contracts;
+﻿using Cinema.Presenters.Contracts;
 using Ninject;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -14,11 +12,11 @@ namespace Cinema.Web
         [Inject]
         public IPaymentPresenter Presenter { get; set; }
 
-        public IList<FilmScreening> screenings = new List<FilmScreening>();
+        private int screenigsCount;
 
         protected void Page_PreLoad(object sender, EventArgs e)
         {
-            this.screenings = this.Presenter.GetAllFutureScreenings().ToList();
+            this.screenigsCount = this.Presenter.GetAllFutureScreenings().Count();
             this.SummaryLiteral.Text = string.Empty;
             this.SeatsSummaryLiteral.Text = string.Empty;
             this.TicketContainer.Visible = false;
@@ -27,16 +25,17 @@ namespace Cinema.Web
 
             if (!this.Page.IsPostBack)
             {
-                this.FilmScreeningsDropDownList.DataSource = this.screenings;
+                this.FilmScreeningsDropDownList.DataSource = this.Presenter.GetAllFutureScreenings().ToList();
                 this.FilmScreeningsDropDownList.DataBind();
 
-                if (this.screenings.Count > 0)
+                if (this.screenigsCount > 0)
                 {
-                    this.UsersDropDownList.DataSource = 
+                    this.UsersDropDownList.DataSource =
                         this.Presenter.GetUniqueBookersByScreeningId(this.FilmScreeningsDropDownList.Text);
                     this.UsersDropDownList.DataBind();
 
-                    this.MovieInfoLiteral.Text = this.screenings[0].TargetMovie.Name;
+                    this.MovieInfoLiteral.Text =
+                        this.Presenter.GetMovieTitleByScreeningId(this.FilmScreeningsDropDownList.Text);
                     this.UsersDropDownList_SelectedIndexChanged(sender, e);
                 }
             }
@@ -57,43 +56,21 @@ namespace Cinema.Web
 
         protected void UsersDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.screenings.Count > 0)
+            if (this.screenigsCount > 0)
             {
-
                 int seatsCount =
-                    this.screenings
-                    .Where(s => s.Id == int.Parse(this.FilmScreeningsDropDownList.Text))
-                    .FirstOrDefault()
-                    .Seats
-                    .Where(x => x.User != null && x.User.UserName == this.UsersDropDownList.Text)
-                    .Count();
+                    this.Presenter.GetUserBookedSeatsCountByScreeningId(this.UsersDropDownList.Text, this.FilmScreeningsDropDownList.Text);
 
-                var bookedSeats =
-                     this.screenings
-                    .Where(s => s.Id == int.Parse(this.FilmScreeningsDropDownList.Text))
-                    .FirstOrDefault()
-                    .Seats
-                    .ToArray();
+                this.SeatsSummaryLiteral.Text =
+                    this.Presenter.GetBookedSeatsAsString(this.UsersDropDownList.Text, this.FilmScreeningsDropDownList.Text);
 
-                decimal price =
-                    this.screenings
-                    .Where(s => s.Id == int.Parse(this.FilmScreeningsDropDownList.Text))
-                    .FirstOrDefault()
-                    .Price;
+                this.SummaryLiteral.Text = "Booked Seats Count: " + seatsCount.ToString();
 
-                this.SummaryLiteral.Text = "Booked Seats Count: " + seatsCount.ToString() + " ";
-                this.SeatsSummaryLiteral.Text = "Seats :";
-                this.TotalPriceLiteral.Text = "Total Price: " + string.Format("{0:C}", (seatsCount * price));
-
-                for (int i = 0; i < bookedSeats.Length; i++)
-                {
-                    if (bookedSeats[i].User != null && bookedSeats[i].User.UserName == this.UsersDropDownList.Text)
-                    {
-                        this.SeatsSummaryLiteral.Text += " Seat" + (i + 1).ToString();
-                    }
-                }
+                this.TotalPriceLiteral.Text =
+                    this.Presenter.GetPrice(this.UsersDropDownList.Text, this.FilmScreeningsDropDownList.Text);
             }
         }
+
         protected void PrintButtonClick(object sender, EventArgs e)
         {
             this.PrintScreeningLiteral.Text = "Date: " + this.FilmScreeningsDropDownList.SelectedItem.Text;

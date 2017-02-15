@@ -1,9 +1,6 @@
 ﻿using Cinema.Data.Services.Contracts;
 using Cinema.Presenters.Contracts;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using Cinema.Data.Models.Contracts;
 using Cinema.Data.Models;
 using System.Web.UI;
 

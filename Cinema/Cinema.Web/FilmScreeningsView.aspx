@@ -28,19 +28,26 @@
                         <img src='<%#: Item.TargetMovie.ImageUrl %>' alt='<%#: Item.TargetMovie.Name %>' style="width: 200px" />
                     </div>
                     <div style="max-height: 300px; width: 75%; display: inline-block; text-align: center; margin-left: 50px">
-                        <h2><%#:String.Format("{0:f}", Item.Start) %></h2>
+                        <p><strong><%#:String.Format("{0:f}", Item.Start) %></strong></p>
+
                         <p>Movie: </p>
                         <strong><%#: Item.TargetMovie.Name %></strong>
 
-                        <p>Available Seats: </p>
-                        <strong><%#: Item.AvailableSeatsCount %></strong>
+                        <p>Price: 
+                        <strong><%#: String.Format("{0:C}", Item.Price) %></strong></p>
 
-                        <p>Duration:</p>
-                        <strong><%#: Item.TargetMovie.LengthInMinutes %> min.</strong>
+                        <p>Available Seats:
+                        <strong><%#: Item.AvailableSeatsCount %></strong> </p>
+
+                        <p>Duration:
+                        <strong><%#: Item.TargetMovie.LengthInMinutes %> min.</strong></p>
+                        <p>
+                            <a href='FilmScreeningDetailsView.aspx?id=<%#: Item.Id %>'>Book seats</a>
+                        </p>
                     </div>
 
                     <div>
-                        <a href='FilmScreeningDetailsView.aspx?id=<%#: Item.Id %>'>Book seats</a>
+                        
                     </div>
                 </div>
             </ItemTemplate>

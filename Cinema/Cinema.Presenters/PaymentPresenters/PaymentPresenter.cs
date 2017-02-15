@@ -13,10 +13,12 @@ namespace Cinema.Presenters.PaymentPresenters
     public class PaymentPresenter : IPaymentPresenter
     {
         private readonly IFilmScreeningService screeningService;
+        private readonly ISeatService seatService;
 
-        public PaymentPresenter(IFilmScreeningService screeningService)
+        public PaymentPresenter(IFilmScreeningService screeningService, ISeatService seatService)
         {
             this.screeningService = screeningService;
+            this.seatService = seatService;
         }
 
         public IQueryable<FilmScreening> GetAllFutureScreenings()
@@ -32,6 +34,21 @@ namespace Cinema.Presenters.PaymentPresenters
         public string GetMovieTitleByScreeningId(string id)
         {
             return this.screeningService.GetMovieTitleByScreeningId(id);
+        }
+
+        public int GetUserBookedSeatsCountByScreeningId(string userName, string filmScreeningId)
+        {
+            return this.seatService.GetUserBookedSeatsCountByScreeningId(userName, filmScreeningId);
+        }
+
+        public string GetBookedSeatsAsString(string userName, string filmScreeningId)
+        {
+            return this.seatService.GetBookedSeatsAsString(userName, filmScreeningId);
+        }
+
+        public string GetPrice(string userName, string filmScreeningId)
+        {
+            return this.seatService.GetPrice(userName, filmScreeningId);
         }
     }
 }
