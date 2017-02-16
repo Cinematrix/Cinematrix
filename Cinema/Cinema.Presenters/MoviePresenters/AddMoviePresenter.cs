@@ -1,4 +1,5 @@
-﻿using Cinema.Data.Models;
+﻿using Bytes2you.Validation;
+using Cinema.Data.Models;
 using Cinema.Data.Models.Contracts;
 using Cinema.Data.Services.Contracts;
 using Cinema.Presenters.Contracts;
@@ -15,6 +16,8 @@ namespace Cinema.Presenters.MoviePresenters
 
         public AddMoviePresenter(IMoviesService moviesService, INavigationService navigationService)
         {
+            Guard.WhenArgument(moviesService, "moviesService").IsNull().Throw();
+            Guard.WhenArgument(navigationService, "navigationService").IsNull().Throw();
             this.moviesService = moviesService;
             this.navigationService = navigationService;
         }
