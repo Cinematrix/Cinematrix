@@ -43,9 +43,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PresentersTests\MoviePresenters\AddMoviePresenter\ConstructorShould.cs" />
+    <Compile Include="PresentersTests\MoviePresenters\AddMoviePresenter\CreateMovieShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +69,10 @@
     <ProjectReference Include="..\Cinema.Presenters\Cinema.Presenters.csproj">
       <Project>{fb5ad13e-4086-4240-b8b3-10935b6cf226}</Project>
       <Name>Cinema.Presenters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cinema.Web\Cinema.Web.csproj">
+      <Project>{c6e685be-4813-4e44-8753-01be3c585df9}</Project>
+      <Name>Cinema.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

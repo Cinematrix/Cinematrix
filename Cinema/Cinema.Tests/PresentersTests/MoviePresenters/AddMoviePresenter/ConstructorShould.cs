@@ -2,8 +2,6 @@
 using NUnit.Framework;
 using Moq;
 using Cinema.Data.Services.Contracts;
-using Cinema.Presenters.MoviePresenters;
-using Cinema.Presenters.Contracts;
 
 namespace Cinema.Tests.PresentersTests.MoviePresenters.AddMoviePresenter
 {
