@@ -3,6 +3,7 @@ using Cinema.Presenters.Contracts;
 using System.Linq;
 using Cinema.Data.Models;
 using System.Web.UI;
+using Bytes2you.Validation;
 
 namespace Cinema.Presenters.FilmScreeningPresenters
 {
@@ -19,12 +20,16 @@ namespace Cinema.Presenters.FilmScreeningPresenters
             IMoviesService moviesService,
             INavigationService navigationService)
         {
+            Guard.WhenArgument(screeningService, "screeningService").IsNull().Throw();
+            Guard.WhenArgument(moviesService, "moviesService").IsNull().Throw();
+            Guard.WhenArgument(navigationService, "navigationService").IsNull().Throw();
+
             this.screeningService = screeningService;
             this.moviesService = moviesService;
             this.navigationService = navigationService;
         }
 
-        public void CreateFilmScreening(string date, string movieId,string price, Page page)
+        public void CreateFilmScreening(string date, string movieId, string price, Page page)
         {
             this.screeningService.Create(date, movieId, price);
 
