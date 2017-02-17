@@ -50,6 +50,7 @@
     <Compile Include="PresentersTests\FilmScreeningPresenters\AddFilmScreeningPresenter\CreateFilmScreeningShould.cs" />
     <Compile Include="PresentersTests\FilmScreeningPresenters\AddFilmScreeningPresenter\GetAllMoviesShould.cs" />
     <Compile Include="PresentersTests\FilmScreeningPresenters\GetFilmScreeningsPresenter\ConstructorShould.cs" />
+    <Compile Include="PresentersTests\FilmScreeningPresenters\GetFilmScreeningsPresenter\GetAllFutureScreeningsShould.cs" />
     <Compile Include="PresentersTests\MoviePresenters\AddMoviePresenter\ConstructorShould.cs" />
     <Compile Include="PresentersTests\MoviePresenters\AddMoviePresenter\CreateMovieShould.cs" />
     <Compile Include="PresentersTests\MoviePresenters\GetMoviesPresenter\GetAllMoviesShould.cs" />
