@@ -31,6 +31,11 @@ namespace Cinema.Presenters.FilmScreeningPresenters
 
         public void CreateFilmScreening(string date, string movieId, string price, Page page)
         {
+            Guard.WhenArgument(date, "date").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(movieId, "movieId").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(price, "price").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(page, "page").IsNull().Throw();
+
             this.screeningService.Create(date, movieId, price);
 
             this.navigationService.Redirect(page, FilmScreeningsListViewUrl);

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PresentersTests\FilmScreeningPresenters\AddFilmScreeningPresenter\ConstructorShould.cs" />
+    <Compile Include="PresentersTests\FilmScreeningPresenters\AddFilmScreeningPresenter\CreateFilmScreeningShould.cs" />
     <Compile Include="PresentersTests\FilmScreeningPresenters\AddFilmScreeningPresenter\GetAllMoviesShould.cs" />
     <Compile Include="PresentersTests\MoviePresenters\AddMoviePresenter\ConstructorShould.cs" />
     <Compile Include="PresentersTests\MoviePresenters\AddMoviePresenter\CreateMovieShould.cs" />

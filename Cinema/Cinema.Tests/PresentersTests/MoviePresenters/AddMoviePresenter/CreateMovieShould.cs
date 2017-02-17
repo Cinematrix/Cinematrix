@@ -33,7 +33,6 @@ namespace Cinema.Tests.PresentersTests.MoviePresenters.AddMoviePresenter
             var mockedNavigationService = new Mock<INavigationService>();
             var mockedMovie = new Mock<Movie>();
             var mockedPage = new Mock<Page>();
-            var mockedUrl = "/MoviesListView.aspx";
 
             mockedNavigationService.Setup(x => x.Redirect(It.IsAny<Page>(), It.IsAny<string>()));
 
@@ -42,7 +41,7 @@ namespace Cinema.Tests.PresentersTests.MoviePresenters.AddMoviePresenter
 
             actualGetMoviesPresenter.CreateMovie(mockedMovie.Object, mockedPage.Object);
 
-            mockedNavigationService.Verify(service => service.Redirect(mockedPage.Object, mockedUrl), Times.Once);
+            mockedNavigationService.Verify(service => service.Redirect(mockedPage.Object, It.IsAny<string>()), Times.Once);
         }
 
         [Test]
