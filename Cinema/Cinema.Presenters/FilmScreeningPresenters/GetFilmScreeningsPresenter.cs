@@ -3,7 +3,7 @@ using System.Linq;
 using Cinema.Data.Models;
 using Cinema.Data.Models.Contracts;
 using Cinema.Data.Services.Contracts;
-using System;
+using Bytes2you.Validation;
 
 namespace Cinema.Presenters.FilmScreeningPresenters
 {
@@ -13,6 +13,7 @@ namespace Cinema.Presenters.FilmScreeningPresenters
 
         public GetFilmScreeningsPresenter(IFilmScreeningService screeningService)
         {
+            Guard.WhenArgument(screeningService, "screeningService").IsNull().Throw();
             this.screeningService = screeningService;
         }
 
