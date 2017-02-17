@@ -32,9 +32,10 @@ namespace Cinema.Data.Services
             return this.movies.All();
         }
 
-        public IMovie GetById(int id)
+        public IMovie GetById(string id)
         {
-            return this.movies.GetById(id);
+            int parsedId = int.Parse(id);
+            return this.movies.GetById(parsedId);
         }
 
         public void UpdateById(int id, Movie updatedMovie)

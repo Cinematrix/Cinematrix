@@ -24,14 +24,8 @@ namespace Cinema.Presenters.MoviePresenters
 
         public IMovie GetMovieById(string id)
         {
-            int parsedId = int.Parse(id);
-            return this.moviesService.GetById(parsedId);
-        }
-
-        public void DeleteMovieById(string id)
-        {
-            int parsedId = int.Parse(id);
-            this.moviesService.DeleteById(parsedId);
+            Guard.WhenArgument(id, "id").IsNullOrEmpty().Throw();
+            return this.moviesService.GetById(id);
         }
     }
 }

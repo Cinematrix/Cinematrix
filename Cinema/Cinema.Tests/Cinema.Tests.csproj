@@ -50,6 +50,7 @@
     <Compile Include="PresentersTests\MoviePresenters\AddMoviePresenter\CreateMovieShould.cs" />
     <Compile Include="PresentersTests\MoviePresenters\GetMoviesPresenter\GetAllMoviesShould.cs" />
     <Compile Include="PresentersTests\MoviePresenters\GetMoviesPresenter\ConstructorShould.cs" />
+    <Compile Include="PresentersTests\MoviePresenters\GetMoviesPresenter\GetMovieByIdShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

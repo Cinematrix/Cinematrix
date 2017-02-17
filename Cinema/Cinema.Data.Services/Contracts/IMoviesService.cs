@@ -8,7 +8,7 @@ namespace Cinema.Data.Services.Contracts
     {
         IQueryable<Movie> GetAll();
 
-        IMovie GetById(int id);
+        IMovie GetById(string id);
 
         void UpdateById(int id, Movie updatedMovie);
 
