@@ -1,12 +1,9 @@
-﻿using Cinema.Data.Models;
+﻿using Bytes2you.Validation;
+using Cinema.Data.Models;
 using Cinema.Data.Models.Contracts;
 using Cinema.Data.Services.Contracts;
 using Cinema.Presenters.Contracts;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cinema.Presenters.MoviePresenters
 {
@@ -14,10 +11,9 @@ namespace Cinema.Presenters.MoviePresenters
     {
         private readonly IMoviesService moviesService;
 
-        public IMovieListView View { get; set; }
-
         public GetMoviesPresenter(IMoviesService moviesService)
         {
+            Guard.WhenArgument(moviesService, "moviesService").IsNull().Throw();
             this.moviesService = moviesService;
         }
 
