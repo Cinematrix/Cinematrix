@@ -76,9 +76,11 @@ namespace Cinema.Data.Services
             return this.screenings.All().Where(x => x.Start > DateTime.Now);
         }
 
-        public IFilmScreening GetById(int id)
+        public IFilmScreening GetById(string id)
         {
-            return this.screenings.GetById(id);
+            int parsedId;
+            int.TryParse(id, out parsedId);
+            return this.screenings.GetById(parsedId);
         }
 
         public void UpdateById(int id, FilmScreening updatedFilmScreening)

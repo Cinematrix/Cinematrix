@@ -24,8 +24,8 @@ namespace Cinema.Presenters.FilmScreeningPresenters
 
         public IFilmScreening GetScreeningById(string id)
         {
-            int parsedId = int.Parse(id);
-            return this.screeningService.GetById(parsedId);
+            Guard.WhenArgument(id, "id").IsNullOrEmpty().Throw();
+            return this.screeningService.GetById(id);
         }
 
         public int GetAvailableCount(string id)

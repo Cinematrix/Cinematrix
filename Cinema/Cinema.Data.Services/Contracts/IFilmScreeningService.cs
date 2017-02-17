@@ -19,7 +19,7 @@ namespace Cinema.Data.Services.Contracts
 
         string GetMovieTitleByScreeningId(string id);
 
-        IFilmScreening GetById(int id);
+        IFilmScreening GetById(string id);
 
         int GetAvailableCount(int id);
 

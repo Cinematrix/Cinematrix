@@ -22,7 +22,7 @@ namespace Cinema.Tests.PresentersTests.MoviePresenters.GetMoviesPresenter
         }
 
         [Test]
-        public void ThrowWhenMoviesServiceGetByIdMethodIsCalledWithNullOrEmptyParameter()
+        public void ThrowWhenIsCalledWithNullOrEmptyParameter()
         {
             var mockedMoviesService = new Mock<IMoviesService>();
             string nullId = null;

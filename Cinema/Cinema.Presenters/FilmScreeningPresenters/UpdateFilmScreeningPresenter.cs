@@ -30,8 +30,7 @@ namespace Cinema.Presenters.FilmScreeningPresenters
 
         public IFilmScreening GetScreeningById(string id)
         {
-            int parsedId = int.Parse(id);
-            return this.screeningService.GetById(parsedId);
+            return this.screeningService.GetById(id);
         }
     }
 }
