@@ -35,6 +35,8 @@ namespace Cinema.Presenters.PaymentPresenters
 
         public string GetMovieTitleByScreeningId(string id)
         {
+            Guard.WhenArgument(id, "id").IsNullOrEmpty().Throw();
+
             return this.screeningService.GetMovieTitleByScreeningId(id);
         }
 
