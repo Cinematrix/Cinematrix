@@ -21,7 +21,7 @@ namespace Cinema.Data.Services.Contracts
 
         IFilmScreening GetById(string id);
 
-        int GetAvailableCount(int id);
+        int GetAvailableCount(string id);
 
         void UpdateById(int id, FilmScreening updatedFilmScreening);
 

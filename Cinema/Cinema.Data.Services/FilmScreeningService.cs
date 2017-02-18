@@ -45,9 +45,11 @@ namespace Cinema.Data.Services
             throw new NotImplementedException();
         }
 
-        public int GetAvailableCount(int id)
+        public int GetAvailableCount(string id)
         {
-            return this.screenings.GetById(id).Seats.Where(x => x.IsFree == true).Count();
+            int parsedId;
+            int.TryParse(id, out parsedId);
+            return this.screenings.GetById(parsedId).Seats.Where(x => x.IsFree == true).Count();
         }
 
         public IQueryable<FilmScreening> GetAllScreenings()

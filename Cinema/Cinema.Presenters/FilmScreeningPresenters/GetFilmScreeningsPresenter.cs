@@ -30,8 +30,8 @@ namespace Cinema.Presenters.FilmScreeningPresenters
 
         public int GetAvailableCount(string id)
         {
-            int parsedId = int.Parse(id);
-            return this.screeningService.GetAvailableCount(parsedId);
+            Guard.WhenArgument(id, "id").IsNullOrEmpty().Throw();
+            return this.screeningService.GetAvailableCount(id);
         }
 
         public IQueryable<FilmScreening> GetScreeningsByDate(string date)
