@@ -3,6 +3,7 @@ using System.Linq;
 using Cinema.Data.Repositories;
 using Cinema.Data.Models.Contracts;
 using Cinema.Data.Models;
+using Bytes2you.Validation;
 
 namespace Cinema.Data.Services
 {
@@ -12,6 +13,8 @@ namespace Cinema.Data.Services
 
         public MoviesService(IRepository<Movie> movies)
         {
+            Guard.WhenArgument(movies, "movies").IsNull().Throw();
+
             this.movies = movies;
         }
 
