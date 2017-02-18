@@ -24,6 +24,7 @@ namespace Cinema.Presenters.FilmScreeningPresenters
 
         public IFilmScreening GetScreeningById(string id)
         {
+            Guard.WhenArgument(id, "id").IsNullOrEmpty().Throw();
             return this.screeningService.GetById(id);
         }
     }
