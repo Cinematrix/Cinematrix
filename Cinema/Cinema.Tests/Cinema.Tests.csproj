@@ -54,6 +54,7 @@
     <Compile Include="PresentersTests\FilmScreeningPresenters\GetFilmScreeningsPresenter\GetAvailableCountShould.cs" />
     <Compile Include="PresentersTests\FilmScreeningPresenters\GetFilmScreeningsPresenter\GetScreeningByIdShould.cs" />
     <Compile Include="PresentersTests\FilmScreeningPresenters\GetFilmScreeningsPresenter\GetScreeningsByDateShould.cs" />
+    <Compile Include="PresentersTests\FilmScreeningPresenters\GetFilmScreeningsPresenter\GetScreeningsByMovieTitleShould.cs" />
     <Compile Include="PresentersTests\MoviePresenters\AddMoviePresenter\ConstructorShould.cs" />
     <Compile Include="PresentersTests\MoviePresenters\AddMoviePresenter\CreateMovieShould.cs" />
     <Compile Include="PresentersTests\MoviePresenters\GetMoviesPresenter\GetAllMoviesShould.cs" />

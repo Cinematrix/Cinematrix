@@ -7,46 +7,46 @@ using System.Linq;
 namespace Cinema.Tests.PresentersTests.FilmScreeningPresenters.GetFilmScreeningsPresenter
 {
     [TestFixture]
-    public class GetScreeningsByDateShould
+    public class GetScreeningsByMovieTitleShould
     {
-        [TestCase("3/08/2017")]
-        [TestCase("2/27/2017")]
-        public void CallFilmScreeningServiceGetAllScreeningsByDateMethodWithTheSameDate(string validDate)
+        [TestCase("X-man")]
+        [TestCase("Batman")]
+        public void CallFilmScreeningServiceGetScreeningsByMovieTitleMethodWithTheSameParameter(string validTitle)
         {
             var mockedScreeningService = new Mock<IFilmScreeningService>();
 
             var actualGetFilmScreeningsPresenter =
                 new Presenters.FilmScreeningPresenters.GetFilmScreeningsPresenter(mockedScreeningService.Object);
 
-            actualGetFilmScreeningsPresenter.GetScreeningsByDate(validDate);
+            actualGetFilmScreeningsPresenter.GetScreeningsByMovieTitle(validTitle);
 
-            mockedScreeningService.Verify(service => service.GetAllScreeningsByDate(validDate), Times.Once);
+            mockedScreeningService.Verify(service => service.GetScreeningsByMovieTitle(validTitle), Times.Once);
         }
 
         [TestCase(null)]
         [TestCase("")]
-        public void AllowCallingFilmScreeningServiceGetAllScreeningsByDateMethodWithNullOrEmptyParameters(string nullParameter)
+        public void AllowCallingFilmScreeningServiceGetScreeningsByMovieTitleMethodWithNullOrEmptyParameters(string nullParameter)
         {
             var mockedScreeningService = new Mock<IFilmScreeningService>();
 
             var actualGetFilmScreeningsPresenter =
                 new Presenters.FilmScreeningPresenters.GetFilmScreeningsPresenter(mockedScreeningService.Object);
 
-            actualGetFilmScreeningsPresenter.GetScreeningsByDate(nullParameter);
+            actualGetFilmScreeningsPresenter.GetScreeningsByMovieTitle(nullParameter);
 
-            mockedScreeningService.Verify(service => service.GetAllScreeningsByDate(nullParameter), Times.Once);
+            mockedScreeningService.Verify(service => service.GetScreeningsByMovieTitle(nullParameter), Times.Once);
         }
 
         [Test]
         public void ReturnIQueryableFilmSCreeningsCollectionWhenIsCalled()
         {
             var mockedScreeningService = new Mock<IFilmScreeningService>();
-            string validDate = "3/08/2017";
+            string validTitle = "Batman";
 
             var actualGetFilmScreeningsPresenter =
                 new Presenters.FilmScreeningPresenters.GetFilmScreeningsPresenter(mockedScreeningService.Object);
 
-            var result = actualGetFilmScreeningsPresenter.GetScreeningsByDate(validDate);
+            var result = actualGetFilmScreeningsPresenter.GetScreeningsByMovieTitle(validTitle);
 
             Assert.That(result, Is.Not.Null.And.InstanceOf<IQueryable<FilmScreening>>());
         }
