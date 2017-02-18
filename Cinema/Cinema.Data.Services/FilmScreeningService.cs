@@ -40,11 +40,6 @@ namespace Cinema.Data.Services
             this.screenings.SaveChanges();
         }
 
-        public void DeleteById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public int GetAvailableCount(string id)
         {
             int parsedId;

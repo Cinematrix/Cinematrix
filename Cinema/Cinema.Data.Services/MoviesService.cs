@@ -20,13 +20,9 @@ namespace Cinema.Data.Services
 
         public void Create(Movie movieToCreate)
         {
-            this.movies.Add(movieToCreate);
-            this.movies.SaveChanges();
-        }
+            Guard.WhenArgument(movieToCreate, "movieToCreate").IsNull().Throw();
 
-        public void DeleteById(int id)
-        {
-            this.movies.Delete(id);
+            this.movies.Add(movieToCreate);
             this.movies.SaveChanges();
         }
 

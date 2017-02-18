@@ -12,8 +12,6 @@ namespace Cinema.Data.Services.Contracts
 
         void UpdateById(int id, Movie updatedMovie);
 
-        void DeleteById(int id);
-
         void Create(Movie movieToCreate);
     }
 }
