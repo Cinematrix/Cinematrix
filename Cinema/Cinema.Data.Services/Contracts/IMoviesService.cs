@@ -10,8 +10,6 @@ namespace Cinema.Data.Services.Contracts
 
         IMovie GetById(string id);
 
-        void UpdateById(int id, Movie updatedMovie);
-
         void Create(Movie movieToCreate);
     }
 }

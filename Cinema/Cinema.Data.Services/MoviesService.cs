@@ -43,15 +43,5 @@ namespace Cinema.Data.Services
 
             return this.movies.GetById(parsedId);
         }
-
-        public void UpdateById(int id, Movie updatedMovie)
-        {
-            IMovie movieToUpdate = this.movies.GetById(id);
-
-            //TODO 
-            movieToUpdate = updatedMovie;
-
-            this.movies.SaveChanges();
-        }
     }
 }
