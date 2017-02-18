@@ -4,6 +4,7 @@ using Cinema.Data.Repositories;
 using Cinema.Data.Models.Contracts;
 using Cinema.Data.Models;
 using Bytes2you.Validation;
+using System;
 
 namespace Cinema.Data.Services
 {
@@ -33,7 +34,13 @@ namespace Cinema.Data.Services
 
         public IMovie GetById(string id)
         {
-            int parsedId = int.Parse(id);
+            int parsedId;
+            bool isNumber = int.TryParse(id, out parsedId);
+            if (!isNumber)
+            {
+                throw new ArgumentException();
+            }
+
             return this.movies.GetById(parsedId);
         }
 

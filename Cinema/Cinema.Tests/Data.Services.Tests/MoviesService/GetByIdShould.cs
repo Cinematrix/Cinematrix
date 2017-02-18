@@ -2,37 +2,43 @@
 using Cinema.Data.Repositories;
 using Moq;
 using NUnit.Framework;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Cinema.Tests.Data.Services.Tests.MoviesService
 {
     [TestFixture]
-    public class GetAllShould
+    public class GetByIdShould
     {
         [Test]
-        public void CallMovieRepositoryAllMethod()
+        public void CallMoviesRepoGetByIdMethodWithSameParamterId()
         {
             var mockedMovieRepo = new Mock<IRepository<Movie>>();
+            string stringId = "1";
+            int intId = 1;
 
             var actualMoviesService =
                 new Cinema.Data.Services.MoviesService(mockedMovieRepo.Object);
 
-            actualMoviesService.GetAll();
+            actualMoviesService.GetById(stringId);
 
-            mockedMovieRepo.Verify(service => service.All(), Times.Once);
+            mockedMovieRepo.Verify(service => service.GetById(intId), Times.Once);
         }
 
         [Test]
-        public void ReturnIQueryableMoviesCollectionProvidedFromMovieRepositoryAllMethod()
+        public void ThrowArgumentExceptionWhenParamterIdIsNotNumber()
         {
             var mockedMovieRepo = new Mock<IRepository<Movie>>();
+            string stringId = "abc";
 
             var actualMoviesService =
                 new Cinema.Data.Services.MoviesService(mockedMovieRepo.Object);
 
-            var result = actualMoviesService.GetAll();
-
-            Assert.That(result, Is.Not.Null.And.InstanceOf<IQueryable<Movie>>());
+            Assert.That(
+                () => actualMoviesService.GetById(stringId), Throws.ArgumentException);
         }
     }
 }
