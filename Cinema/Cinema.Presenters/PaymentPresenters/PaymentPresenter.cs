@@ -1,4 +1,5 @@
-﻿using Cinema.Data.Models;
+﻿using Bytes2you.Validation;
+using Cinema.Data.Models;
 using Cinema.Data.Services.Contracts;
 using Cinema.Presenters.Contracts;
 using System.Collections.Generic;
@@ -13,6 +14,9 @@ namespace Cinema.Presenters.PaymentPresenters
 
         public PaymentPresenter(IFilmScreeningService screeningService, ISeatService seatService)
         {
+            Guard.WhenArgument(screeningService, "screeningService").IsNull().Throw();
+            Guard.WhenArgument(seatService, "seatService").IsNull().Throw();
+
             this.screeningService = screeningService;
             this.seatService = seatService;
         }
