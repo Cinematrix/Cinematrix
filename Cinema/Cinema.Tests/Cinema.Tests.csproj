@@ -61,6 +61,7 @@
     <Compile Include="PresentersTests\MoviePresenters\GetMoviesPresenter\ConstructorShould.cs" />
     <Compile Include="PresentersTests\MoviePresenters\GetMoviesPresenter\GetMovieByIdShould.cs" />
     <Compile Include="PresentersTests\PaymentPresenters\PaymentPresenter\ConstructorShould.cs" />
+    <Compile Include="PresentersTests\PaymentPresenters\PaymentPresenter\GetAllFutureScreeningsShould.cs" />
     <Compile Include="PresentersTests\UpdateFilmSCreeningPresenters\ConstructorShould.cs" />
     <Compile Include="PresentersTests\UpdateFilmSCreeningPresenters\GetScreeningByIdShould.cs" />
     <Compile Include="PresentersTests\UpdateFilmSCreeningPresenters\UpdateScreeningShould.cs" />
