@@ -64,6 +64,7 @@
     <Compile Include="PresentersTests\PaymentPresenters\PaymentPresenter\GetAllFutureScreeningsShould.cs" />
     <Compile Include="PresentersTests\PaymentPresenters\PaymentPresenter\GetMovieTitleByScreeningIdShould.cs" />
     <Compile Include="PresentersTests\PaymentPresenters\PaymentPresenter\GetUniqueBookersByScreeningIdShould.cs" />
+    <Compile Include="PresentersTests\PaymentPresenters\PaymentPresenter\GetUserBookedSeatsCountByScreeningIdShould.cs" />
     <Compile Include="PresentersTests\UpdateFilmSCreeningPresenters\ConstructorShould.cs" />
     <Compile Include="PresentersTests\UpdateFilmSCreeningPresenters\GetScreeningByIdShould.cs" />
     <Compile Include="PresentersTests\UpdateFilmSCreeningPresenters\UpdateScreeningShould.cs" />

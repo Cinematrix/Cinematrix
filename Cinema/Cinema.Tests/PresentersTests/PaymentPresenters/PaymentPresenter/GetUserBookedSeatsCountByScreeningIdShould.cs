@@ -5,43 +5,44 @@ using NUnit.Framework;
 namespace Cinema.Tests.PresentersTests.PaymentPresenters.PaymentPresenter
 {
     [TestFixture]
-    public class GetMovieTitleByScreeningIdShould
+    public class GetUserBookedSeatsCountByScreeningIdShould
     {
         [Test]
-        public void CallScreeningServiceGetMovieTitleByScreeningIdMethodWithSameParameterId()
+        public void CallSeatServiceGetUserBookedSeatsCountByScreeningIdWithSameId()
         {
             var mockedScreeningService = new Mock<IFilmScreeningService>();
             var mockedSeatService = new Mock<ISeatService>();
             string validId = "1";
+            string validUsername = "JohnDoe";
 
             var actualPaymentPresenter =
                 new Presenters.PaymentPresenters.PaymentPresenter(mockedScreeningService.Object, mockedSeatService.Object);
 
-            actualPaymentPresenter.GetMovieTitleByScreeningId(validId);
+            actualPaymentPresenter.GetUserBookedSeatsCountByScreeningId(validUsername, validId);
 
-            mockedScreeningService.Verify(
-                service => service.GetMovieTitleByScreeningId(validId), Times.Once);
+            mockedSeatService.Verify(service => service.GetUserBookedSeatsCountByScreeningId(validUsername, validId), Times.Once);
         }
 
         [Test]
-        public void ReturnSameValueFromScreeningServiceGetMovieTitleByScreeningId()
+        public void ReturnSameValueFromSeatServiceGetUserBookedSeatsCountByScreening()
         {
             var mockedScreeningService = new Mock<IFilmScreeningService>();
             var mockedSeatService = new Mock<ISeatService>();
 
             string validId = "1";
-            string expectedTitle = "Batman";
+            string validUsername = "JohnDoe";
+            int expectedCount = 5;
 
-            mockedScreeningService.Setup(
-                service => service.GetMovieTitleByScreeningId(validId))
-                .Returns(expectedTitle);
+            mockedSeatService.Setup(
+                service => service.GetUserBookedSeatsCountByScreeningId(validUsername, validId))
+                .Returns(expectedCount);
 
             var actualPaymentPresenter =
                 new Presenters.PaymentPresenters.PaymentPresenter(mockedScreeningService.Object, mockedSeatService.Object);
 
-            string actualCount = actualPaymentPresenter.GetMovieTitleByScreeningId(validId);
+            int actualCount = actualPaymentPresenter.GetUserBookedSeatsCountByScreeningId(validUsername, validId);
 
-            Assert.AreEqual(expectedTitle, actualCount);
+            Assert.AreEqual(expectedCount, actualCount);
         }
     }
 }
