@@ -28,6 +28,8 @@ namespace Cinema.Presenters.PaymentPresenters
 
         public IEnumerable<User> GetUniqueBookersByScreeningId(string id)
         {
+            Guard.WhenArgument(id, "id").IsNullOrEmpty().Throw();
+
             return this.screeningService.GetUniqueBookersFromScreeningById(id);
         }
 
