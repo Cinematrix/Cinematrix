@@ -13,18 +13,22 @@ namespace Cinema.Presenters.FilmScreeningPresenters
         public UpdateFilmScreeningPresenter(IFilmScreeningService screeningService)
         {
             Guard.WhenArgument(screeningService, "screeningService").IsNull().Throw();
+
             this.screeningService = screeningService;
         }
 
         public void UpdateScreening(string screeningId, FilmScreening updatedScreening)
         {
-            int parsedId = int.Parse(screeningId);
-            this.screeningService.UpdateById(parsedId, updatedScreening);
+            Guard.WhenArgument(screeningId, "screeningId").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(updatedScreening, "updatedScreening").IsNull().Throw();
+
+            this.screeningService.UpdateById(screeningId, updatedScreening);
         }
 
         public IFilmScreening GetScreeningById(string id)
         {
             Guard.WhenArgument(id, "id").IsNullOrEmpty().Throw();
+
             return this.screeningService.GetById(id);
         }
     }

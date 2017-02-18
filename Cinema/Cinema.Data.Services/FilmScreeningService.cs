@@ -85,9 +85,11 @@ namespace Cinema.Data.Services
             return this.screenings.GetById(parsedId);
         }
 
-        public void UpdateById(int id, FilmScreening updatedFilmScreening)
+        public void UpdateById(string id, FilmScreening updatedFilmScreening)
         {
-            var targetScreening = this.screenings.GetById(id);
+            int parsedId;
+            int.TryParse(id, out parsedId);
+            var targetScreening = this.screenings.GetById(parsedId);
             targetScreening = updatedFilmScreening;
             this.screenings.Update(targetScreening);
             this.screenings.SaveChanges();
