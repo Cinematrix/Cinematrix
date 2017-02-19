@@ -129,8 +129,13 @@ namespace Cinema.Data.Services
 
         public string GetMovieTitleByScreeningId(string id)
         {
+            Guard.WhenArgument(id, "id").IsNullOrEmpty().Throw();
             int parsedId;
-            int.TryParse(id, out parsedId);
+            bool isNumber = int.TryParse(id, out parsedId);
+            if (!isNumber)
+            {
+                throw new ArgumentException();
+            }
 
             return this.screenings.GetById(parsedId).TargetMovie.Name;
         }
