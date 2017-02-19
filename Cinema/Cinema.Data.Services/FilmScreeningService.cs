@@ -82,8 +82,14 @@ namespace Cinema.Data.Services
 
         public IFilmScreening GetById(string id)
         {
+            Guard.WhenArgument(id, "id").IsNullOrEmpty().Throw();
             int parsedId;
-            int.TryParse(id, out parsedId);
+            bool isNumber = int.TryParse(id, out parsedId);
+            if (!isNumber)
+            {
+                throw new ArgumentException();
+            }
+
             return this.screenings.GetById(parsedId);
         }
 

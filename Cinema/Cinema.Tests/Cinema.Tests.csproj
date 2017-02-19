@@ -54,6 +54,7 @@
     <Compile Include="Data.Services.Tests\FilmScreeningService\GetAllScreeningsByDateShould.cs" />
     <Compile Include="Data.Services.Tests\FilmScreeningService\GetAllScreeningsShould.cs" />
     <Compile Include="Data.Services.Tests\FilmScreeningService\GetAvailableCountShould.cs" />
+    <Compile Include="Data.Services.Tests\FilmScreeningService\GetByIdShould.cs" />
     <Compile Include="Data.Services.Tests\MoviesService\ConstructorShould.cs" />
     <Compile Include="Data.Services.Tests\MoviesService\CreateShould.cs" />
     <Compile Include="Data.Services.Tests\MoviesService\GetAllShould.cs" />
