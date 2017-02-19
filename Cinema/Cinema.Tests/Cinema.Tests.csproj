@@ -57,6 +57,7 @@
     <Compile Include="Data.Services.Tests\FilmScreeningService\GetByIdShould.cs" />
     <Compile Include="Data.Services.Tests\FilmScreeningService\GetMovieTitleByScreeningIdShould.cs" />
     <Compile Include="Data.Services.Tests\FilmScreeningService\GetScreeningsByMovieTitleShould.cs" />
+    <Compile Include="Data.Services.Tests\FilmScreeningService\GetUniqueBookersFromScreeningByIdShould.cs" />
     <Compile Include="Data.Services.Tests\FilmScreeningService\UpdateByIdShould.cs" />
     <Compile Include="Data.Services.Tests\MoviesService\ConstructorShould.cs" />
     <Compile Include="Data.Services.Tests\MoviesService\CreateShould.cs" />
