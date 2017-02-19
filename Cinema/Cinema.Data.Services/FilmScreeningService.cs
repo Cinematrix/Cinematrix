@@ -95,6 +95,9 @@ namespace Cinema.Data.Services
 
         public void UpdateById(string id, FilmScreening updatedFilmScreening)
         {
+            Guard.WhenArgument(id, "id").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(updatedFilmScreening, "updatedFilmScreening").IsNull().Throw();
+
             int parsedId;
             int.TryParse(id, out parsedId);
             var targetScreening = this.screenings.GetById(parsedId);
