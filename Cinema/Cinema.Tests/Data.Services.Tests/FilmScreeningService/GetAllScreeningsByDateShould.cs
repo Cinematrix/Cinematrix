@@ -31,25 +31,15 @@ namespace Cinema.Tests.Data.Services.Tests.FilmScreeningService
         {
             var mockedScreeningRepo = new Mock<IRepository<FilmScreening>>();
             var mockedFilmSCreening = new Mock<FilmScreening>();
-            var mockedSeatsList = new List<Seat>(3);
             var mockedFilmScreeningsList = new List<FilmScreening>(2);
 
-            var freeSeat = new Seat() { IsFree = true };
-            var freeSeat2 = new Seat() { IsFree = true };
-            var takenSeat = new Seat() { IsFree = false };
-            mockedSeatsList.Add(freeSeat);
-            mockedSeatsList.Add(freeSeat2);
-            mockedSeatsList.Add(takenSeat);
-
             mockedFilmScreeningsList.Add(new FilmScreening() {
-                Start = DateTime.Parse("3/08/2017"),
-                Seats= mockedSeatsList
+                Start = DateTime.Parse("3/08/2017")
             });
 
             mockedFilmScreeningsList.Add(new FilmScreening()
             {
-                Start = DateTime.Parse("3/12/2017"),
-                Seats = mockedSeatsList
+                Start = DateTime.Parse("3/12/2017")
             });
 
             string nullDate = null;
@@ -70,26 +60,16 @@ namespace Cinema.Tests.Data.Services.Tests.FilmScreeningService
         {
             var mockedScreeningRepo = new Mock<IRepository<FilmScreening>>();
             var mockedFilmSCreening = new Mock<FilmScreening>();
-            var mockedSeatsList = new List<Seat>(3);
             var mockedFilmScreeningsList = new List<FilmScreening>(2);
-
-            var freeSeat = new Seat() { IsFree = true };
-            var freeSeat2 = new Seat() { IsFree = true };
-            var takenSeat = new Seat() { IsFree = false };
-            mockedSeatsList.Add(freeSeat);
-            mockedSeatsList.Add(freeSeat2);
-            mockedSeatsList.Add(takenSeat);
 
             mockedFilmScreeningsList.Add(new FilmScreening()
             {
-                Start = DateTime.Parse("3/08/2017"),
-                Seats = mockedSeatsList
+                Start = DateTime.Parse("3/08/2017")
             });
 
             mockedFilmScreeningsList.Add(new FilmScreening()
             {
-                Start = DateTime.Parse("3/12/2017"),
-                Seats = mockedSeatsList
+                Start = DateTime.Parse("3/12/2017")
             });
 
             string existingDate = "3/12/2017";

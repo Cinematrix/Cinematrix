@@ -50,6 +50,7 @@
     <Compile Include="Data.Models.Tests\Seat\WhenInitializedShould.cs" />
     <Compile Include="Data.Services.Tests\FilmScreeningService\ConstructorShould.cs" />
     <Compile Include="Data.Services.Tests\FilmScreeningService\CreateShould.cs" />
+    <Compile Include="Data.Services.Tests\FilmScreeningService\GetAllFutureScreeningsShould.cs" />
     <Compile Include="Data.Services.Tests\FilmScreeningService\GetAllScreeningsByDateShould.cs" />
     <Compile Include="Data.Services.Tests\FilmScreeningService\GetAllScreeningsShould.cs" />
     <Compile Include="Data.Services.Tests\FilmScreeningService\GetAvailableCountShould.cs" />
