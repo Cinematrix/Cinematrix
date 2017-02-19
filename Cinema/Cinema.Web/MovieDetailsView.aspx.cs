@@ -28,7 +28,7 @@ namespace Cinema.Web
             this.GenreLabel.Text = this.Movie.Genre;
             this.DescriptionLabel.Text = this.Movie.Info;
             this.DirectorLabel.Text = this.Movie.Director;
-            this.DurationLabel.Text = this.Movie.LengthInMinutes.ToString();
+            this.DurationLabel.Text = this.Movie.LengthInMinutes.ToString()+" min.";
         }
     }
 }

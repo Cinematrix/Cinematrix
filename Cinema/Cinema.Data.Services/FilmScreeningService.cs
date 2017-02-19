@@ -1,10 +1,10 @@
-﻿using Cinema.Data.Models;
+﻿using Bytes2you.Validation;
+using Cinema.Data.Models;
 using Cinema.Data.Models.Contracts;
 using Cinema.Data.Repositories;
 using Cinema.Data.Services.Contracts;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 
 namespace Cinema.Data.Services
@@ -15,12 +15,13 @@ namespace Cinema.Data.Services
 
         private IRepository<FilmScreening> screenings;
         private IFilmScreening filmScreeningToCreate;
-        private ISeat seat;
 
-        public FilmScreeningService(IRepository<FilmScreening> screenings, ISeat seat, IFilmScreening filmScreening)
+        public FilmScreeningService(IRepository<FilmScreening> screenings, IFilmScreening filmScreening)
         {
+            Guard.WhenArgument(screenings, "screenings").IsNull().Throw();
+            Guard.WhenArgument(filmScreening, "filmScreening").IsNull().Throw();
+
             this.screenings = screenings;
-            this.seat = seat;
             this.filmScreeningToCreate = filmScreening;
         }
 

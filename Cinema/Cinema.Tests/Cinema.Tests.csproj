@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data.Models.Tests\Seat\WhenInitializedShould.cs" />
+    <Compile Include="Data.Services.Tests\FilmScreeningService\ConstructorShould.cs" />
     <Compile Include="Data.Services.Tests\MoviesService\ConstructorShould.cs" />
     <Compile Include="Data.Services.Tests\MoviesService\CreateShould.cs" />
     <Compile Include="Data.Services.Tests\MoviesService\GetAllShould.cs" />
