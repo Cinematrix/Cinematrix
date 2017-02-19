@@ -4,9 +4,6 @@ using Moq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cinema.Tests.Data.Services.Tests.FilmScreeningService
 {
@@ -18,7 +15,6 @@ namespace Cinema.Tests.Data.Services.Tests.FilmScreeningService
         {
             var mockedScreeningRepo = new Mock<IRepository<FilmScreening>>();
             var fakeFilmScreening = new FilmScreening();
-            var mockedSeat = new Mock<Seat>();
 
             string date = "3/08/2017";
             string movieId = "1";
@@ -50,7 +46,6 @@ namespace Cinema.Tests.Data.Services.Tests.FilmScreeningService
         {
             var mockedScreeningRepo = new Mock<IRepository<FilmScreening>>();
             var fakeFilmScreening = new FilmScreening();
-            var mockedSeat = new Mock<Seat>();
 
             string date = "3/08/2017";
             string movieId = "1";

@@ -43,8 +43,14 @@ namespace Cinema.Data.Services
 
         public int GetAvailableCount(string id)
         {
+            Guard.WhenArgument(id, "id").IsNullOrEmpty().Throw();
             int parsedId;
-            int.TryParse(id, out parsedId);
+            bool isNumber = int.TryParse(id, out parsedId);
+            if (!isNumber)
+            {
+                throw new ArgumentException();
+            }
+
             return this.screenings.GetById(parsedId).Seats.Where(x => x.IsFree == true).Count();
         }
 
