@@ -9,9 +9,9 @@ namespace Cinema.Data.Models.Contracts
 
         decimal Price { get; set; }
 
-        int AvailableSeatsCount { get; }
-
         int TargetMovieId { get; set; }
+
+        int AvailableSeatsCount { get; }
 
         IList<Seat> Seats { get; set; }
     }

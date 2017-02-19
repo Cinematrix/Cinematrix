@@ -15,21 +15,18 @@ namespace Cinema.Data.Models
         public int Id { get; set; }
 
         public DateTime Start { get; set; }
-        
+
         public decimal Price { get; set; }
+
+        public int AvailableSeatsCount
+        {
+            get { return this.Seats.Where(u => u.IsFree == true).Count(); }
+        }
 
         public virtual IList<Seat> Seats { get; set; }
 
         public int TargetMovieId { get; set; }
 
         public virtual Movie TargetMovie { get; set; }
-
-        public int AvailableSeatsCount
-        {
-            get
-            {
-                return this.Seats.Where(x=>x.IsFree==true).Count();
-            }
-        }
     }
 }
