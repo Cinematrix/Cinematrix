@@ -1,22 +1,23 @@
-﻿using Cinema.Data.Models;
+﻿using Bytes2you.Validation;
+using Cinema.Data.Models;
 using Cinema.Data.Repositories;
 using Cinema.Data.Services.Contracts;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cinema.Data.Services
 {
     public class SeatService : ISeatService
     {
         private const string SeatName = "Seat";
+        private const string PriceBegining = "Total Price: ";
+        private const string CurrencyFormat = "{0:C}";
 
         private IRepository<FilmScreening> screenings;
 
         public SeatService(IRepository<FilmScreening> screenings)
         {
+            Guard.WhenArgument(screenings, "screenings").IsNull().Throw();
             this.screenings = screenings;
         }
 
@@ -46,7 +47,7 @@ namespace Cinema.Data.Services
                 }
             }
 
-            string output = string.Join(" ,", expression);
+            string output = string.Join(", ", expression);
             return output;
         }
 
@@ -58,7 +59,7 @@ namespace Cinema.Data.Services
             int bookedTicketsCount = targetScreening.Seats.Where(s => s.User != null && s.User.UserName == userName).Count();
 
             decimal totalPrice = targetScreening.Price * bookedTicketsCount;
-            string result = "Total Price: " + string.Format("{0:C}", totalPrice);
+            string result = PriceBegining + string.Format(CurrencyFormat, totalPrice);
 
             return result;
         }

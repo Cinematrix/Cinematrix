@@ -17,7 +17,7 @@
             </h4>
             <h4 style="display: inline-block; margin-left: 30px">
                 <asp:Label ID="ResultLabel" runat="server" Text="Results:"></asp:Label>
-                <asp:Literal ID="ResultLiteral" runat="server"></asp:Literal>
+                <strong style="color:green"><asp:Literal ID="ResultLiteral" runat="server"></asp:Literal></strong>
             </h4>
             <asp:Literal ID="Literal1" runat="server"></asp:Literal>
         </div>
@@ -34,10 +34,10 @@
                         <strong><%#: Item.TargetMovie.Name %></strong>
 
                         <p>Price: 
-                        <strong><%#: String.Format("{0:C}", Item.Price) %></strong></p>
+                        <strong style="color:green"><%#: String.Format("{0:C}", Item.Price) %></strong></p>
 
                         <p>Available Seats:
-                        <strong><%#: Item.AvailableSeatsCount %></strong> </p>
+                        <strong style="color:green"><%#: Item.AvailableSeatsCount %></strong> </p>
 
                         <p>Duration:
                         <strong><%#: Item.TargetMovie.LengthInMinutes %> min.</strong></p>

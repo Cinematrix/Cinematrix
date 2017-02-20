@@ -15,7 +15,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body>
+<body style="overflow:no-display">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -88,7 +88,7 @@
                 </asp:LoginView>
             </div>
         </div>
-        <div style="background-image: url('https://d3thflcq1yqzn0.cloudfront.net/012336192_prevstill.jpeg'); background-size: 100% 100%; background-attachment: fixed; min-height: 600px">
+        <div style="background-image: url('https://d3thflcq1yqzn0.cloudfront.net/012336192_prevstill.jpeg'); background-size: 100% 100%; background-attachment: fixed; z-index:-200; min-height: 570px; ">
             <div class="container body-content">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
                 </asp:ContentPlaceHolder>
