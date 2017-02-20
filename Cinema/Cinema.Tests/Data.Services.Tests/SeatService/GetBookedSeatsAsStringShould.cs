@@ -73,5 +73,45 @@ namespace Cinema.Tests.Data.Services.Tests.SeatService
 
             Assert.AreEqual(expectedOutput, actualOutput);
         }
+
+        [Test]
+        public void ReturnEmptyStringIfParametersDoesNotMatchAnyData()
+        {
+            var mockedFilmScreeningRepo = new Mock<IRepository<FilmScreening>>();
+            var mockedScreening = new Mock<FilmScreening>();
+            var mockedUser = new Mock<User>();
+            var mockedUser2 = new Mock<User>();
+            var mockedSeatsList = new List<Seat>();
+            var mockedSeat1 = new Mock<Seat>();
+            var mockedSeat2 = new Mock<Seat>();
+            var mockedSeat3 = new Mock<Seat>();
+
+            string screeningId = "3";
+            string userName = "John";
+            string userName2 = "Adam";
+            string notExistingUserName = "Hanry";
+
+            // targeted notExistingUserName ("Hanry") does not have any bookings
+            string expectedOutput = string.Empty;
+
+            mockedUser.Setup(x => x.UserName).Returns(userName);
+            mockedUser2.Setup(x => x.UserName).Returns(userName2);
+            mockedSeat1.Setup(x => x.User).Returns(mockedUser.Object);
+            mockedSeat2.Setup(x => x.User).Returns(mockedUser.Object);
+            mockedSeat3.Setup(x => x.User).Returns(mockedUser2.Object);
+            mockedSeatsList.Add(mockedSeat1.Object);
+            mockedSeatsList.Add(mockedSeat2.Object);
+            mockedSeatsList.Add(mockedSeat3.Object);
+            mockedScreening.Setup(x => x.Seats).Returns(mockedSeatsList);
+            mockedFilmScreeningRepo.Setup(x => x.GetById(int.Parse(screeningId))).Returns(mockedScreening.Object);
+
+            var actualSeatService =
+                new Cinema.Data.Services.SeatService(mockedFilmScreeningRepo.Object);
+
+            var actualOutput =
+                actualSeatService.GetBookedSeatsAsString(notExistingUserName, screeningId);
+
+            Assert.AreEqual(expectedOutput, actualOutput);
+        }
     }
 }
