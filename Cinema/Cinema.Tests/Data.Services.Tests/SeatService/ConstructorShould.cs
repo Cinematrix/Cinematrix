@@ -23,7 +23,7 @@ namespace Cinema.Tests.Data.Services.Tests.SeatService
         }
 
         [Test]
-        public void ThrowWhenParameterSeatRepositoryHasNullValue()
+        public void ThrowWhenParameterFilmScreeningRepositoryHasNullValue()
         {
             IRepository<FilmScreening> nullFilmScreeningRepo = null;
 

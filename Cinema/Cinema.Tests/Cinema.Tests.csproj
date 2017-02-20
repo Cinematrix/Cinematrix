@@ -65,6 +65,7 @@
     <Compile Include="Data.Services.Tests\MoviesService\GetByIdShould.cs" />
     <Compile Include="Data.Services.Tests\NavigationService\RedirectShould.cs" />
     <Compile Include="Data.Services.Tests\SeatService\ConstructorShould.cs" />
+    <Compile Include="Data.Services.Tests\SeatService\GetUserBookedSeatsCountByScreeningIdShould.cs" />
     <Compile Include="PresentersTests\FilmScreeningPresenters\AddFilmScreeningPresenter\ConstructorShould.cs" />
     <Compile Include="PresentersTests\FilmScreeningPresenters\AddFilmScreeningPresenter\CreateFilmScreeningShould.cs" />
     <Compile Include="PresentersTests\FilmScreeningPresenters\AddFilmScreeningPresenter\GetAllMoviesShould.cs" />
