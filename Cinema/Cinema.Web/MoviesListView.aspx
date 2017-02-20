@@ -14,11 +14,11 @@
                 </table>
             </LayoutTemplate>
             <ItemTemplate>
-                <td style=" min-width:500px">
+                <td style=" min-width:600px">
                     <div style="display: inline-block">
                         <img src='<%#: Item.ImageUrl %>' border="0" alt='<%#: Item.Name %>' style="max-height: 150px" />
                     </div>
-                    <div>
+                    <div style="display: inline-block">
                         <strong><%#: Item.Name %></strong>
                     </div>
                     <div>
