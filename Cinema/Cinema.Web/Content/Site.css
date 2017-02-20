@@ -4,6 +4,10 @@ body {
     padding-bottom: 20px;
 }
 
+#ProfilePicture{
+    max-height:35px;
+    max-width:35px;
+}
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {

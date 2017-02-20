@@ -15,7 +15,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body style="overflow:no-display">
+<body style="overflow: no-display">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -38,7 +38,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div id="nav" runat="server" class="navbar navbar-inverse navbar-fixed-top">
+        <div id="nav" runat="server" class="navbar navbar-inverse navbar-fixed-top" style="z-index:9999">
             <div class="navbar-header">
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -49,7 +49,7 @@
 
                 <%--<a class="navbar-brand" runat="server" href="~/">Cinematrix</a>--%>
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse" style="background-image: url('http://www.windowtintingofhuddersfield.co.uk/Background/Assests/Nav-Bar.png') !important; background-size: 100%">
                 <ul class="nav navbar-nav">
                     <li><a runat="server" href="~/">Home</a></li>
                     <li><a runat="server" href="~/MoviesListView">Movies</a></li>
@@ -58,13 +58,12 @@
                     <li id="AddFilmScreeningLink" runat="server"><a runat="server" href="~/AddFilmScreeningView">Add Film Screening</a></li>
                     <li id="PaymentLink" runat="server"><a runat="server" href="~/PaymentView">Payment</a></li>
                     <li id="RolesLink" runat="server"><a runat="server" href="~/RolesManagement">Manage Roles</a></li>
-                    <%--<li id="adminLogo" runat="server"><a style="color: cyan">admin*</a></li>--%>
+                    
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <p>
-                            <asp:Image ImageUrl="https://openclipart.org/image/800px/svg_to_png/212408/rodentia-icons_preferences-desktop-personal.png" ID="ProfilePicture" runat="server" Width="35" CssClass="glyphicon img-circle" />
-                        </p>
+                <ul class="nav navbar-nav navbar-right" style="margin-top:10px;margin-left:15px;display:table-row">
+                    <li id="adminLogo" runat="server" style="color: cyan;display:table-cell;vertical-align:middle;margin-top:5px">admin*</li>
+                    <li style="display:table-cell;vertical-align:middle;max-height:35px;margin-left:15px">
+                        <asp:Image ImageUrl="https://openclipart.org/image/800px/svg_to_png/212408/rodentia-icons_preferences-desktop-personal.png" ID="ProfilePicture" runat="server" Width="35" Height="35" CssClass="glyphicon img-circle" />
                     </li>
                 </ul>
                 <asp:LoginView runat="server" ViewStateMode="Disabled">
@@ -84,17 +83,18 @@
                                 <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                             </li>
                         </ul>
+
                     </LoggedInTemplate>
                 </asp:LoginView>
             </div>
         </div>
-        <div style="background-image: url('https://d3thflcq1yqzn0.cloudfront.net/012336192_prevstill.jpeg'); background-size: 100% 100%; background-attachment: fixed; z-index:-200; min-height: 570px; ">
+        <div style="background-image: url('https://d3thflcq1yqzn0.cloudfront.net/012336192_prevstill.jpeg'); background-size: 100% 100%; background-attachment: fixed; min-height: 570px;">
             <div class="container body-content">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
         </div>
-        <div id="foot" runat="server" class="navbar navbar-inverse navbar-fixed-bottom">
+        <div id="foot" runat="server" class="navbar navbar-inverse navbar-fixed-bottom" style="background-image: url('http://www.windowtintingofhuddersfield.co.uk/Background/Assests/Nav-Bar.png') !important; background-size: 100%; z-index:9999">
             <div class="container">
                 <footer>
                     <ul class="nav navbar-nav navbar-left">

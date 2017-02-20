@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="Cinema.Web.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="jumbotron">
+    <div class="jumbotron" style="background-color: rgba(255, 255, 255, 0.8)">
         <h2><%: Title %>.</h2>
         <h3>Your contact page.</h3>
         <address>

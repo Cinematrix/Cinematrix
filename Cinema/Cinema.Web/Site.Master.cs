@@ -89,10 +89,13 @@ namespace Cinema.Web
                 this.AddMovieLink.Visible = false;
                 this.PaymentLink.Visible = false;
                 this.RolesLink.Visible = false;
+                this.adminLogo.Visible = false;
 
                 if (this.Page.User.IsInRole("casher"))
                 {
                     this.PaymentLink.Visible = true;
+                    this.adminLogo.InnerText = "cashier*";
+                    this.adminLogo.Visible = true;
                 }
             }
             else
@@ -100,7 +103,9 @@ namespace Cinema.Web
                 this.AddFilmScreeningLink.Visible = true;
                 this.AddMovieLink.Visible = true;
 
-                this.nav.Style.Add("background-image", "url('http://www.harter.aero/images/banner_admin.png')");
+                // this.nav.Style.Add("background-image", "url('http://www.harter.aero/images/banner_admin.png')");
+                this.adminLogo.InnerText = "admin*";
+                this.adminLogo.Visible = true;
                 this.nav.Style.Add("background-size", "30% 100%;");
                 this.nav.Style.Add("background-position", "75% 50%");
                 this.nav.Style.Add("background-repeat", "no-repeat");

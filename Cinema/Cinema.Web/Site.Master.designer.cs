@@ -58,6 +58,15 @@ namespace Cinema.Web {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl RolesLink;
         
         /// <summary>
+        /// adminLogo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl adminLogo;
+        
+        /// <summary>
         /// ProfilePicture control.
         /// </summary>
         /// <remarks>
