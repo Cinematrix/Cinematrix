@@ -1,13 +1,10 @@
 ﻿using Cinema.Data;
-using Cinema.Data.Contracts;
+using Cinema.Web.Controls;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Ninject;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Cinema.Web
 {
@@ -27,8 +24,6 @@ namespace Cinema.Web
 
                 this.UsersDropdown.DataBind();
             }
-
-            this.ResultLabel.Visible = false;
         }
 
         protected void SubmitButton_Click(object sender, EventArgs e)
@@ -40,8 +35,7 @@ namespace Cinema.Web
             targetUser.Roles.Clear();
             targetUser.Roles.Add(userRole);
             this.context.SaveChanges();
-            this.ResultLabel.Text = string.Format("{0}, is regular user now!", targetUser.UserName);
-            this.ResultLabel.Visible = true;
+            Notifier.AddInfoMessage(string.Format("{0}, is regular user now!", targetUser.UserName));
         }
 
         protected void RemoveAdminButton_Click(object sender, EventArgs e)
@@ -54,8 +48,7 @@ namespace Cinema.Web
             targetUser.Roles.Clear();
             targetUser.Roles.Add(casherRole);
             this.context.SaveChanges();
-            this.ResultLabel.Text = string.Format("User {0}, promoted as cashier!", targetUser.UserName);
-            this.ResultLabel.Visible = true;
+            Notifier.AddSuccessMessage(string.Format("User {0}, promoted as cashier!", targetUser.UserName));
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -63,8 +56,7 @@ namespace Cinema.Web
             var targetUser = this.context.Users.Where(u => u.UserName == this.UsersDropdown.SelectedItem.Text).First();
             targetUser.Roles.Clear();
             this.context.SaveChanges();
-            this.ResultLabel.Text = string.Format("User {0}, banned for further bookings!", targetUser.UserName);
-            this.ResultLabel.Visible = true;
+            Notifier.AddErrorMessage(string.Format("User {0}, banned for further bookings!", targetUser.UserName));
         }
     }
 }
