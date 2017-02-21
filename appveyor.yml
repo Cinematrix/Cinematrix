@@ -12,6 +12,6 @@ environment:
        secure: 3ike6uVm+8Eh8v5tlC6EIhwIFOq1Ha6okfpWvuoMXnBtIeETtdrYKI2VWPQD+n/1
 
 after_test: 
-    - Cinema\packages\OpenCover.4.5.3522\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"Cinema\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe" -targetargs:"/noshadow /domain:single  Cinema\Cinema.Tests\bin\debug\Cinema.Tests.dll" -output:coverage.xml
+    - Cinema\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"Cinema\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe" -targetargs:"/domain:single  Cinema\Cinema.Tests\bin\debug\Cinema.Tests.dll" -output:coverage.xml
 
     - Cinema\packages\coveralls.io.1.3.4\tools\coveralls.net.exe --opencover coverage.xml
