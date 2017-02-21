@@ -10,6 +10,10 @@
         <p>
             <asp:Button ID="SubmitButton" runat="server" Text="Demote to user" CssClass="btn btn-danger" OnClick="SubmitButton_Click" />
             <asp:Button ID="RemoveAdminButton" runat="server" Text="Make cashier" CssClass="btn btn-success" OnClick="RemoveAdminButton_Click" />
+            <asp:Button ID="BannButton" runat="server" Text="Ban" CssClass="btn btn-warning" OnClick="Button1_Click" />
+        </p>
+        <p>
+            <asp:Label ID="ResultLabel" runat="server" Visible="false"></asp:Label>
         </p>
     </div>
 </asp:Content>
