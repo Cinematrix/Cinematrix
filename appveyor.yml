@@ -8,8 +8,8 @@ build:
   verbosity: detailed
 
 environment:
-  my_variable:
-    secure: 3ike6uVm+8Eh8v5tlC6EIhwIFOq1Ha6okfpWvuoMXnBtIeETtdrYKI2VWPQD+n/1
+    COVERALLS_REPO_TOKEN:  
+       secure: 3ike6uVm+8Eh8v5tlC6EIhwIFOq1Ha6okfpWvuoMXnBtIeETtdrYKI2VWPQD+n/1
 
 after_test: 
     - packages\OpenCover.4.5.3522\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"packages\NUnit.Runners.2.6.4\tools\nunit-console.exe" -targetargs:"/noshadow /domain:single  Cinema.Tests\bin\debug\Cinema.Tests.dll" -output:coverage.xml
