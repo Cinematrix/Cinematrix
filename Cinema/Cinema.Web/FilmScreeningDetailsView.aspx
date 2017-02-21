@@ -5,7 +5,7 @@
         <div style="margin-left: 330px">
             <asp:Image ID="MovieImg" runat="server" ImageUrl="http://www.samsung.com/africa_en/curvedmonitor/images/design_monitor_top_1920.png" Width="400px" />
         </div>
-        <div style="margin-left: 290px; display: inline-block">
+        <div style="margin-left:285px; display: inline-block">
             <asp:UpdatePanel runat="server">
                 <ContentTemplate>
                     <asp:Table ID="Field" runat="server" Height="400px" Width="500px">
