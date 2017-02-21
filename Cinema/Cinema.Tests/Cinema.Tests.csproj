@@ -49,7 +49,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data.Models.Tests\Seat\WhenInitializedShould.cs" />
+    <Compile Include="Data.Models.Tests\Seat\GetAvailableCountShould.cs" />
     <Compile Include="Data.Repositories.GenericRepository\ConstructorShould.cs" />
     <Compile Include="Data.Services.Tests\FilmScreeningService\ConstructorShould.cs" />
     <Compile Include="Data.Services.Tests\FilmScreeningService\CreateShould.cs" />
