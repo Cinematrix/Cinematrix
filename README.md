@@ -10,8 +10,9 @@ This application is giving the chance, existing Cinema to allow registered users
 User friendly interface makes choosing seats for certain film screening real pleasure.
 
 Admin part: 
-  - Cashiers have adiitional functionality to check up User's bookings and "Print" tickets with info and calculated total price.
+  - Cashiers have adiitional functionality to check up User's bookings and "Print" tickets with info and calculated total price. 
   - Admin can promote Users to Cashiers. Demote Cashiers. Bann incorrect users for furthur bookings. Add new Movies. Add new film screenings.
+
 ---------------------------------------------------------------------------------------------------------------------------------
 
 ## Links
