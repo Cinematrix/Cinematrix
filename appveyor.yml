@@ -4,7 +4,7 @@ before_build:
 - ps: nuget restore ./Cinema/Cinema.sln
 
 build:
-  project: Cinema.sln
+  project: ./Cinema/Cinema.sln
   verbosity: detailed
 
 environment:
@@ -12,6 +12,6 @@ environment:
        secure: 3ike6uVm+8Eh8v5tlC6EIhwIFOq1Ha6okfpWvuoMXnBtIeETtdrYKI2VWPQD+n/1
 
 after_test: 
-    - packages\OpenCover.4.5.3522\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"packages\NUnit.Runners.2.6.4\tools\nunit-console.exe" -targetargs:"/noshadow /domain:single  Cinema.Tests\bin\debug\Cinema.Tests.dll" -output:coverage.xml
+    - Cinema\packages\OpenCover.4.5.3522\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"packages\NUnit.Runners.2.6.4\tools\nunit-console.exe" -targetargs:"/noshadow /domain:single  Cinema.Tests\bin\debug\Cinema.Tests.dll" -output:coverage.xml
 
-    - packages\coveralls.io.1.1.86\tools\coveralls.net.exe --opencover coverage.xml
+    - Cinema\packages\coveralls.io.1.1.86\tools\coveralls.net.exe --opencover coverage.xml
