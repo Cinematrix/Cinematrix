@@ -1,5 +1,8 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Cinema.Web.SiteMaster" %>
 
+<%@ Register Src="~/Controls/Notifier.ascx"
+    TagName="Notifier" TagPrefix="userControls" %>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -38,7 +41,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div id="nav" runat="server" class="navbar navbar-inverse navbar-fixed-top" style="z-index:9999">
+        <div id="nav" runat="server" class="navbar navbar-inverse navbar-fixed-top" style="z-index: 9999">
             <div class="navbar-header">
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -58,11 +61,11 @@
                     <li id="AddFilmScreeningLink" runat="server"><a runat="server" href="~/AddFilmScreeningView">Add Film Screening</a></li>
                     <li id="PaymentLink" runat="server"><a runat="server" href="~/PaymentView">Payment</a></li>
                     <li id="RolesLink" runat="server"><a runat="server" href="~/RolesManagement">Manage Roles</a></li>
-                    
+
                 </ul>
-                <ul class="nav navbar-nav navbar-right" style="margin-top:10px;margin-left:15px;display:table-row">
-                    <li id="adminLogo" runat="server" style="color: cyan;display:table-cell;vertical-align:middle;margin-top:5px">admin*</li>
-                    <li style="display:table-cell;vertical-align:middle;max-height:35px;margin-left:15px">
+                <ul class="nav navbar-nav navbar-right" style="margin-top: 10px; margin-left: 15px; display: table-row">
+                    <li id="adminLogo" runat="server" style="color: cyan; display: table-cell; vertical-align: middle; margin-top: 5px">admin*</li>
+                    <li style="display: table-cell; vertical-align: middle; max-height: 35px; margin-left: 15px">
                         <asp:Image ImageUrl="https://openclipart.org/image/800px/svg_to_png/212408/rodentia-icons_preferences-desktop-personal.png" ID="ProfilePicture" runat="server" Width="35" Height="35" CssClass="glyphicon img-circle" />
                     </li>
                 </ul>
@@ -90,11 +93,12 @@
         </div>
         <div style="background-image: url('https://d3thflcq1yqzn0.cloudfront.net/012336192_prevstill.jpeg'); background-size: 100% 100%; background-attachment: fixed; min-height: 570px;">
             <div class="container body-content">
+                <userControls:Notifier ID="ErrorSuccessNotifier" runat="server" />
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
         </div>
-        <div id="foot" runat="server" class="navbar navbar-inverse navbar-fixed-bottom" style="background-image: url('http://www.windowtintingofhuddersfield.co.uk/Background/Assests/Nav-Bar.png') !important; background-size: 100%; z-index:9999">
+        <div id="foot" runat="server" class="navbar navbar-inverse navbar-fixed-bottom" style="background-image: url('http://www.windowtintingofhuddersfield.co.uk/Background/Assests/Nav-Bar.png') !important; background-size: 100%; z-index: 9999">
             <div class="container">
                 <footer>
                     <ul class="nav navbar-nav navbar-left">

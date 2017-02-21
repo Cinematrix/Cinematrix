@@ -198,7 +198,15 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Controls\Images\error-icon.png" />
+    <Content Include="Controls\Images\info-icon.png" />
+    <Content Include="Controls\Images\success-icon.png" />
+    <Content Include="Controls\Images\warning-icon.png" />
+    <Content Include="Controls\Scripts\ErrorSuccessNotifier.js" />
+    <Content Include="Controls\Scripts\jquery-1.3.2.js" />
+    <Content Include="Controls\Styles\Notifier.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Controls\Notifier.ascx" />
     <Content Include="FilmScreeningDetailsView.aspx" />
     <Content Include="FilmScreeningsView.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -400,8 +408,12 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Contracts\IAddMovieView.cs" />
-    <Compile Include="Contracts\IMovieListView.cs" />
+    <Compile Include="Controls\Notifier.ascx.cs">
+      <DependentUpon>Notifier.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Notifier.ascx.designer.cs">
+      <DependentUpon>Notifier.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

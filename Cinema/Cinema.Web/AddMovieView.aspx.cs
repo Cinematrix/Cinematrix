@@ -1,5 +1,6 @@
 ﻿using Cinema.Data.Models;
 using Cinema.Presenters.Contracts;
+using Cinema.Web.Controls;
 using Ninject;
 using System;
 using System.Web.UI;
@@ -16,13 +17,15 @@ namespace Cinema.Web
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
-            this.Movie.Name = Server.HtmlEncode(this.TitleInput.Text);
+            this.Movie.Name = this.TitleInput.Text;
             this.Movie.ImageUrl = this.ImageUrlInput.Text;
-            this.Movie.Info = Server.HtmlEncode(this.InfoInput.Text);
-            this.Movie.Genre = Server.HtmlEncode(this.GenreInput.Text);
-            this.Movie.Director = Server.HtmlEncode(this.DirectorInput.Text);
+            this.Movie.Info = this.InfoInput.Text;
+            this.Movie.Genre = this.GenreInput.Text;
+            this.Movie.Director = this.DirectorInput.Text;
             this.Movie.LengthInMinutes = int.Parse(this.LengthInput.Text);
 
+            Notifier.AddSuccessMessage(string.Format("{0} has been added to Library!", this.Movie.Name));
+            Notifier.ShowAfterRedirect = true;
             this.Presenter.CreateMovie(this.Movie, this);
         }
 
