@@ -47,7 +47,7 @@ namespace Cinema.Web
             this.buttons.Add(ImageButton17);
             this.buttons.Add(ImageButton18);
             this.buttons.Add(ImageButton19);
-            
+
             if (!Page.IsPostBack)
             {
                 for (int i = 0; i < 20; i++)
@@ -62,6 +62,8 @@ namespace Cinema.Web
                         this.buttons[i].Enabled = false;
                     }
                 }
+
+                this.MovieInfoLabel.Text = String.Format("{0:f}", this.FilmScreening.Start);
             }
         }
 

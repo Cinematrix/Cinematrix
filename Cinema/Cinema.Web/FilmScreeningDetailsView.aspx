@@ -1,11 +1,12 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FilmScreeningDetailsView.aspx.cs" Inherits="Cinema.Web.FilmScreeningDetailsView" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="jumbotron" style="background-color: rgba(255, 255, 255, 0.5);background-image:url('http://pngimagesfree.com/Curtain/Curtains_Transparent_Blue.png');background-repeat:no-repeat;background-size:100% 100%">
+    <div class="jumbotron" style="background-color: rgba(255, 255, 255, 0.6);background-image:url('http://pngimagesfree.com/Curtain/Curtains_Transparent_Blue.png');background-repeat:no-repeat;background-size:100% 100%">
         <div style="margin-left: 330px">
             <asp:Image ID="MovieImg" runat="server" ImageUrl="http://www.samsung.com/africa_en/curvedmonitor/images/design_monitor_top_1920.png" Width="400px" />
         </div>
         <div style="margin-left:285px; display: inline-block">
+            
             <asp:UpdatePanel runat="server">
                 <ContentTemplate>
                     <asp:Table ID="Field" runat="server" Height="400px" Width="500px">
@@ -82,13 +83,14 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
-        <div style=" text-align: center; vertical-align: top; margin-left: 40px">
+        <div style=" text-align: center; vertical-align: top; margin-left: 30px">
             <asp:UpdatePanel runat="server">
                 <ContentTemplate>
 
                     <asp:Button ID="SubmitButton" runat="server" Text="Submit" OnClick="SubmitButton_Click1" CssClass="btn btn-success" />
                     <a href="FilmScreeningsView.aspx" class="btn btn-info">Back</a>
-
+                    <br />
+                    <strong style="text-align:center"><asp:Label ID="MovieInfoLabel" runat="server"></asp:Label></strong>
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>

@@ -10,7 +10,7 @@
         </asp:PlaceHolder>
     </div>
     <br />
-    <div class="row" style="background-color: rgba(255, 255, 255, 0.8); padding: 15px 15px 15px 15px; border-radius: 5px 5px 5px 5px">
+    <div class="row" style="background-color: rgba(255, 255, 255, 0.8); padding: 15px 15px 15px 15px; border-radius: 5px 5px 5px 5px; width:60%">
         <h2><%: Title %>.</h2>
         <div class="col-md-12">
             <div class="form-horizontal">

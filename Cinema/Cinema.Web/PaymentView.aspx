@@ -2,14 +2,14 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron" style="background-color: rgba(255, 255, 255, 0.8)">
-        Film Screening:
+        <asp:Label ID="Label1" runat="server" Width="200px" Text="Film Screening:"></asp:Label>
             <asp:DropDownList ID="FilmScreeningsDropDownList" runat="server"
                 AutoPostBack="true" DataTextField="Start" DataValueField="Id" OnSelectedIndexChanged="FilmScreeningsDropDownList_SelectedIndexChanged">
             </asp:DropDownList>
         <asp:Literal ID="MovieInfoLiteral" runat="server"></asp:Literal>
         <br />
-        Users with bookings:
-            <asp:DropDownList ID="UsersDropDownList" runat="server" AutoPostBack="true"
+        <asp:Label ID="Label2" runat="server" Width="200px" Text="Users with bookings:"></asp:Label>
+            <asp:DropDownList ID="UsersDropDownList" runat="server" Width="232px" AutoPostBack="true"
                 ItemType="Cinema.Data.Models.User" DataTextField="UserName" OnSelectedIndexChanged="UsersDropDownList_SelectedIndexChanged">
             </asp:DropDownList>
         <br />

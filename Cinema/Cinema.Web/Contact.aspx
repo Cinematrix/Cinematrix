@@ -3,17 +3,16 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron" style="background-color: rgba(255, 255, 255, 0.8)">
         <h2><%: Title %>.</h2>
-        <h3>Your contact page.</h3>
+        <h3>Working place</h3>
         <address>
-            One Microsoft Way<br />
-            Redmond, WA 98052-6399<br />
-            <abbr title="Phone">P:</abbr>
-            425.555.0100
+            Telerik Academy<br />
+            Sofia, Bulgaria<br />
+            <abbr title="Phone">tel:</abbr>
+            0888 111 222 (fake)
         </address>
 
         <address>
-            <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-            <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+            <strong>Support:</strong>   <a href="mailto:iliangogov@gmail.com">iliangogov@gmail.com</a>
         </address>
     </div>
 </asp:Content>

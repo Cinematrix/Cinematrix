@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MoviesListView.aspx.cs" Inherits="Cinema.Web.MoviesListView" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="jumbotron" style="padding: 15px 15px 15px 15px; background-color: rgba(255, 255, 255, 0.8); width: 100%;">
+    <div class="jumbotron" style="padding: 15px 15px 15px 15px; background-color: rgba(255, 255, 255, 0.8); width: 100%;margin-top:100px">
         <asp:ListView ID="ListViewMovies" runat="server" ItemPlaceholderID="ListViewMovies"
             DataKeyNames="ID" ItemType="Cinema.Data.Models.Movie">
 
