@@ -54,7 +54,7 @@ namespace Cinema.Web
                 {
                     if (this.FilmScreening.Seats[i].IsFree == true)
                     {
-                        this.buttons[i].BackColor = System.Drawing.Color.White;
+                        this.buttons[i].BackColor = System.Drawing.Color.Transparent;
                     }
                     else
                     {
@@ -78,7 +78,7 @@ namespace Cinema.Web
 
             if (clickedSeat.IsFree == false)
             {
-                clickedButton.BackColor = System.Drawing.Color.White;
+                clickedButton.BackColor = System.Drawing.Color.Transparent;
                 clickedSeat.IsFree = true;
                 clickedSeat.UserId = null;
 
