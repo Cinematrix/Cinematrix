@@ -19,7 +19,7 @@ Admin part:
 
 ## Links
 ##### [<img src="https://rawgit.com/Team-Namor/Presentation/master/imgs/youtube.png" height="22"/> Project's Video](https://youtu.be/bjTto0hF-AA)
-##### [<img src="http://www.app-trailer.com/appicons/android/100x100/com.telerik.examples.png" height="22"/> Cinematrix in Telerik Showcase](http://best.telerikacademy.com/projects/423/Holiday-Advisor)
+##### [<img src="http://www.app-trailer.com/appicons/android/100x100/com.telerik.examples.png" height="22"/> Cinematrix in Telerik Showcase](http://best.telerikacademy.com/projects/472/Cinematrix)
 
 -----------------------------------------------------------------------------------------------------------------------
 
