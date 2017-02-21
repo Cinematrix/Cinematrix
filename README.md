@@ -1,5 +1,6 @@
 # Cinematrix - fastest way to guarantee your movie night.
 [![Build status](https://ci.appveyor.com/api/projects/status/lyloapq6alsvlg2d?svg=true)](https://ci.appveyor.com/project/iliangogov/cinematrix)
+[![Coverage Status](https://coveralls.io/repos/github/Cinematrix/Cinematrix/badge.svg?branch=master)](https://coveralls.io/github/Cinematrix/Cinematrix?branch=master)
 ---------------------------------------------------------------------------------------------------------------------------------
 
 ## ASP.NET Web Forms course project 

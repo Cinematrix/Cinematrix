@@ -1,7 +1,7 @@
 version: 1.0.{build}
 
-install:
-    - nuget restore
+before_build:
+- ps: nuget restore ./Cinema/Cinema.sln
 
 build:
   project: Cinema.sln
